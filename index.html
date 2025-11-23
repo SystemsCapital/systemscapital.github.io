@@ -163,6 +163,50 @@ Our approach allows us to assist great people when they need it and to develop l
   }
   
   </script>
+<!-- CSV Table Section -->
+<div id="csv-container" style="padding: 40px; max-width: 1000px; margin: auto;">
+  <h2 style="color:#AbABAB; text-align:center;">Our Data Table</h2>
+  <table id="csv-table" style="width:100%; border-collapse: collapse; margin-top:20px;">
+    <!-- Table will be populated by JS -->
+  </table>
+</div>
 
+<script>
+// Path to your CSV in the repo
+const csvPath = 'data/SQL_Results.csv';
+
+// Fetch CSV and render table
+fetch(csvPath)
+  .then(response => response.text())
+  .then(text => {
+    const rows = text.trim().split('\n').map(row => row.split(','));
+    const table = document.getElementById('csv-table');
+
+    // Build table header
+    let header = '<tr>';
+    rows[0].forEach(col => {
+      header += `<th style="border: 1px solid #AbABAB; padding: 8px; background:#f9f9f9; color:#AbABAB;">${col}</th>`;
+    });
+    header += '</tr>';
+    table.innerHTML = header;
+
+    // Build table rows
+    for (let i = 1; i < rows.length; i++) {
+      let rowHtml = '<tr>';
+      rows[i].forEach(col => {
+        rowHtml += `<td style="border: 1px solid #AbABAB; padding: 8px;">${col}</td>`;
+      });
+      rowHtml += '</tr>';
+      table.innerHTML += rowHtml;
+    }
+  })
+  .catch(err => {
+    document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+    console.error(err);
+  });
+</script>
+
+
+    
 </body>
 </html>
