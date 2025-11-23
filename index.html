@@ -64,7 +64,26 @@
             font-size: 48px;
         }
 
-        /* DataTables custom style to match branding */
+        /* Center the CSV table container like the flower */
+        #csv-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        /* DataTables table styling */
+        table.dataTable {
+            width: auto !important;      /* table width matches content */
+            min-width: 600px;
+            max-width: 1000px;
+            border-collapse: collapse !important;
+        }
+        table.dataTable thead th,
+        table.dataTable tbody td {
+            text-align: center;
+        }
         table.dataTable thead th {
             background-color: #f9f9f9;
             color: #AbABAB;
@@ -75,9 +94,19 @@
             border: 1px solid #AbABAB;
             padding: 8px;
         }
-        table.dataTable {
-            width: 100% !important;
-            border-collapse: collapse !important;
+
+        /* Filter dropdown styling */
+        .filter-container {
+            margin-bottom: 10px;
+        }
+        .filter-container label {
+            margin-right: 10px;
+            font-weight: bold;
+            color: #AbABAB;
+        }
+        .filter-container select {
+            margin-right: 20px;
+            padding: 5px;
         }
     </style>
 
@@ -117,9 +146,7 @@ Our approach allows us to assist great people when they need it and to develop l
 
 <script>
 var links = ["mailto:eric@systemscapital.net"];
-function openLink() {
-    window.location.href = links[0]; 
-}
+function openLink() { window.location.href = links[0]; }
 let rotation = 0;
 function rotateFlower() {
     rotation -= 45;
@@ -128,8 +155,12 @@ function rotateFlower() {
 </script>
 
 <!-- CSV Table Section -->
-<div id="csv-container" style="padding: 40px; max-width: 1000px; margin: auto;">
-  <h2 style="color:#AbABAB; text-align:center;">Monthly Return Data of S&P 500 Companies</h2>
+<div id="csv-container">
+  <h2 style="color:#AbABAB; text-align:center;">Our Data Table</h2>
+
+  <!-- Filter dropdowns will be dynamically added here -->
+  <div class="filter-container" id="filter-container"></div>
+
   <table id="csv-table" class="display" style="width:100%;"></table>
 </div>
 
@@ -159,12 +190,30 @@ fetch(csvPath)
 
     table.innerHTML = header + body;
 
-    // Initialize DataTables
-    $('#csv-table').DataTable({
-        paging: true,
-        searching: true,
-        info: true
+    // Initialize DataTables without default search/pagination controls
+    const dataTable = $('#csv-table').DataTable({
+        paging: false,
+        info: false,
+        searching: false
     });
+
+    // Create filter dropdowns for each column
+    const filterContainer = document.getElementById('filter-container');
+    rows[0].forEach((col, index) => {
+        // get unique values for this column
+        const values = [...new Set(rows.slice(1).map(r => r[index]))].sort();
+        const select = document.createElement('select');
+        select.innerHTML = `<option value="">All ${col}</option>` + values.map(v => `<option value="${v}">${v}</option>`).join('');
+        select.addEventListener('change', function() {
+            dataTable.column(index).search(this.value).draw();
+        });
+
+        const label = document.createElement('label');
+        label.textContent = col + ':';
+        label.appendChild(select);
+        filterContainer.appendChild(label);
+    });
+
   })
   .catch(err => {
     document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
