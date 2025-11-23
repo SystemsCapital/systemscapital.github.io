@@ -177,6 +177,7 @@ fetch(csvPath)
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
     const sortState = Array(rows[0].length).fill(null);
+    let lastSortedColumn = null; // track last sorted column
 
     ths.forEach(th=>{
         const idx = parseInt(th.dataset.col);
@@ -233,9 +234,10 @@ fetch(csvPath)
             filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
             
-            // Clear all other sort states
+            // Only one column sorted at a time
             sortState.fill(null);
             sortState[idx] = selectedSort ? selectedSort.value : null;
+            lastSortedColumn = idx;
 
             applyFiltersAndSort();
             dropdown.style.display='none';
@@ -264,21 +266,23 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
-        // Apply only the current sort column (last applied)
-        const lastSortCol = sortState.findIndex(dir=>dir);
-        if(lastSortCol !== -1){
-            const ascending = sortState[lastSortCol] === 'asc';
+        // Apply sorting for last sorted column only
+        if(lastSortedColumn !== null){
+            const dir = sortState[lastSortedColumn];
+            const ascending = dir === 'asc';
             const visibleRows = rowsArr.filter(r=>r.style.display!=='none');
 
             visibleRows.sort((a,b)=>{
-                let aVal = a.cells[lastSortCol].textContent.replace('%','');
-                let bVal = b.cells[lastSortCol].textContent.replace('%','');
+                let aVal = a.cells[lastSortedColumn].textContent.replace('%','').trim();
+                let bVal = b.cells[lastSortedColumn].textContent.replace('%','').trim();
 
-                if(!isNaN(aVal) && !isNaN(bVal)){
-                    return ascending ? aVal - bVal : bVal - aVal;
+                let aNum = parseFloat(aVal);
+                let bNum = parseFloat(bVal);
+
+                if(!isNaN(aNum) && !isNaN(bNum)){
+                    return ascending ? aNum - bNum : bNum - aNum;
                 } else {
-                    return ascending ? a.cells[lastSortCol].textContent.localeCompare(b.cells[lastSortCol].textContent)
-                                     : b.cells[lastSortCol].textContent.localeCompare(a.cells[lastSortCol].textContent);
+                    return ascending ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
                 }
             });
 
