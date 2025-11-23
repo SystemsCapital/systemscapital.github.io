@@ -1,204 +1,170 @@
 <!DOCTYPE html>
 <html>
-<head> </head>
-</head>
+<head>
     <title>Home Page</title>
     <style>
+        body {
+            background: White;
+            display: flex;
+            align-items: stretch;
+            justify-content: center; 
+            flex-direction: column;
+            justify-content: flex-start;
+            margin-top: -80px;
+            font-family: Arial, sans-serif;
+        }
+        .flower-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .flower-btn:hover { opacity: 0.8; }
 
-    body {
-      background: White;
-      display: flex;
-      align-items: stretch;
-      justify-content: center; 
-      flex-direction: column;
-      justify-content: flex-start;
-      margin-top: -80px;
-}
-  .flower-btn {
-  position: relative;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 40px;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+        .flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transition: transform 0.8s ease;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -50px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg)  translate(0, -50px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -50px); }
+        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
+        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
+        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
+        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
+        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-.flower-btn:hover {
-  opacity: 0.8;
-}
-
- 
-
-
-.flower {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  transition: transform 0.8s ease; /* smooth rotation */
-}
-
-.circle {
-  width: 100px;
-  height: 100px;
-  border: 3px solid gray;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* 8 evenly spaced circles (45° apart) */
-.circle-0   { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -50px); }
-.circle-45  { transform: translate(-50%, -50%) rotate(45deg)  translate(0, -50px); }
-.circle-90  { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -50px); }
-.circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
-.circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
-.circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
-.circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
-.circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
-
-
-
-
-
-
-
-
-      
-       
-    
-    </style>
-<body>
-<h1>
-    <style>
         h1 {
             color: #AbABAB;
             text-align: center;
             padding-top: 0%;
             font-size: 48px;
-        
         }
-    </style>
-<h2>
-    <style>
         h2 {
             color: #AbABAB;
             text-align: center;
             padding-top: 5%;
             font-size: 48px;
-            
         }
-     </style>
-    
- 
-Systems Capital<br></h1>
+
+        /* DataTables custom style to match branding */
+        table.dataTable thead th {
+            background-color: #f9f9f9;
+            color: #AbABAB;
+            border: 1px solid #AbABAB;
+            padding: 8px;
+        }
+        table.dataTable tbody td {
+            border: 1px solid #AbABAB;
+            padding: 8px;
+        }
+        table.dataTable {
+            width: 100% !important;
+            border-collapse: collapse !important;
+        }
+    </style>
+
+    <!-- DataTables CSS & JS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+
+<h1>Systems Capital</h1>
 
 <h2 style="font-size: 20px;">
 Thank you for visiting. This site has been intentionally left sparce as we are focused on building out internal operations of the firm. 
-<br></br>
+<br><br>
 Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information,  and world class performance.
-<br></br>
+<br><br>
 Through the use of our proprietary research models, we are able to invest with the best of industry, and identify them far before they meet their full potential.  
-<br></br>
+<br><br>
 Our approach allows us to assist great people when they need it and to develop lasting ownership relationships with industry leading companies from early on.
-   
 </h2>
 
 <div style="text-align:center; padding:15px;">
-  <button class="flower-btn" onclick="rotateFlower(); openLink()" type="button">
-    <span class="flower" id="flower">
-      <span class="circle circle-0"></span>
-      <span class="circle circle-45"></span>
-      <span class="circle circle-90"></span>
-      <span class="circle circle-135"></span>
-      <span class="circle circle-180"></span>
-      <span class="circle circle-225"></span>
-      <span class="circle circle-270"></span>
-      <span class="circle circle-315"></span>
-    </span>
-  </button>
+    <button class="flower-btn" onclick="rotateFlower(); openLink()" type="button">
+        <span class="flower" id="flower">
+            <span class="circle circle-0"></span>
+            <span class="circle circle-45"></span>
+            <span class="circle circle-90"></span>
+            <span class="circle circle-135"></span>
+            <span class="circle circle-180"></span>
+            <span class="circle circle-225"></span>
+            <span class="circle circle-270"></span>
+            <span class="circle circle-315"></span>
+        </span>
+    </button>
 </div>
 
 <script>
-  var links = [
-    "mailto:eric@systemscapital.net"
-  ];
-
-  function openLink() {
+var links = ["mailto:eric@systemscapital.net"];
+function openLink() {
     window.location.href = links[0]; 
-  }
-
-  let rotation = 0;
-  function rotateFlower() {
-    rotation -= 45; // counter-clockwise
+}
+let rotation = 0;
+function rotateFlower() {
+    rotation -= 45;
     document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
-  }
+}
 </script>
 
-
-
-
-
-
-<br></br>
-
-
-
-  
-  <script>
-  var links = [
-    
-    "mailto:eric@systemscapital.net",
-
-   
-  
-  ];
-  function openLink() {
-    var i = parseInt(Math.random() * links.length);
-    window.open(links[i], '_blank');
-  }
-  
-  </script>
 <!-- CSV Table Section -->
 <div id="csv-container" style="padding: 40px; max-width: 1000px; margin: auto;">
   <h2 style="color:#AbABAB; text-align:center;">Our Data Table</h2>
-  <table id="csv-table" style="width:100%; border-collapse: collapse; margin-top:20px;">
-    <!-- Table will be populated by JS -->
-  </table>
+  <table id="csv-table" class="display" style="width:100%;"></table>
 </div>
 
 <script>
 // Path to your CSV in the repo
 const csvPath = 'data/SQL_Results.csv';
 
-// Fetch CSV and render table
 fetch(csvPath)
   .then(response => response.text())
   .then(text => {
-    const rows = text.trim().split('\n').map(row => row.split(','));
+    const rows = text.trim().split('\n').map(r => r.split(','));
     const table = document.getElementById('csv-table');
 
-    // Build table header
-    let header = '<tr>';
-    rows[0].forEach(col => {
-      header += `<th style="border: 1px solid #AbABAB; padding: 8px; background:#f9f9f9; color:#AbABAB;">${col}</th>`;
-    });
-    header += '</tr>';
-    table.innerHTML = header;
+    // Build header
+    let header = '<thead><tr>';
+    rows[0].forEach(col => { header += `<th>${col}</th>`; });
+    header += '</tr></thead>';
 
-    // Build table rows
+    // Build body
+    let body = '<tbody>';
     for (let i = 1; i < rows.length; i++) {
-      let rowHtml = '<tr>';
-      rows[i].forEach(col => {
-        rowHtml += `<td style="border: 1px solid #AbABAB; padding: 8px;">${col}</td>`;
-      });
-      rowHtml += '</tr>';
-      table.innerHTML += rowHtml;
+        body += '<tr>';
+        rows[i].forEach(col => { body += `<td>${col}</td>`; });
+        body += '</tr>';
     }
+    body += '</tbody>';
+
+    table.innerHTML = header + body;
+
+    // Initialize DataTables
+    $('#csv-table').DataTable({
+        paging: true,
+        searching: true,
+        info: true
+    });
   })
   .catch(err => {
     document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
@@ -206,7 +172,5 @@ fetch(csvPath)
   });
 </script>
 
-
-    
 </body>
 </html>
