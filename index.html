@@ -5,13 +5,17 @@
     <style>
         body {
             background: White;
-            display: flex;
-            align-items: stretch;
-            justify-content: flex-start;
-            flex-direction: column;
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
+        h2 { color: #AbABAB; text-align: center; padding-top: 5%; font-size: 20px; }
+
+        /* Flower button styling */
         .flower-btn {
             position: relative;
             background: none;
@@ -24,23 +28,8 @@
             justify-content: center;
         }
         .flower-btn:hover { opacity: 0.8; }
-
-        .flower {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            transition: transform 0.8s ease;
-        }
-        .circle {
-            width: 100px;
-            height: 100px;
-            border: 3px solid gray;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+        .flower { position: relative; width: 200px; height: 200px; transition: transform 0.8s ease; }
+        .circle { width: 100px; height: 100px; border: 3px solid gray; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
         .circle-0   { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -50px); }
         .circle-45  { transform: translate(-50%, -50%) rotate(45deg)  translate(0, -50px); }
         .circle-90  { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -50px); }
@@ -50,76 +39,42 @@
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        h1 {
-            color: #AbABAB;
-            text-align: center;
-            padding-top: 20px;
-            font-size: 48px;
-        }
-        h2 {
-            color: #AbABAB;
-            text-align: center;
-            padding-top: 5%;
-            font-size: 48px;
-        }
-
-        /* CSV table container */
+        /* CSV table styling */
         #csv-container {
             display: flex;
-            justify-content: center;
             flex-direction: column;
             align-items: center;
             padding: 40px;
+            width: 100%;
+            overflow-x: auto;
         }
-
-        table.dataTable {
-            width: auto !important;
-            min-width: 600px;
-            max-width: 1000px;
-            border-collapse: collapse !important;
-        }
-        table.dataTable thead th,
-        table.dataTable tbody td {
-            text-align: center;
-        }
-        table.dataTable thead th {
-            background-color: #f9f9f9;
-            color: #AbABAB;
+        table { border-collapse: collapse; width: 90%; max-width: 1200px; }
+        th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
+        th { background: #f9f9f9; cursor: pointer; }
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
             border: 1px solid #AbABAB;
-            padding: 8px;
-            cursor: pointer;
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+            min-width: 150px;
         }
-        table.dataTable tbody td {
-            border: 1px solid #AbABAB;
-            padding: 8px;
-        }
+        .dropdown label { display: block; padding: 4px; cursor: pointer; }
 
-        /* Responsive table for smaller screens */
         @media screen and (max-width: 768px) {
-            table.dataTable {
-                width: 100% !important;
-                min-width: 0 !important;
-            }
-            #csv-container {
-                padding: 20px;
-            }
+            table { width: 100%; }
+            #csv-container { padding: 20px; }
         }
     </style>
-
-    <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
-    <!-- yadcf plugin -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yadcf@0.10.4/jquery.dataTables.yadcf.css">
-    <script src="https://cdn.jsdelivr.net/npm/yadcf@0.10.4/jquery.dataTables.yadcf.js"></script>
 </head>
 <body>
 
 <h1>Systems Capital</h1>
-
-<h2 style="font-size: 20px;">
+<h2>
 Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm. 
 <br><br>
 Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information, and world class performance.
@@ -130,7 +85,7 @@ Our approach allows us to assist great people when they need it and to develop l
 </h2>
 
 <div style="text-align:center; padding:15px;">
-    <button class="flower-btn" onclick="rotateFlower(); openLink()" type="button">
+    <button class="flower-btn" onclick="rotateFlower()" type="button">
         <span class="flower" id="flower">
             <span class="circle circle-0"></span>
             <span class="circle circle-45"></span>
@@ -145,8 +100,6 @@ Our approach allows us to assist great people when they need it and to develop l
 </div>
 
 <script>
-var links = ["mailto:eric@systemscapital.net"];
-function openLink() { window.location.href = links[0]; }
 let rotation = 0;
 function rotateFlower() {
     rotation -= 45;
@@ -154,62 +107,101 @@ function rotateFlower() {
 }
 </script>
 
-<!-- CSV Table Section -->
 <div id="csv-container">
-  <h2 style="color:#AbABAB; text-align:center;">Monthly Returns from Past 5 years of S&P 500 Companies</h2>
-  <table id="csv-table" class="display"></table>
+  <h2>Monthly Returns from Past 5 years of S&P 500 Companies</h2>
+  <table id="csv-table"></table>
 </div>
 
 <script>
 const csvPath = 'data/SQL_Results.csv';
 
 fetch(csvPath)
-  .then(response => response.text())
-  .then(text => {
+.then(res => res.text())
+.then(text => {
     const rows = text.trim().split('\n').map(r => r.split(','));
     const table = document.getElementById('csv-table');
 
     // Build header
     let header = '<thead><tr>';
-    rows[0].forEach(col => { header += `<th>${col}</th>`; });
+    rows[0].forEach((col, idx) => {
+        header += `<th data-col="${idx}">${col}
+                    <div class="dropdown"></div>
+                   </th>`;
+    });
     header += '</tr></thead>';
 
     // Build body
     let body = '<tbody>';
-    for (let i = 1; i < rows.length; i++) {
-        if(rows[i].length > 1){ // skip empty rows
+    for(let i=1; i<rows.length; i++){
+        if(rows[i].length > 1){
             body += '<tr>';
-            rows[i].forEach(col => { body += `<td>${col}</td>`; });
+            rows[i].forEach(cell => body += `<td>${cell}</td>`);
             body += '</tr>';
         }
     }
     body += '</tbody>';
-
     table.innerHTML = header + body;
 
-    // Delay initialization slightly to ensure DOM is ready
-    setTimeout(() => {
-        const dataTable = $('#csv-table').DataTable({
-            paging: false,
-            info: false,
-            searching: false,
-            ordering: true,
-            responsive: true
+    const ths = table.querySelectorAll('th');
+
+    ths.forEach(th => {
+        const idx = parseInt(th.dataset.col);
+        const dropdown = th.querySelector('.dropdown');
+
+        // Unique values for filter
+        const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
+        unique.forEach(val => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="checkbox" value="${val}" checked> ${val}`;
+            dropdown.appendChild(label);
         });
 
-        // Apply Excel-style yadcf filters for each column
-        const yadcfColumns = rows[0].map((_, idx) => ({
-            column_number: idx,
-            filter_type: "multi_select",
-            filter_default_label: "Filter"
-        }));
-        yadcf.init(dataTable, yadcfColumns);
-    }, 100);
-  })
-  .catch(err => {
-    document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+        // Sort controls
+        const sortAsc = document.createElement('label');
+        sortAsc.innerHTML = `<input type="radio" name="sort${idx}" value="asc"> Sort Asc`;
+        dropdown.insertBefore(sortAsc, dropdown.firstChild);
+
+        const sortDesc = document.createElement('label');
+        sortDesc.innerHTML = `<input type="radio" name="sort${idx}" value="desc"> Sort Desc`;
+        dropdown.insertBefore(sortDesc, dropdown.firstChild.nextSibling);
+
+        // Toggle dropdown on header click
+        th.addEventListener('click', () => {
+            const allDropdowns = document.querySelectorAll('.dropdown');
+            allDropdowns.forEach(d => { if(d!==dropdown) d.style.display='none'; });
+            dropdown.style.display = dropdown.style.display==='block' ? 'none' : 'block';
+        });
+
+        // Sorting
+        dropdown.querySelectorAll(`input[type=radio]`).forEach(radio => {
+            radio.addEventListener('change', e => {
+                const ascending = e.target.value==='asc';
+                const rowsArr = Array.from(table.tBodies[0].rows);
+                rowsArr.sort((a,b)=>{
+                    return ascending ?
+                        a.cells[idx].textContent.localeCompare(b.cells[idx].textContent) :
+                        b.cells[idx].textContent.localeCompare(a.cells[idx].textContent);
+                });
+                rowsArr.forEach(r => table.tBodies[0].appendChild(r));
+            });
+        });
+
+        // Filtering
+        dropdown.querySelectorAll(`input[type=checkbox]`).forEach(chk => {
+            chk.addEventListener('change', e => {
+                const checked = Array.from(dropdown.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
+                Array.from(table.tBodies[0].rows).forEach(row => {
+                    row.style.display = checked.includes(row.cells[idx].textContent) ? '' : 'none';
+                });
+            });
+        });
+    });
+
+})
+.catch(err=>{
     console.error(err);
-  });
+    document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+});
 </script>
 
 </body>
