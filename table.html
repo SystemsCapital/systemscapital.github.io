@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Table</title>
+    <style>
+        body {
+            background: white;
+            color: #AbABAB;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #AbABAB;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 900px;
+            font-size: 18px;
+            color: #AbABAB;
+        }
+
+        table th {
+            border-bottom: 2px solid #AbABAB;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        table td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            color: #AbABAB;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Data Table</h1>
+
+<table id="csv-table">
+    <tbody></tbody>
+</table>
+
+<a href="index.html">← Back to Home</a>
+
+<script>
+// Load CSV
+fetch("data/mytable.csv")
+    .then(response => response.text())
+    .then(data => {
+        const rows = data.trim().split("\n").map(r => r.split(","));
+        const tableBody = document.querySelector("#csv-table tbody");
+
+        // Build table rows
+        rows.forEach((row, index) => {
+            const tr = document.createElement("tr");
+
+            row.forEach(cell => {
+                const td = index === 0 ? document.createElement("th") : document.createElement("td");
+                td.textContent = cell;
+                tr.appendChild(td);
+            });
+
+            tableBody.appendChild(tr);
+        });
+    });
+</script>
+
+</body>
+</html>
