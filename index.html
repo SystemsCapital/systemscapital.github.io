@@ -2,9 +2,7 @@
 <html>
 <head>
     <title>Home Page</title>
-    <!-- Favicon as flower -->
     <link rel="icon" type="image/png" href="flower.png">
-
     <style>
         body {
             background: White;
@@ -14,11 +12,9 @@
             flex-direction: column;
             align-items: center;
         }
-
         h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
         h2 { color: #AbABAB; text-align: center; padding-top: 5%; font-size: 20px; }
 
-        /* Flower button styling */
         .flower-btn {
             position: relative;
             background: none;
@@ -42,7 +38,6 @@
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        /* CSV table styling */
         #csv-container {
             display: flex;
             flex-direction: column;
@@ -54,7 +49,10 @@
         table { border-collapse: collapse; width: 90%; max-width: 1200px; }
         th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
         th { background: #f9f9f9; cursor: pointer; }
-        .filter-icon { cursor: pointer; margin-left: 5px; font-weight: bold; }
+        .filter-icon { margin-left: 5px; font-weight: bold; }
+
+        /* Dropdown styles */
+        .dropdown-container { position: relative; }
         .dropdown {
             display: none;
             position: absolute;
@@ -63,16 +61,22 @@
             background: white;
             border: 1px solid #AbABAB;
             z-index: 1000;
-            max-height: 300px;
+            max-height: 250px;
             overflow-y: auto;
             min-width: 180px;
             padding: 5px;
         }
         .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-        .dropdown button { width: 48%; margin: 2px 1%; }
         .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
         .dropdown label:hover { background-color: #f0f0f0; }
         .dropdown label:nth-child(even) { background-color: #fafafa; }
+        .dropdown .buttons {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding-top: 5px;
+        }
+        .dropdown button { width: 48%; margin: 2px 1%; }
 
         @media screen and (max-width: 768px) {
             table { width: 100%; }
@@ -81,7 +85,6 @@
     </style>
 </head>
 <body>
-
 <h1>Systems Capital</h1>
 <h2>
 Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm. 
@@ -133,12 +136,12 @@ fetch(csvPath)
     // Build header
     let header = '<thead><tr>';
     rows[0].forEach((col, idx)=>{
-        header += `<th data-col="${idx}">${col} <span class="filter-icon">&#x25BC;</span>
+        header += `<th data-col="${idx}" class="dropdown-container">${col} <span class="filter-icon">&#x25BC;</span>
             <div class="dropdown">
                 <button class="select-all">Select All</button>
                 <input type="text" placeholder="Search">
                 <div class="checkboxes"></div>
-                <div style="margin-top:5px;">
+                <div class="buttons">
                     <button class="apply">Apply</button>
                     <button class="cancel">Cancel</button>
                 </div>
@@ -185,12 +188,16 @@ fetch(csvPath)
         checkboxContainer.insertBefore(sortAsc, checkboxContainer.firstChild);
         checkboxContainer.insertBefore(sortDesc, checkboxContainer.firstChild.nextSibling);
 
-        // Toggle dropdown
-        icon.addEventListener('click', e=>{
-            e.stopPropagation();
-            document.querySelectorAll('.dropdown').forEach(d=>{if(d!==dropdown)d.style.display='none';});
-            dropdown.style.display = dropdown.style.display==='block'?'none':'block';
+        // Show dropdown on header click
+        th.addEventListener('click', e=>{
+            if(!dropdown.contains(e.target)){ // prevent immediate toggle when clicking inside
+                document.querySelectorAll('.dropdown').forEach(d=>{if(d!==dropdown)d.style.display='none';});
+                dropdown.style.display = 'block';
+            }
         });
+
+        // Prevent dropdown closing on click inside
+        dropdown.addEventListener('click', e=>{ e.stopPropagation(); });
 
         // Search input
         const searchInput = dropdown.querySelector('input[type=text]');
@@ -205,30 +212,27 @@ fetch(csvPath)
         });
 
         // Select/Deselect all
-        dropdown.querySelector('.select-all').addEventListener('click', ()=>{
+        dropdown.querySelector('.select-all').addEventListener('click', e=>{
+            e.stopPropagation();
             const allChecked = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
             checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
         });
 
         // Apply button
         dropdown.querySelector('.apply').addEventListener('click', ()=>{
-            // Store filter selections
             filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
-            // Store sort
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
             sortState[idx] = selectedSort?selectedSort.value:null;
-
             applyFiltersAndSort();
             dropdown.style.display='none';
         });
 
         // Cancel button
         dropdown.querySelector('.cancel').addEventListener('click', ()=>{
-            // Reset checkboxes to previous filter
+            // Reset checkboxes
             checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>{
                 c.checked = !filters[idx] || filters[idx].includes(c.value);
             });
-            // Reset sort radios
             const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
             radios.forEach(r=>r.checked = sortState[idx]===r.value);
             dropdown.style.display='none';
@@ -245,7 +249,6 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
-        // Apply sorting
         sortState.forEach((dir,i)=>{
             if(dir){
                 const ascending = dir==='asc';
@@ -257,7 +260,7 @@ fetch(csvPath)
         });
     }
 
-    // Close dropdowns if clicked outside
+    // Close dropdown if clicked outside
     document.addEventListener('click', ()=>{
         document.querySelectorAll('.dropdown').forEach(d=>{
             if(d.style.display==='block') d.style.display='none';
@@ -270,6 +273,5 @@ fetch(csvPath)
     document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
-
 </body>
 </html>
