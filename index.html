@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Home Page</title>
-    <link rel="icon" type="image/png" href="flower.png">
+    <link rel="icon" type="image/png" href="D:\Self\Portfolio\Administration\Logo.png">
     <style>
         body {
             background: White;
@@ -150,17 +150,22 @@ fetch(csvPath)
     });
     header += '</tr></thead>';
 
-  // Build body with percentages
+ // Build body with correct percentages
 let body = '<tbody>';
 for(let i=1;i<rows.length;i++){
     if(rows[i].length>1){
         body+='<tr>';
-        rows[i].forEach(c=>{
+        rows[i].forEach((c, colIdx)=>{
             let value = c;
-            // Convert to percentage if it's a number
-            if(!isNaN(c) && c.trim() !== ''){
+            const colName = rows[0][colIdx].toLowerCase();
+
+            // Only convert to percentage if it's a number and NOT a percentile column
+            if(!isNaN(c) && c.trim() !== '' && !colName.includes('percentile')){
                 value = (parseFloat(c) * 100).toFixed(2) + '%';
+            } else if(!isNaN(c) && colName.includes('percentile')) {
+                value = parseFloat(c).toFixed(2) + '%'; // Keep as-is but add % sign
             }
+
             body += `<td>${value}</td>`;
         });
         body+='</tr>';
@@ -168,6 +173,7 @@ for(let i=1;i<rows.length;i++){
 }
 body+='</tbody>';
 table.innerHTML = header+body;
+
 
 
     const ths = table.querySelectorAll('th');
