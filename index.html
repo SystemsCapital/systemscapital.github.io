@@ -169,7 +169,6 @@ fetch(csvPath)
     ths.forEach(th=>{
         const idx = parseInt(th.dataset.col);
         const dropdown = th.querySelector('.dropdown');
-        const icon = th.querySelector('.filter-icon');
         const checkboxContainer = th.querySelector('.checkboxes');
 
         // Populate checkboxes
@@ -188,16 +187,17 @@ fetch(csvPath)
         checkboxContainer.insertBefore(sortAsc, checkboxContainer.firstChild);
         checkboxContainer.insertBefore(sortDesc, checkboxContainer.firstChild.nextSibling);
 
-        // Show dropdown on header click
+        // Show/hide dropdown on header click
         th.addEventListener('click', e=>{
-            if(!dropdown.contains(e.target)){ // prevent immediate toggle when clicking inside
-                document.querySelectorAll('.dropdown').forEach(d=>{if(d!==dropdown)d.style.display='none';});
-                dropdown.style.display = 'block';
-            }
+            e.stopPropagation();
+            document.querySelectorAll('.dropdown').forEach(d=>{
+                if(d!==dropdown) d.style.display='none';
+            });
+            dropdown.style.display = dropdown.style.display==='block' ? 'none' : 'block';
         });
 
-        // Prevent dropdown closing on click inside
-        dropdown.addEventListener('click', e=>{ e.stopPropagation(); });
+        // Prevent dropdown closing when clicking inside
+        dropdown.addEventListener('click', e=> e.stopPropagation());
 
         // Search input
         const searchInput = dropdown.querySelector('input[type=text]');
@@ -206,7 +206,7 @@ fetch(csvPath)
             checkboxContainer.querySelectorAll('label').forEach(label=>{
                 if(label.querySelector('input[type=checkbox]')){
                     const val = label.textContent.toLowerCase();
-                    label.style.display = val.includes(filterText)?'block':'none';
+                    label.style.display = val.includes(filterText) ? 'block' : 'none';
                 }
             });
         });
@@ -222,7 +222,7 @@ fetch(csvPath)
         dropdown.querySelector('.apply').addEventListener('click', ()=>{
             filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
-            sortState[idx] = selectedSort?selectedSort.value:null;
+            sortState[idx] = selectedSort ? selectedSort.value : null;
             applyFiltersAndSort();
             dropdown.style.display='none';
         });
@@ -263,7 +263,7 @@ fetch(csvPath)
     // Close dropdown if clicked outside
     document.addEventListener('click', ()=>{
         document.querySelectorAll('.dropdown').forEach(d=>{
-            if(d.style.display==='block') d.style.display='none';
+            d.style.display='none';
         });
     });
 
@@ -273,5 +273,6 @@ fetch(csvPath)
     document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
+
 </body>
 </html>
