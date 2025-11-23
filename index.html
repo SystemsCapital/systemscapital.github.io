@@ -258,13 +258,25 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
+        // Sort only visible rows
         sortState.forEach((dir,i)=>{
             if(dir){
                 const ascending = dir==='asc';
-                const rowsSorted = Array.from(table.tBodies[0].rows)
-                    .sort((a,b)=> ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent)
-                                             : b.cells[i].textContent.localeCompare(a.cells[i].textContent));
-                rowsSorted.forEach(r=>table.tBodies[0].appendChild(r));
+                const visibleRows = Array.from(table.tBodies[0].rows).filter(r=>r.style.display!=='none');
+
+                visibleRows.sort((a,b)=>{
+                    let aVal = a.cells[i].textContent.replace('%','');
+                    let bVal = b.cells[i].textContent.replace('%','');
+
+                    if(!isNaN(aVal) && !isNaN(bVal)){
+                        return ascending ? aVal - bVal : bVal - aVal;
+                    } else {
+                        return ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent)
+                                         : b.cells[i].textContent.localeCompare(a.cells[i].textContent);
+                    }
+                });
+
+                visibleRows.forEach(r=>table.tBodies[0].appendChild(r));
             }
         });
     }
@@ -279,6 +291,7 @@ fetch(csvPath)
     document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
+
 
 </body>
 </html>
