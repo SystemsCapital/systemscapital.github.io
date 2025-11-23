@@ -232,7 +232,11 @@ fetch(csvPath)
         dropdown.querySelector('.apply').addEventListener('click', ()=>{
             filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
+            
+            // Clear all other sort states
+            sortState.fill(null);
             sortState[idx] = selectedSort ? selectedSort.value : null;
+
             applyFiltersAndSort();
             dropdown.style.display='none';
         });
@@ -260,27 +264,26 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
-        // Sort each column independently if a sort is active
-        sortState.forEach((dir,i)=>{
-            if(dir){
-                const ascending = dir==='asc';
-                const visibleRows = Array.from(table.tBodies[0].rows).filter(r=>r.style.display!=='none');
+        // Apply only the current sort column (last applied)
+        const lastSortCol = sortState.findIndex(dir=>dir);
+        if(lastSortCol !== -1){
+            const ascending = sortState[lastSortCol] === 'asc';
+            const visibleRows = rowsArr.filter(r=>r.style.display!=='none');
 
-                visibleRows.sort((a,b)=>{
-                    let aVal = a.cells[i].textContent.replace('%','');
-                    let bVal = b.cells[i].textContent.replace('%','');
+            visibleRows.sort((a,b)=>{
+                let aVal = a.cells[lastSortCol].textContent.replace('%','');
+                let bVal = b.cells[lastSortCol].textContent.replace('%','');
 
-                    if(!isNaN(aVal) && !isNaN(bVal)){
-                        return ascending ? aVal - bVal : bVal - aVal;
-                    } else {
-                        return ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent)
-                                         : b.cells[i].textContent.localeCompare(a.cells[i].textContent);
-                    }
-                });
+                if(!isNaN(aVal) && !isNaN(bVal)){
+                    return ascending ? aVal - bVal : bVal - aVal;
+                } else {
+                    return ascending ? a.cells[lastSortCol].textContent.localeCompare(b.cells[lastSortCol].textContent)
+                                     : b.cells[lastSortCol].textContent.localeCompare(a.cells[lastSortCol].textContent);
+                }
+            });
 
-                visibleRows.forEach(r=>table.tBodies[0].appendChild(r));
-            }
-        });
+            visibleRows.forEach(r=>table.tBodies[0].appendChild(r));
+        }
     }
 
     document.addEventListener('click', ()=>{
