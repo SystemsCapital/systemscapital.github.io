@@ -51,7 +51,6 @@
         th { background: #f9f9f9; cursor: pointer; }
         .filter-icon { margin-left: 5px; font-weight: bold; }
 
-        /* Dropdown styles */
         .dropdown-container { position: relative; }
         .dropdown {
             display: none;
@@ -125,12 +124,13 @@ function rotateFlower() {
 </div>
 
 <script>
-const csvPath = 'data/SQL_Results.csv';
+// ✅ Browser cache bypass + robust CSV parsing
+const csvPath = 'data/SQL_Results.csv?version=' + new Date().getTime();
 
 fetch(csvPath)
 .then(res => res.text())
 .then(text => {
-    const rows = text.trim().split('\n').map(r=>r.split(','));
+    const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
     const table = document.getElementById('csv-table');
 
     // Build header
@@ -150,32 +150,30 @@ fetch(csvPath)
     });
     header += '</tr></thead>';
 
- // Build body with correct percentages
-let body = '<tbody>';
-for(let i=1;i<rows.length;i++){
-    if(rows[i].length>1){
-        body+='<tr>';
-        rows[i].forEach((c, colIdx)=>{
-            let value = c;
-            const colName = rows[0][colIdx].toLowerCase();
+    // Build body with correct percentages
+    let body = '<tbody>';
+    for(let i=1; i<rows.length; i++){
+        if(rows[i].length > 1){
+            body += '<tr>';
+            rows[i].forEach((c, colIdx)=>{
+                let value = c;
+                const colName = rows[0][colIdx].toLowerCase();
 
-            // Only convert to percentage if it's a number and NOT a percentile column
-            if(!isNaN(c) && c.trim() !== '' && !colName.includes('percentile')){
-                value = (parseFloat(c) * 100).toFixed(2) + '%';
-            } else if(!isNaN(c) && colName.includes('percentile')) {
-                value = parseFloat(c).toFixed(2) + '%'; // Keep as-is but add % sign
-            }
+                if(!isNaN(c) && c.trim() !== '' && !colName.includes('percentile')){
+                    value = (parseFloat(c) * 100).toFixed(2) + '%';
+                } else if(!isNaN(c) && colName.includes('percentile')) {
+                    value = parseFloat(c).toFixed(2) + '%';
+                }
 
-            body += `<td>${value}</td>`;
-        });
-        body+='</tr>';
+                body += `<td>${value}</td>`;
+            });
+            body += '</tr>';
+        }
     }
-}
-body+='</tbody>';
-table.innerHTML = header+body;
+    body += '</tbody>';
+    table.innerHTML = header + body;
 
-
-
+    // Filters & sorting
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
     const sortState = Array(rows[0].length).fill(null);
@@ -201,7 +199,7 @@ table.innerHTML = header+body;
         checkboxContainer.insertBefore(sortAsc, checkboxContainer.firstChild);
         checkboxContainer.insertBefore(sortDesc, checkboxContainer.firstChild.nextSibling);
 
-        // Show/hide dropdown on header click
+        // Dropdown toggle
         th.addEventListener('click', e=>{
             e.stopPropagation();
             document.querySelectorAll('.dropdown').forEach(d=>{
@@ -209,8 +207,6 @@ table.innerHTML = header+body;
             });
             dropdown.style.display = dropdown.style.display==='block' ? 'none' : 'block';
         });
-
-        // Prevent dropdown closing when clicking inside
         dropdown.addEventListener('click', e=> e.stopPropagation());
 
         // Search input
@@ -243,7 +239,6 @@ table.innerHTML = header+body;
 
         // Cancel button
         dropdown.querySelector('.cancel').addEventListener('click', ()=>{
-            // Reset checkboxes
             checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>{
                 c.checked = !filters[idx] || filters[idx].includes(c.value);
             });
@@ -274,11 +269,8 @@ table.innerHTML = header+body;
         });
     }
 
-    // Close dropdown if clicked outside
     document.addEventListener('click', ()=>{
-        document.querySelectorAll('.dropdown').forEach(d=>{
-            d.style.display='none';
-        });
+        document.querySelectorAll('.dropdown').forEach(d=> d.style.display='none');
     });
 
 })
