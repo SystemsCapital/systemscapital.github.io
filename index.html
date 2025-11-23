@@ -15,37 +15,20 @@
         h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
         h2 { color: #AbABAB; text-align: center; padding-top: 5%; font-size: 20px; }
 
-        .flower-btn {
-            position: relative;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 40px;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+        .flower-btn { position: relative; background: none; border: none; cursor: pointer; padding: 40px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
         .flower-btn:hover { opacity: 0.8; }
         .flower { position: relative; width: 200px; height: 200px; transition: transform 0.8s ease; }
         .circle { width: 100px; height: 100px; border: 3px solid gray; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .circle-0   { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -50px); }
-        .circle-45  { transform: translate(-50%, -50%) rotate(45deg)  translate(0, -50px); }
-        .circle-90  { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -50px); }
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
         .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
         .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
         .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        #csv-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px;
-            width: 100%;
-            overflow-x: auto;
-        }
+        #csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
         table { border-collapse: collapse; width: 90%; max-width: 1200px; }
         th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
         th { background: #f9f9f9; cursor: pointer; }
@@ -69,18 +52,10 @@
         .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
         .dropdown label:hover { background-color: #f0f0f0; }
         .dropdown label:nth-child(even) { background-color: #fafafa; }
-        .dropdown .buttons {
-            position: sticky;
-            bottom: 0;
-            background: white;
-            padding-top: 5px;
-        }
+        .dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
         .dropdown button { width: 48%; margin: 2px 1%; }
 
-        @media screen and (max-width: 768px) {
-            table { width: 100%; }
-            #csv-container { padding: 20px; }
-        }
+        @media screen and (max-width: 768px) { table { width: 100%; } #csv-container { padding: 20px; } }
     </style>
 </head>
 <body>
@@ -124,7 +99,6 @@ function rotateFlower() {
 </div>
 
 <script>
-// ✅ Browser cache bypass + robust CSV parsing
 const csvPath = 'data/SQL_Results.csv?version=' + new Date().getTime();
 
 fetch(csvPath)
@@ -150,7 +124,7 @@ fetch(csvPath)
     });
     header += '</tr></thead>';
 
-    // Build body with correct percentages
+    // Build body with data-value for numeric sorting
     let body = '<tbody>';
     for(let i=1; i<rows.length; i++){
         if(rows[i].length > 1){
@@ -158,14 +132,17 @@ fetch(csvPath)
             rows[i].forEach((c, colIdx)=>{
                 let value = c;
                 const colName = rows[0][colIdx].toLowerCase();
+                let dataValue = c;
 
                 if(!isNaN(c) && c.trim() !== '' && !colName.includes('percentile')){
                     value = (parseFloat(c) * 100).toFixed(2) + '%';
+                    dataValue = parseFloat(c);
                 } else if(!isNaN(c) && colName.includes('percentile')) {
                     value = parseFloat(c).toFixed(2) + '%';
+                    dataValue = parseFloat(c);
                 }
 
-                body += `<td>${value}</td>`;
+                body += `<td data-value="${dataValue}">${value}</td>`;
             });
             body += '</tr>';
         }
@@ -177,7 +154,7 @@ fetch(csvPath)
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
     const sortState = Array(rows[0].length).fill(null);
-    let lastSortedColumn = null; // track last sorted column
+    let lastSortedColumn = null;
 
     ths.forEach(th=>{
         const idx = parseInt(th.dataset.col);
@@ -233,7 +210,7 @@ fetch(csvPath)
         dropdown.querySelector('.apply').addEventListener('click', ()=>{
             filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
-            
+
             // Only one column sorted at a time
             sortState.fill(null);
             sortState[idx] = selectedSort ? selectedSort.value : null;
@@ -266,23 +243,25 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
-        // Apply sorting for last sorted column only
+        // Apply sorting for last sorted column
         if(lastSortedColumn !== null){
             const dir = sortState[lastSortedColumn];
             const ascending = dir === 'asc';
             const visibleRows = rowsArr.filter(r=>r.style.display!=='none');
 
             visibleRows.sort((a,b)=>{
-                let aVal = a.cells[lastSortedColumn].textContent.replace('%','').trim();
-                let bVal = b.cells[lastSortedColumn].textContent.replace('%','').trim();
+                const aVal = a.cells[lastSortedColumn].dataset.value;
+                const bVal = b.cells[lastSortedColumn].dataset.value;
 
-                let aNum = parseFloat(aVal);
-                let bNum = parseFloat(bVal);
+                const aNum = parseFloat(aVal);
+                const bNum = parseFloat(bVal);
 
                 if(!isNaN(aNum) && !isNaN(bNum)){
                     return ascending ? aNum - bNum : bNum - aNum;
                 } else {
-                    return ascending ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+                    return ascending 
+                           ? a.cells[lastSortedColumn].textContent.localeCompare(b.cells[lastSortedColumn].textContent)
+                           : b.cells[lastSortedColumn].textContent.localeCompare(a.cells[lastSortedColumn].textContent);
                 }
             });
 
