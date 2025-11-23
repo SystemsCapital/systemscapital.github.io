@@ -150,17 +150,25 @@ fetch(csvPath)
     });
     header += '</tr></thead>';
 
-    // Build body
-    let body = '<tbody>';
-    for(let i=1;i<rows.length;i++){
-        if(rows[i].length>1){
-            body+='<tr>';
-            rows[i].forEach(c=>body+=`<td>${c}</td>`);
-            body+='</tr>';
-        }
+  // Build body with percentages
+let body = '<tbody>';
+for(let i=1;i<rows.length;i++){
+    if(rows[i].length>1){
+        body+='<tr>';
+        rows[i].forEach(c=>{
+            let value = c;
+            // Convert to percentage if it's a number
+            if(!isNaN(c) && c.trim() !== ''){
+                value = (parseFloat(c) * 100).toFixed(2) + '%';
+            }
+            body += `<td>${value}</td>`;
+        });
+        body+='</tr>';
     }
-    body+='</tbody>';
-    table.innerHTML = header+body;
+}
+body+='</tbody>';
+table.innerHTML = header+body;
+
 
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
