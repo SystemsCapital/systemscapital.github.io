@@ -7,10 +7,9 @@
             background: White;
             display: flex;
             align-items: stretch;
-            justify-content: center; 
-            flex-direction: column;
             justify-content: flex-start;
-            margin-top: 0px;
+            flex-direction: column;
+            margin: 0;
             font-family: Arial, sans-serif;
         }
         .flower-btn {
@@ -54,7 +53,7 @@
         h1 {
             color: #AbABAB;
             text-align: center;
-            padding-top: 0%;
+            padding-top: 20px;
             font-size: 48px;
         }
         h2 {
@@ -64,7 +63,7 @@
             font-size: 48px;
         }
 
-        /* Center CSV table */
+        /* CSV table container */
         #csv-container {
             display: flex;
             justify-content: center;
@@ -74,7 +73,7 @@
         }
 
         table.dataTable {
-            width: auto !important; /* table width matches content */
+            width: auto !important;
             min-width: 600px;
             max-width: 1000px;
             border-collapse: collapse !important;
@@ -88,18 +87,33 @@
             color: #AbABAB;
             border: 1px solid #AbABAB;
             padding: 8px;
-            cursor: pointer; /* shows sortable header */
+            cursor: pointer;
         }
         table.dataTable tbody td {
             border: 1px solid #AbABAB;
             padding: 8px;
         }
+
+        /* Responsive table for smaller screens */
+        @media screen and (max-width: 768px) {
+            table.dataTable {
+                width: 100% !important;
+                min-width: 0 !important;
+            }
+            #csv-container {
+                padding: 20px;
+            }
+        }
     </style>
 
-    <!-- DataTables CSS & JS -->
+    <!-- DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- yadcf plugin -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yadcf@0.10.4/jquery.dataTables.yadcf.css">
+    <script src="https://cdn.jsdelivr.net/npm/yadcf@0.10.4/jquery.dataTables.yadcf.js"></script>
 </head>
 <body>
 
@@ -142,12 +156,11 @@ function rotateFlower() {
 
 <!-- CSV Table Section -->
 <div id="csv-container">
-  <h2 style="color:#AbABAB; text-align:center;">Our Data Table</h2>
+  <h2 style="color:#AbABAB; text-align:center;">Monthly Returns from Past 5 years of S&P 500 Companies</h2>
   <table id="csv-table" class="display"></table>
 </div>
 
 <script>
-// Path to your CSV in the repo
 const csvPath = 'data/SQL_Results.csv';
 
 fetch(csvPath)
@@ -172,13 +185,18 @@ fetch(csvPath)
 
     table.innerHTML = header + body;
 
-    // Initialize DataTables with only clickable sorting, no search or pagination
-    $('#csv-table').DataTable({
+    // Initialize DataTables
+    const dataTable = $('#csv-table').DataTable({
         paging: false,
         info: false,
         searching: false,
-        ordering: true
+        ordering: true,
+        responsive: true
     });
+
+    // Initialize yadcf for Excel-style column filtering
+    const yadcfColumns = rows[0].map((_, idx) => ({ column_number: idx, filter_type: "multi_select", filter_default_label: "Filter" }));
+    yadcf.init(dataTable, yadcfColumns);
   })
   .catch(err => {
     document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
