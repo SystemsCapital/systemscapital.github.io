@@ -49,7 +49,9 @@
         }
         .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
         .dropdown button { width: 100%; margin-bottom: 5px; }
-        .dropdown label { display: block; padding: 2px 0; cursor: pointer; }
+        .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
+        .dropdown label:hover { background-color: #f0f0f0; }
+        .dropdown label:nth-child(even) { background-color: #fafafa; }
 
         @media screen and (max-width: 768px) {
             table { width: 100%; }
@@ -60,7 +62,7 @@
 <body>
 
 <h1>Systems Capital</h1>
-<h2>Thank you for visiting...</h2>
+<h2>Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm.</h2>
 
 <div style="text-align:center; padding:15px;">
     <button class="flower-btn" onclick="rotateFlower()" type="button">
@@ -123,6 +125,10 @@ fetch(csvPath)
     table.innerHTML = header + body;
 
     const ths = table.querySelectorAll('th');
+
+    // Store filters to apply on close
+    const filters = Array(rows[0].length).fill(null);
+
     ths.forEach(th=>{
         const idx = parseInt(th.dataset.col);
         const dropdown = th.querySelector('.dropdown');
@@ -136,6 +142,14 @@ fetch(csvPath)
             dropdown.appendChild(label);
         });
 
+        // Sorting radios
+        const sortAsc = document.createElement('label');
+        sortAsc.innerHTML = `<input type="radio" name="sort${idx}" value="asc"> Sort Asc`;
+        const sortDesc = document.createElement('label');
+        sortDesc.innerHTML = `<input type="radio" name="sort${idx}" value="desc"> Sort Desc`;
+        dropdown.insertBefore(sortAsc, dropdown.firstChild);
+        dropdown.insertBefore(sortDesc, dropdown.firstChild.nextSibling);
+
         // Toggle dropdown
         icon.addEventListener('click', e=>{
             e.stopPropagation();
@@ -143,59 +157,69 @@ fetch(csvPath)
             dropdown.style.display = dropdown.style.display==='block'?'none':'block';
         });
 
-        // Select/Deselect all
-        dropdown.querySelector('.select-all').addEventListener('click', ()=>{
-            const allChecked = Array.from(dropdown.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
-            dropdown.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
-            filterColumn(idx, dropdown);
-        });
-
-        // Search in dropdown
+        // Search input
         const searchInput = dropdown.querySelector('input[type=text]');
         searchInput.addEventListener('keyup', ()=>{
-            const filter = searchInput.value.toLowerCase();
+            const filterText = searchInput.value.toLowerCase();
             dropdown.querySelectorAll('label').forEach(label=>{
                 if(label.querySelector('input[type=checkbox]')){
                     const val = label.textContent.toLowerCase();
-                    label.style.display = val.includes(filter)?'block':'none';
+                    label.style.display = val.includes(filterText)?'block':'none';
                 }
             });
         });
 
-        // Filter on checkbox change
-        dropdown.querySelectorAll('input[type=checkbox]').forEach(chk=>{
-            chk.addEventListener('change', ()=>filterColumn(idx, dropdown));
+        // Select/Deselect all
+        dropdown.querySelector('.select-all').addEventListener('click', ()=>{
+            const allChecked = Array.from(dropdown.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
+            dropdown.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
         });
 
-        // Sorting
-        const sortAsc = document.createElement('label');
-        sortAsc.innerHTML = `<input type="radio" name="sort${idx}" value="asc"> Sort Asc`;
-        const sortDesc = document.createElement('label');
-        sortDesc.innerHTML = `<input type="radio" name="sort${idx}" value="desc"> Sort Desc`;
-        dropdown.insertBefore(sortAsc, dropdown.firstChild);
-        dropdown.insertBefore(sortDesc, dropdown.firstChild.nextSibling);
-        dropdown.querySelectorAll(`input[type=radio]`).forEach(radio=>{
+        // Store checkbox selections
+        dropdown.querySelectorAll('input[type=checkbox]').forEach(chk=>{
+            chk.addEventListener('change', ()=>{
+                filters[idx] = Array.from(dropdown.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
+            });
+        });
+
+        // Store sort selection
+        dropdown.querySelectorAll('input[type=radio]').forEach(radio=>{
             radio.addEventListener('change', ()=>{
-                const ascending = radio.value==='asc';
-                const rowsArr = Array.from(table.tBodies[0].rows);
-                rowsArr.sort((a,b)=>{
-                    return ascending?a.cells[idx].textContent.localeCompare(b.cells[idx].textContent):
-                                     b.cells[idx].textContent.localeCompare(a.cells[idx].textContent);
-                });
-                rowsArr.forEach(r=>table.tBodies[0].appendChild(r));
+                filters[idx+'_sort'] = radio.value;
             });
         });
     });
 
-    // Close dropdown if click outside
-    document.addEventListener('click', ()=>document.querySelectorAll('.dropdown').forEach(d=>d.style.display='none'));
-
-    function filterColumn(idx, dropdown){
-        const checked = Array.from(dropdown.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
-        Array.from(table.tBodies[0].rows).forEach(row=>{
-            row.style.display = checked.includes(row.cells[idx].textContent)?'':'none';
+    // Apply filters and sort when clicking outside
+    document.addEventListener('click', ()=>{
+        document.querySelectorAll('.dropdown').forEach(d=>{
+            if(d.style.display==='block'){
+                d.style.display='none';
+            }
         });
-    }
+
+        // Apply filtering
+        const rowsArr = Array.from(table.tBodies[0].rows);
+        rowsArr.forEach(row=>{
+            let show = true;
+            filters.forEach((vals, i)=>{
+                if(vals && !vals.includes(row.cells[i].textContent)) show=false;
+            });
+            row.style.display = show?'':'none';
+        });
+
+        // Apply sorting
+        filters.forEach((_, i)=>{
+            if(filters[i+'_sort']){
+                const ascending = filters[i+'_sort']==='asc';
+                const rowsSorted = Array.from(table.tBodies[0].rows).sort((a,b)=>{
+                    return ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent) :
+                                       b.cells[i].textContent.localeCompare(a.cells[i].textContent);
+                });
+                rowsSorted.forEach(r=>table.tBodies[0].appendChild(r));
+            }
+        });
+    });
 
 })
 .catch(err=>{
