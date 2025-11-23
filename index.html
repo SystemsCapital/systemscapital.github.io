@@ -177,26 +177,34 @@ fetch(csvPath)
     // Build body
     let body = '<tbody>';
     for (let i = 1; i < rows.length; i++) {
-        body += '<tr>';
-        rows[i].forEach(col => { body += `<td>${col}</td>`; });
-        body += '</tr>';
+        if(rows[i].length > 1){ // skip empty rows
+            body += '<tr>';
+            rows[i].forEach(col => { body += `<td>${col}</td>`; });
+            body += '</tr>';
+        }
     }
     body += '</tbody>';
 
     table.innerHTML = header + body;
 
-    // Initialize DataTables
-    const dataTable = $('#csv-table').DataTable({
-        paging: false,
-        info: false,
-        searching: false,
-        ordering: true,
-        responsive: true
-    });
+    // Delay initialization slightly to ensure DOM is ready
+    setTimeout(() => {
+        const dataTable = $('#csv-table').DataTable({
+            paging: false,
+            info: false,
+            searching: false,
+            ordering: true,
+            responsive: true
+        });
 
-    // Initialize yadcf for Excel-style column filtering
-    const yadcfColumns = rows[0].map((_, idx) => ({ column_number: idx, filter_type: "multi_select", filter_default_label: "Filter" }));
-    yadcf.init(dataTable, yadcfColumns);
+        // Apply Excel-style yadcf filters for each column
+        const yadcfColumns = rows[0].map((_, idx) => ({
+            column_number: idx,
+            filter_type: "multi_select",
+            filter_default_label: "Filter"
+        }));
+        yadcf.init(dataTable, yadcfColumns);
+    }, 100);
   })
   .catch(err => {
     document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
