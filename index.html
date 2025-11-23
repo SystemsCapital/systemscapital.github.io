@@ -10,7 +10,7 @@
             justify-content: center; 
             flex-direction: column;
             justify-content: flex-start;
-            margin-top: -80px;
+            margin-top: 0px;
             font-family: Arial, sans-serif;
         }
         .flower-btn {
@@ -64,7 +64,7 @@
             font-size: 48px;
         }
 
-        /* Center the CSV table container like the flower */
+        /* Center CSV table */
         #csv-container {
             display: flex;
             justify-content: center;
@@ -73,9 +73,8 @@
             padding: 40px;
         }
 
-        /* DataTables table styling */
         table.dataTable {
-            width: auto !important;      /* table width matches content */
+            width: auto !important; /* table width matches content */
             min-width: 600px;
             max-width: 1000px;
             border-collapse: collapse !important;
@@ -89,24 +88,11 @@
             color: #AbABAB;
             border: 1px solid #AbABAB;
             padding: 8px;
+            cursor: pointer; /* shows sortable header */
         }
         table.dataTable tbody td {
             border: 1px solid #AbABAB;
             padding: 8px;
-        }
-
-        /* Filter dropdown styling */
-        .filter-container {
-            margin-bottom: 10px;
-        }
-        .filter-container label {
-            margin-right: 10px;
-            font-weight: bold;
-            color: #AbABAB;
-        }
-        .filter-container select {
-            margin-right: 20px;
-            padding: 5px;
         }
     </style>
 
@@ -120,9 +106,9 @@
 <h1>Systems Capital</h1>
 
 <h2 style="font-size: 20px;">
-Thank you for visiting. This site has been intentionally left sparce as we are focused on building out internal operations of the firm. 
+Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm. 
 <br><br>
-Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information,  and world class performance.
+Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information, and world class performance.
 <br><br>
 Through the use of our proprietary research models, we are able to invest with the best of industry, and identify them far before they meet their full potential.  
 <br><br>
@@ -157,11 +143,7 @@ function rotateFlower() {
 <!-- CSV Table Section -->
 <div id="csv-container">
   <h2 style="color:#AbABAB; text-align:center;">Our Data Table</h2>
-
-  <!-- Filter dropdowns will be dynamically added here -->
-  <div class="filter-container" id="filter-container"></div>
-
-  <table id="csv-table" class="display" style="width:100%;"></table>
+  <table id="csv-table" class="display"></table>
 </div>
 
 <script>
@@ -190,30 +172,13 @@ fetch(csvPath)
 
     table.innerHTML = header + body;
 
-    // Initialize DataTables without default search/pagination controls
-    const dataTable = $('#csv-table').DataTable({
+    // Initialize DataTables with only clickable sorting, no search or pagination
+    $('#csv-table').DataTable({
         paging: false,
         info: false,
-        searching: false
+        searching: false,
+        ordering: true
     });
-
-    // Create filter dropdowns for each column
-    const filterContainer = document.getElementById('filter-container');
-    rows[0].forEach((col, index) => {
-        // get unique values for this column
-        const values = [...new Set(rows.slice(1).map(r => r[index]))].sort();
-        const select = document.createElement('select');
-        select.innerHTML = `<option value="">All ${col}</option>` + values.map(v => `<option value="${v}">${v}</option>`).join('');
-        select.addEventListener('change', function() {
-            dataTable.column(index).search(this.value).draw();
-        });
-
-        const label = document.createElement('label');
-        label.textContent = col + ':';
-        label.appendChild(select);
-        filterContainer.appendChild(label);
-    });
-
   })
   .catch(err => {
     document.getElementById('csv-container').innerHTML = '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
