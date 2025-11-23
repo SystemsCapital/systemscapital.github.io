@@ -63,13 +63,13 @@
             background: white;
             border: 1px solid #AbABAB;
             z-index: 1000;
-            max-height: 250px;
+            max-height: 300px;
             overflow-y: auto;
             min-width: 180px;
             padding: 5px;
         }
         .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-        .dropdown button { width: 100%; margin-bottom: 5px; }
+        .dropdown button { width: 48%; margin: 2px 1%; }
         .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
         .dropdown label:hover { background-color: #f0f0f0; }
         .dropdown label:nth-child(even) { background-color: #fafafa; }
@@ -116,7 +116,6 @@ function rotateFlower() {
 }
 </script>
 
-<!-- CSV Table Section -->
 <div id="csv-container">
   <h2>Monthly Returns from Past 5 years of S&P 500 Companies</h2>
   <table id="csv-table"></table>
@@ -128,16 +127,21 @@ const csvPath = 'data/SQL_Results.csv';
 fetch(csvPath)
 .then(res => res.text())
 .then(text => {
-    const rows = text.trim().split('\n').map(r => r.split(','));
+    const rows = text.trim().split('\n').map(r=>r.split(','));
     const table = document.getElementById('csv-table');
 
     // Build header
     let header = '<thead><tr>';
-    rows[0].forEach((col, idx) => {
+    rows[0].forEach((col, idx)=>{
         header += `<th data-col="${idx}">${col} <span class="filter-icon">&#x25BC;</span>
             <div class="dropdown">
                 <button class="select-all">Select All</button>
                 <input type="text" placeholder="Search">
+                <div class="checkboxes"></div>
+                <div style="margin-top:5px;">
+                    <button class="apply">Apply</button>
+                    <button class="cancel">Cancel</button>
+                </div>
             </div>
         </th>`;
     });
@@ -146,14 +150,14 @@ fetch(csvPath)
     // Build body
     let body = '<tbody>';
     for(let i=1;i<rows.length;i++){
-        if(rows[i].length > 1){
-            body += '<tr>';
-            rows[i].forEach(cell => body += `<td>${cell}</td>`);
-            body += '</tr>';
+        if(rows[i].length>1){
+            body+='<tr>';
+            rows[i].forEach(c=>body+=`<td>${c}</td>`);
+            body+='</tr>';
         }
     }
-    body += '</tbody>';
-    table.innerHTML = header + body;
+    body+='</tbody>';
+    table.innerHTML = header+body;
 
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
@@ -163,13 +167,14 @@ fetch(csvPath)
         const idx = parseInt(th.dataset.col);
         const dropdown = th.querySelector('.dropdown');
         const icon = th.querySelector('.filter-icon');
+        const checkboxContainer = th.querySelector('.checkboxes');
 
         // Populate checkboxes
         const unique = Array.from(new Set(rows.slice(1).map(r=>r[idx]))).sort();
         unique.forEach(val=>{
             const label = document.createElement('label');
             label.innerHTML = `<input type="checkbox" value="${val}" checked> ${val}`;
-            dropdown.appendChild(label);
+            checkboxContainer.appendChild(label);
         });
 
         // Sorting radios
@@ -177,8 +182,8 @@ fetch(csvPath)
         sortAsc.innerHTML = `<input type="radio" name="sort${idx}" value="asc"> Sort Asc`;
         const sortDesc = document.createElement('label');
         sortDesc.innerHTML = `<input type="radio" name="sort${idx}" value="desc"> Sort Desc`;
-        dropdown.insertBefore(sortAsc, dropdown.firstChild);
-        dropdown.insertBefore(sortDesc, dropdown.firstChild.nextSibling);
+        checkboxContainer.insertBefore(sortAsc, checkboxContainer.firstChild);
+        checkboxContainer.insertBefore(sortDesc, checkboxContainer.firstChild.nextSibling);
 
         // Toggle dropdown
         icon.addEventListener('click', e=>{
@@ -191,7 +196,7 @@ fetch(csvPath)
         const searchInput = dropdown.querySelector('input[type=text]');
         searchInput.addEventListener('keyup', ()=>{
             const filterText = searchInput.value.toLowerCase();
-            dropdown.querySelectorAll('label').forEach(label=>{
+            checkboxContainer.querySelectorAll('label').forEach(label=>{
                 if(label.querySelector('input[type=checkbox]')){
                     const val = label.textContent.toLowerCase();
                     label.style.display = val.includes(filterText)?'block':'none';
@@ -201,33 +206,36 @@ fetch(csvPath)
 
         // Select/Deselect all
         dropdown.querySelector('.select-all').addEventListener('click', ()=>{
-            const allChecked = Array.from(dropdown.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
-            dropdown.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
+            const allChecked = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
+            checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
         });
 
-        // Store selections
-        dropdown.querySelectorAll('input[type=checkbox]').forEach(chk=>{
-            chk.addEventListener('change', ()=>{
-                filters[idx] = Array.from(dropdown.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
-            });
+        // Apply button
+        dropdown.querySelector('.apply').addEventListener('click', ()=>{
+            // Store filter selections
+            filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
+            // Store sort
+            const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
+            sortState[idx] = selectedSort?selectedSort.value:null;
+
+            applyFiltersAndSort();
+            dropdown.style.display='none';
         });
 
-        // Store sort selection
-        dropdown.querySelectorAll('input[type=radio]').forEach(radio=>{
-            radio.addEventListener('change', ()=>{
-                sortState[idx] = radio.value;
+        // Cancel button
+        dropdown.querySelector('.cancel').addEventListener('click', ()=>{
+            // Reset checkboxes to previous filter
+            checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>{
+                c.checked = !filters[idx] || filters[idx].includes(c.value);
             });
+            // Reset sort radios
+            const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
+            radios.forEach(r=>r.checked = sortState[idx]===r.value);
+            dropdown.style.display='none';
         });
     });
 
-    // Apply filters and sort when dropdown is closed (click outside)
-    document.addEventListener('click', ()=>{
-        document.querySelectorAll('.dropdown').forEach(d=>{
-            if(d.style.display==='block'){
-                d.style.display='none';
-            }
-        });
-
+    function applyFiltersAndSort(){
         const rowsArr = Array.from(table.tBodies[0].rows);
         rowsArr.forEach(row=>{
             let show = true;
@@ -238,7 +246,7 @@ fetch(csvPath)
         });
 
         // Apply sorting
-        sortState.forEach((dir, i)=>{
+        sortState.forEach((dir,i)=>{
             if(dir){
                 const ascending = dir==='asc';
                 const rowsSorted = Array.from(table.tBodies[0].rows)
@@ -247,7 +255,15 @@ fetch(csvPath)
                 rowsSorted.forEach(r=>table.tBodies[0].appendChild(r));
             }
         });
+    }
+
+    // Close dropdowns if clicked outside
+    document.addEventListener('click', ()=>{
+        document.querySelectorAll('.dropdown').forEach(d=>{
+            if(d.style.display==='block') d.style.display='none';
+        });
     });
+
 })
 .catch(err=>{
     console.error(err);
