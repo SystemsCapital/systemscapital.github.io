@@ -250,6 +250,8 @@ fetch(csvPath)
 
     function applyFiltersAndSort(){
         const rowsArr = Array.from(table.tBodies[0].rows);
+
+        // Apply filters
         rowsArr.forEach(row=>{
             let show = true;
             filters.forEach((vals, i)=>{
@@ -258,7 +260,7 @@ fetch(csvPath)
             row.style.display = show?'':'none';
         });
 
-        // Sort only visible rows
+        // Sort each column independently if a sort is active
         sortState.forEach((dir,i)=>{
             if(dir){
                 const ascending = dir==='asc';
@@ -291,7 +293,5 @@ fetch(csvPath)
     document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
-
-
 </body>
 </html>
