@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Systems Capital</title>
+    <title>Home Page</title>
+    <!-- Favicon as flower -->
+    <link rel="icon" type="image/png" href="flower.png">
+
     <style>
         body {
             background: White;
@@ -11,28 +14,46 @@
             flex-direction: column;
             align-items: center;
         }
+
         h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
         h2 { color: #AbABAB; text-align: center; padding-top: 5%; font-size: 20px; }
 
-        /* Flower button */
-        .flower-btn { position: relative; background: none; border: none; cursor: pointer; padding: 40px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
+        /* Flower button styling */
+        .flower-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
         .flower-btn:hover { opacity: 0.8; }
         .flower { position: relative; width: 200px; height: 200px; transition: transform 0.8s ease; }
         .circle { width: 100px; height: 100px; border: 3px solid gray; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .circle-0 { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
-        .circle-45 { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
-        .circle-90 { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg)   translate(0, -50px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg)  translate(0, -50px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg)  translate(0, -50px); }
         .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
         .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
         .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        /* Table styling */
-        #csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
+        /* CSV table styling */
+        #csv-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            width: 100%;
+            overflow-x: auto;
+        }
         table { border-collapse: collapse; width: 90%; max-width: 1200px; }
         th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
-        th { background: #f9f9f9; }
+        th { background: #f9f9f9; cursor: pointer; }
         .filter-icon { cursor: pointer; margin-left: 5px; font-weight: bold; }
         .dropdown {
             display: none;
@@ -62,7 +83,15 @@
 <body>
 
 <h1>Systems Capital</h1>
-<h2>Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm.</h2>
+<h2>
+Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm. 
+<br><br>
+Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information, and world class performance.
+<br><br>
+Through the use of our proprietary research models, we are able to invest with the best of industry, and identify them far before they meet their full potential.  
+<br><br>
+Our approach allows us to assist great people when they need it and to develop lasting ownership relationships with industry leading companies from early on.
+</h2>
 
 <div style="text-align:center; padding:15px;">
     <button class="flower-btn" onclick="rotateFlower()" type="button">
@@ -87,6 +116,7 @@ function rotateFlower() {
 }
 </script>
 
+<!-- CSV Table Section -->
 <div id="csv-container">
   <h2>Monthly Returns from Past 5 years of S&P 500 Companies</h2>
   <table id="csv-table"></table>
@@ -94,6 +124,7 @@ function rotateFlower() {
 
 <script>
 const csvPath = 'data/SQL_Results.csv';
+
 fetch(csvPath)
 .then(res => res.text())
 .then(text => {
@@ -125,9 +156,8 @@ fetch(csvPath)
     table.innerHTML = header + body;
 
     const ths = table.querySelectorAll('th');
-
-    // Store filters to apply on close
     const filters = Array(rows[0].length).fill(null);
+    const sortState = Array(rows[0].length).fill(null);
 
     ths.forEach(th=>{
         const idx = parseInt(th.dataset.col);
@@ -175,7 +205,7 @@ fetch(csvPath)
             dropdown.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
         });
 
-        // Store checkbox selections
+        // Store selections
         dropdown.querySelectorAll('input[type=checkbox]').forEach(chk=>{
             chk.addEventListener('change', ()=>{
                 filters[idx] = Array.from(dropdown.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
@@ -185,12 +215,12 @@ fetch(csvPath)
         // Store sort selection
         dropdown.querySelectorAll('input[type=radio]').forEach(radio=>{
             radio.addEventListener('change', ()=>{
-                filters[idx+'_sort'] = radio.value;
+                sortState[idx] = radio.value;
             });
         });
     });
 
-    // Apply filters and sort when clicking outside
+    // Apply filters and sort when dropdown is closed (click outside)
     document.addEventListener('click', ()=>{
         document.querySelectorAll('.dropdown').forEach(d=>{
             if(d.style.display==='block'){
@@ -198,7 +228,6 @@ fetch(csvPath)
             }
         });
 
-        // Apply filtering
         const rowsArr = Array.from(table.tBodies[0].rows);
         rowsArr.forEach(row=>{
             let show = true;
@@ -209,23 +238,22 @@ fetch(csvPath)
         });
 
         // Apply sorting
-        filters.forEach((_, i)=>{
-            if(filters[i+'_sort']){
-                const ascending = filters[i+'_sort']==='asc';
-                const rowsSorted = Array.from(table.tBodies[0].rows).sort((a,b)=>{
-                    return ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent) :
-                                       b.cells[i].textContent.localeCompare(a.cells[i].textContent);
-                });
+        sortState.forEach((dir, i)=>{
+            if(dir){
+                const ascending = dir==='asc';
+                const rowsSorted = Array.from(table.tBodies[0].rows)
+                    .sort((a,b)=> ascending ? a.cells[i].textContent.localeCompare(b.cells[i].textContent)
+                                             : b.cells[i].textContent.localeCompare(a.cells[i].textContent));
                 rowsSorted.forEach(r=>table.tBodies[0].appendChild(r));
             }
         });
     });
-
 })
 .catch(err=>{
     console.error(err);
     document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
+
 </body>
 </html>
