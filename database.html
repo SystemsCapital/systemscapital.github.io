@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database</title>
+    <style>
+        body {
+            background: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 { color: #AbABAB; text-align: center; }
+        #csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
+        table { border-collapse: collapse; width: 90%; max-width: 1200px; }
+        th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; }
+        th { background: #f9f9f9; }
+        @media screen and (max-width: 768px) {
+            table { width: 100%; }
+            #csv-container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Monthly Returns from Past 5 Years of S&P 500 Companies</h1>
+<div id="csv-container">
+  <table id="csv-table"></table>
+</div>
+
+<script>
+const csvPath = 'data/SQL_Results.csv?version=' + new Date().getTime();
+
+function formatDisplay(val, headerName) {
+    const colName = headerName.toLowerCase();
+    if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) return (parseFloat(val)*100).toFixed(2)+'%';
+    if (!isNaN(val) && colName.includes('percentile')) return parseFloat(val).toFixed(2)+'%';
+    return val;
+}
+
+fetch(csvPath)
+.then(res => res.text())
+.then(text => {
+    const rows = text.trim().split(/\r?\n/).map(r=>r.split(','));
+    const table = document.getElementById('csv-table');
+
+    let header = '<thead><tr>';
+    rows[0].forEach(col => { header += `<th>${col}</th>`; });
+    header += '</tr></thead>';
+
+    let body = '<tbody>';
+    for (let i=1;i<rows.length;i++){
+        body += '<tr>';
+        rows[i].forEach((c,j)=> body+=`<td>${formatDisplay(c, rows[0][j])}</td>`);
+        body += '</tr>';
+    }
+    body += '</tbody>';
+    table.innerHTML = header + body;
+})
+.catch(err => {
+    console.error(err);
+    document.getElementById('csv-container').innerHTML =
+        '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+});
+</script>
+
+</body>
+</html>
