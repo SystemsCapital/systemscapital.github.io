@@ -88,6 +88,30 @@ Our approach allows us to assist great people when they need it and to develop l
         </span>
     </button>
 </div>
+
+<script>
+  var links = [
+    "mailto:eric@systemscapital.net"
+  ];
+  function openLink() {
+    window.location.href = links[0]; 
+  }
+  let rotation = 0;
+  function rotateFlower() {
+    rotation -= 45; // counter-clockwise
+    document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+  }
+</script>
+<br></br>
+  <script>
+  var links = [
+    "mailto:eric@systemscapital.net",
+  ];
+  function openLink() {
+    var i = parseInt(Math.random() * links.length);
+    window.open(links[i], '_blank');
+  }
+  </script>
 <div style="text-align:center; padding:40px;">
     <a href="data.html" style="font-size:24px; color:#555; text-decoration:none;">
         ➤ View Data
