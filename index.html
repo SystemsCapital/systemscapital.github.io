@@ -28,38 +28,30 @@
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        #csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
-        table { border-collapse: collapse; width: 90%; max-width: 1200px; }
-        th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
-        th { background: #f9f9f9; cursor: pointer; }
-        .filter-icon { margin-left: 5px; font-weight: bold; }
-
-        .dropdown-container { position: relative; }
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            border: 1px solid #AbABAB;
-            z-index: 1000;
-            max-height: 250px;
-            overflow-y: auto;
-            min-width: 180px;
-            padding: 5px;
-        }
-        .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-        .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
-        .dropdown label:hover { background-color: #f0f0f0; }
-        .dropdown label:nth-child(even) { background-color: #fafafa; }
-        .dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
-        .dropdown button { width: 48%; margin: 2px 1%; }
-
         @media screen and (max-width: 768px) {
             table { width: 100%; }
             #csv-container { padding: 20px; }
         }
     </style>
+
+    <script>
+        let rotation = 0;
+
+        function handleFlowerClick() {
+            rotateFlower();
+
+            // delay email opening until rotation animation starts
+            setTimeout(() => {
+                window.location.href = "mailto:eric@systemscapital.net";
+            }, 300);
+        }
+
+        function rotateFlower() {
+            rotation -= 45;
+            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
+
 </head>
 <body>
 
@@ -75,7 +67,7 @@ Our approach allows us to assist great people when they need it and to develop l
 </h2>
 
 <div style="text-align:center; padding:15px;">
-    <button class="flower-btn" onclick="rotateFlower()" type="button">
+    <button class="flower-btn" onclick="handleFlowerClick()" type="button">
         <span class="flower" id="flower">
             <span class="circle circle-0"></span>
             <span class="circle circle-45"></span>
@@ -94,3 +86,6 @@ Our approach allows us to assist great people when they need it and to develop l
         ➤ View Data
     </a>
 </div>
+
+</body>
+</html>
