@@ -55,7 +55,6 @@
         .dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
         .dropdown button { width: 48%; margin: 2px 1%; }
 
-        @media screen and (max-width: 768px) { table { width: 100%; } #csv-container { padding: 20px; } }
         @media screen and (max-width: 768px) {
             table { width: 100%; }
             #csv-container { padding: 20px; }
@@ -67,7 +66,42 @@
 <h1>Systems Capital</h1>
 <h2>
 Thank you for visiting. This site has been intentionally left sparse as we are focused on building out internal operations of the firm. 
-@@ -101,183 +105,218 @@
+<br><br>
+Systems Capital manages investments through an ethic that champions great people, strong principles, long-term visions, full and accurate information, and world class performance.
+<br><br>
+Through the use of our proprietary research models, we are able to invest with the best of industry, and identify them far before they meet their full potential.  
+<br><br>
+Our approach allows us to assist great people when they need it and to develop lasting ownership relationships with industry leading companies from early on.
+</h2>
+
+<div style="text-align:center; padding:15px;">
+    <button class="flower-btn" onclick="rotateFlower()" type="button">
+        <span class="flower" id="flower">
+            <span class="circle circle-0"></span>
+            <span class="circle circle-45"></span>
+            <span class="circle circle-90"></span>
+            <span class="circle circle-135"></span>
+            <span class="circle circle-180"></span>
+            <span class="circle circle-225"></span>
+            <span class="circle circle-270"></span>
+            <span class="circle circle-315"></span>
+        </span>
+    </button>
+</div>
+
+<script>
+let rotation = 0;
+function rotateFlower() {
+    rotation -= 45;
+    document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+}
+</script>
+
+<div id="csv-container">
+  <h2>Monthly Returns from Past 5 years of S&P 500 Companies</h2>
+  <table id="csv-table"></table>
+</div>
+
 <script>
 const csvPath = 'data/SQL_Results.csv?version=' + new Date().getTime();
 
@@ -91,18 +125,8 @@ fetch(csvPath)
     const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
     const table = document.getElementById('csv-table');
 
-    // Build header
     // ----------------------- BUILD HEADER -------------------------
     let header = '<thead><tr>';
-    rows[0].forEach((col, idx)=>{
-        header += `<th data-col="${idx}" class="dropdown-container">${col} <span class="filter-icon">&#x25BC;</span>
-            <div class="dropdown">
-                <button class="select-all">Select All</button>
-                <input type="text" placeholder="Search">
-                <div class="checkboxes"></div>
-                <div class="buttons">
-                    <button class="apply">Apply</button>
-                    <button class="cancel">Cancel</button>
     rows[0].forEach((col, idx) => {
         header += `
             <th data-col="${idx}" class="dropdown-container">
@@ -116,35 +140,17 @@ fetch(csvPath)
                         <button class="cancel">Cancel</button>
                     </div>
                 </div>
-            </div>
-        </th>`;
             </th>`;
     });
     header += '</tr></thead>';
 
-    // Build body with data-value for numeric sorting
     // ----------------------- BUILD BODY -------------------------
     let body = '<tbody>';
-    for(let i=1; i<rows.length; i++){
-        if(rows[i].length > 1){
     for (let i = 1; i < rows.length; i++) {
         if (rows[i].length > 1) {
             body += '<tr>';
-            rows[i].forEach((c, colIdx)=>{
-                let value = c;
-                const colName = rows[0][colIdx].toLowerCase();
-                let dataValue = c;
-
-                if(!isNaN(c) && c.trim() !== '' && !colName.includes('percentile')){
-                    value = (parseFloat(c) * 100).toFixed(2) + '%';
-                    dataValue = parseFloat(c);
-                } else if(!isNaN(c) && colName.includes('percentile')) {
-                    value = parseFloat(c).toFixed(2) + '%';
-                    dataValue = parseFloat(c);
-                }
             rows[i].forEach((c, colIdx) => {
 
-                body += `<td data-value="${dataValue}">${value}</td>`;
                 const rawVal = c;
                 const headerName = rows[0][colIdx];
                 const displayVal = formatDisplay(rawVal, headerName);
@@ -158,14 +164,12 @@ fetch(csvPath)
 
     table.innerHTML = header + body;
 
-    // Filters & sorting
     // ----------------------- FILTERS & SORTING -------------------------
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
     const sortState = Array(rows[0].length).fill(null);
     let lastSortedColumn = null;
 
-    ths.forEach(th=>{
     ths.forEach(th => {
 
         const idx = parseInt(th.dataset.col);
@@ -176,12 +180,8 @@ fetch(csvPath)
         // Populate unique checkbox values
         const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
 
-        // Populate checkboxes
-        const unique = Array.from(new Set(rows.slice(1).map(r=>r[idx]))).sort();
-        unique.forEach(val=>{
         unique.forEach(val => {
             const label = document.createElement('label');
-            label.innerHTML = `<input type="checkbox" value="${val}" checked> ${val}`;
             label.innerHTML = `
                 <input type="checkbox" value="${val}" checked>
                 ${formatDisplay(val, headerName)}
@@ -190,41 +190,26 @@ fetch(csvPath)
         });
 
         // Sorting radios
-        const sortAsc = document.createElement('label');
-        sortAsc.innerHTML = `<input type="radio" name="sort${idx}" value="asc"> Sort Asc`;
-        const sortDesc = document.createElement('label');
-        sortDesc.innerHTML = `<input type="radio" name="sort${idx}" value="desc"> Sort Desc`;
-        checkboxContainer.insertBefore(sortAsc, checkboxContainer.firstChild);
-        checkboxContainer.insertBefore(sortDesc, checkboxContainer.firstChild.nextSibling);
         checkboxContainer.insertAdjacentHTML('afterbegin', `
             <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
             <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
         `);
 
         // Dropdown toggle
-        th.addEventListener('click', e=>{
         th.addEventListener('click', e => {
             e.stopPropagation();
-            document.querySelectorAll('.dropdown').forEach(d=>{
-                if(d!==dropdown) d.style.display='none';
             document.querySelectorAll('.dropdown').forEach(d => {
                 if (d !== dropdown) d.style.display = 'none';
             });
-            dropdown.style.display = dropdown.style.display==='block' ? 'none' : 'block';
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
-        dropdown.addEventListener('click', e=> e.stopPropagation());
 
-        // Search input
         dropdown.addEventListener('click', e => e.stopPropagation());
 
         // Search box inside dropdown
         const searchInput = dropdown.querySelector('input[type=text]');
-        searchInput.addEventListener('keyup', ()=>{
         searchInput.addEventListener('keyup', () => {
             const filterText = searchInput.value.toLowerCase();
-            checkboxContainer.querySelectorAll('label').forEach(label=>{
-                if(label.querySelector('input[type=checkbox]')){
             checkboxContainer.querySelectorAll('label').forEach(label => {
                 const cb = label.querySelector('input[type=checkbox]');
                 if (cb) {
@@ -234,21 +219,14 @@ fetch(csvPath)
             });
         });
 
-        // Select/Deselect all
-        dropdown.querySelector('.select-all').addEventListener('click', e=>{
         // Select all / Deselect all
         dropdown.querySelector('.select-all').addEventListener('click', e => {
             e.stopPropagation();
-            const allChecked = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]')).every(c=>c.checked);
-            checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>c.checked=!allChecked);
             const checkboxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
             const allChecked = Array.from(checkboxes).every(c => c.checked);
             checkboxes.forEach(c => c.checked = !allChecked);
         });
 
-        // Apply button
-        dropdown.querySelector('.apply').addEventListener('click', ()=>{
-            filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
         // Apply filters/sort
         dropdown.querySelector('.apply').addEventListener('click', () => {
 
@@ -259,19 +237,14 @@ fetch(csvPath)
 
             const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
 
-            // Only one column sorted at a time
             sortState.fill(null);
             sortState[idx] = selectedSort ? selectedSort.value : null;
             lastSortedColumn = idx;
 
             applyFiltersAndSort();
-            dropdown.style.display='none';
             dropdown.style.display = 'none';
         });
 
-        // Cancel button
-        dropdown.querySelector('.cancel').addEventListener('click', ()=>{
-            checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c=>{
         // Cancel handler
         dropdown.querySelector('.cancel').addEventListener('click', () => {
 
@@ -280,15 +253,11 @@ fetch(csvPath)
             });
 
             const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
-            radios.forEach(r=>r.checked = sortState[idx]===r.value);
-            dropdown.style.display='none';
             radios.forEach(r => r.checked = sortState[idx] === r.value);
 
             dropdown.style.display = 'none';
         });
-    });
 
-    function applyFiltersAndSort(){
     }); // end th loop
 
     // ---------------- APPLY FILTERS + SORT -----------------
@@ -296,13 +265,9 @@ fetch(csvPath)
 
         const rowsArr = Array.from(table.tBodies[0].rows);
 
-        // Apply filters
-        rowsArr.forEach(row=>{
         // Apply filters using data-value (IMPORTANT FIX)
         rowsArr.forEach(row => {
             let show = true;
-            filters.forEach((vals, i)=>{
-                if(vals && !vals.includes(row.cells[i].textContent)) show=false;
 
             filters.forEach((vals, colIdx) => {
                 if (vals) {
@@ -310,16 +275,10 @@ fetch(csvPath)
                     if (!vals.includes(cellVal)) show = false;
                 }
             });
-            row.style.display = show?'':'none';
 
             row.style.display = show ? '' : 'none';
         });
 
-        // Apply sorting for last sorted column
-        if(lastSortedColumn !== null){
-            const dir = sortState[lastSortedColumn];
-            const ascending = dir === 'asc';
-            const visibleRows = rowsArr.filter(r=>r.style.display!=='none');
         // Sort
         if (lastSortedColumn !== null) {
             const direction = sortState[lastSortedColumn];
@@ -327,7 +286,6 @@ fetch(csvPath)
 
             const visible = rowsArr.filter(r => r.style.display !== 'none');
 
-            visibleRows.sort((a,b)=>{
             visible.sort((a, b) => {
                 const aVal = a.cells[lastSortedColumn].dataset.value;
                 const bVal = b.cells[lastSortedColumn].dataset.value;
@@ -335,37 +293,26 @@ fetch(csvPath)
                 const aNum = parseFloat(aVal);
                 const bNum = parseFloat(bVal);
 
-                if(!isNaN(aNum) && !isNaN(bNum)){
                 if (!isNaN(aNum) && !isNaN(bNum)) {
                     return ascending ? aNum - bNum : bNum - aNum;
-                } else {
-                    return ascending 
-                           ? a.cells[lastSortedColumn].textContent.localeCompare(b.cells[lastSortedColumn].textContent)
-                           : b.cells[lastSortedColumn].textContent.localeCompare(a.cells[lastSortedColumn].textContent);
                 }
                 return ascending
                     ? aVal.localeCompare(bVal)
                     : bVal.localeCompare(aVal);
             });
 
-            visibleRows.forEach(r=>table.tBodies[0].appendChild(r));
             visible.forEach(r => table.tBodies[0].appendChild(r));
         }
     }
 
-    document.addEventListener('click', ()=>{
-        document.querySelectorAll('.dropdown').forEach(d=> d.style.display='none');
     // Hide dropdowns on outside click
     document.addEventListener('click', () => {
         document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
     });
 
-})
-.catch(err=>{
 }) // end fetch
 .catch(err => {
     console.error(err);
-    document.getElementById('csv-container').innerHTML='<p style="color:red; text-align:center;">Failed to load CSV.</p>';
     document.getElementById('csv-container').innerHTML =
         '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
