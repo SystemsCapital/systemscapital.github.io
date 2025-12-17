@@ -64,9 +64,19 @@
 <div style="text-align:center; padding:10px;">
     <a href="index.html" style="font-size:20px; text-decoration:none; color:#555;">← Back to Home</a>
 </div>
-
 <div id="csv-container">
     <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+
+    <!-- DOWNLOAD CSV BUTTON -->
+    <button id="download-csv" style="
+        margin-bottom:15px;
+        padding:8px 16px;
+        font-size:16px;
+        cursor:pointer;
+    ">
+        Download CSV
+    </button>
+
     <table id="csv-table"></table>
 </div>
 
@@ -278,7 +288,45 @@ fetch(csvPath)
         document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
     });
 
-})
+    /* ---------------- DOWNLOAD CSV ----------------- */
+document.getElementById('download-csv').addEventListener('click', () => {
+
+    const table = document.getElementById('csv-table');
+    let csv = [];
+
+    // Headers
+    const headers = Array.from(table.querySelectorAll('thead th'))
+        .map(th => `"${th.childNodes[0].textContent.trim()}"`);
+    csv.push(headers.join(','));
+
+    // Only visible (filtered) rows
+    const rows = Array.from(table.tBodies[0].rows)
+        .filter(row => row.style.display !== 'none');
+
+    rows.forEach(row => {
+        const values = Array.from(row.cells).map(cell =>
+            `"${cell.dataset.value.replace(/"/g, '""')}"`
+        );
+        csv.push(values.join(','));
+    });
+
+    // Download
+    const blob = new Blob([csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'filtered_data.csv';
+    document.body.appendChild(a);
+    a.click();
+
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+
+   
+});
+
 .catch(err => {
     console.error(err);
     document.getElementById('csv-container').innerHTML =
