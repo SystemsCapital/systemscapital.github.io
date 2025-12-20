@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ======================
+         CORE METADATA (SEO)
+    ======================= -->
+    <meta charset="UTF-8">
+
+    <!-- PAGE-SPECIFIC TITLE (EDIT PER PAGE) -->
+    <title>{{PAGE TITLE}} | Systems Capital</title>
+
+    <!-- PAGE-SPECIFIC DESCRIPTION (EDIT PER PAGE) -->
+    <meta name="description" content="{{ONE-SENTENCE DESCRIPTION OF THIS PAGE}}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CANONICAL URL (EDIT PER PAGE) -->
+    <link rel="canonical" href="https://systemscapital.net/{{PAGE-SLUG}}.html" />
+
+    <!-- ROBOTS -->
+    <meta name="robots" content="index, follow">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+
+    <!-- OPEN GRAPH (OPTIONAL BUT RECOMMENDED) -->
+    <meta property="og:title" content="{{PAGE TITLE}} | Systems Capital">
+    <meta property="og:description" content="{{ONE-SENTENCE DESCRIPTION OF THIS PAGE}}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://systemscapital.net/{{PAGE-SLUG}}.html">
+
+    <!-- ======================
+         STYLES
+    ======================= -->
+    <style>
+        body {
+            background: white;
+            font-family: 'Century Schoolbook', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo-container {
+            padding: 14px;
+        }
+
+        .flower-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .flower-btn:hover {
+            opacity: 0.85;
+        }
+
+        .flower {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+
+        .flower:hover {
+            transform: rotate(-45deg);
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border: 2px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
+        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
+        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
+        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
+        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
+        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
+
+        /* NAVIGATION */
+        nav {
+            margin-left: 30px;
+            font-size: 16px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #666;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ABABAB;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #ABABAB;
+            font-size: 22px;
+            margin-top: 40px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+        }
+
+        footer {
+            margin: 60px 0 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+
+    <!-- ======================
+         SCRIPT
+    ======================= -->
+    <script>
+        let rotation = 0;
+
+        function handleLogoClick() {
+            rotateFlower();
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200);
+        }
+
+        function rotateFlower() {
+            rotation -= 45;
+            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
+</head>
+
+<body>
+
+<!-- ======================
+     HEADER
+======================= -->
+<header class="header">
+    <div class="logo-container">
+        <button class="flower-btn" onclick="handleLogoClick()" aria-label="Systems Capital Home">
+            <span class="flower" id="flower">
+                <span class="circle circle-0"></span>
+                <span class="circle circle-45"></span>
+                <span class="circle circle-90"></span>
+                <span class="circle circle-135"></span>
+                <span class="circle circle-180"></span>
+                <span class="circle circle-225"></span>
+                <span class="circle circle-270"></span>
+                <span class="circle circle-315"></span>
+            </span>
+        </button>
+    </div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/Pages/Tools.html">Tools</a>
+    </nav>
+</header>
+
+<!-- ======================
+     MAIN CONTENT
+======================= -->
+<main class="content">
+
+    <!-- EXACTLY ONE H1 PER PAGE -->
+    <h1>{{PAGE TITLE}}</h1>
+
+    <p>
+        {{INTRO PARAGRAPH – CLEAR, HUMAN, KEYWORD-ALIGNED}}
+    </p>
+
+    <h2>{{SECTION TITLE}}</h2>
+    <p>
+        {{SECTION CONTENT}}
+    </p>
+
+</main>
+
+<footer>
+    © Systems Capital Inc. · Investment Research · Financial Tools · Education
+</footer>
+
+</body>
+</html>
