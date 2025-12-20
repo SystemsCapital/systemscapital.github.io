@@ -87,7 +87,6 @@ nav a:hover { text-decoration: underline; }
 display: flex;
 flex-direction: column;
 align-items: center;
-@@ -27,7 +100,7 @@
 color: #ABABAB;
 text-align: center;
 padding: 20px 0;
@@ -96,7 +95,6 @@ padding: 20px 0;
 margin: 0;
 }
 
-@@ -44,29 +117,36 @@
 }
 
 /* TABLE CONTAINER */
@@ -146,7 +144,6 @@ padding: 5px;
 }
 
 .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-@@ -78,30 +158,70 @@
 .dropdown button { width: 48%; margin: 2px 1%; }
 
 @media screen and (max-width: 768px) {
@@ -231,7 +228,6 @@ const csvPath = '/data/SQL_Results.csv?version=' + new Date().getTime();
 function formatDisplay(val, headerName) {
 const colName = headerName.toLowerCase();
 if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
-@@ -119,7 +239,6 @@
 const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
 const table = document.getElementById('csv-table');
 
@@ -239,7 +235,6 @@ const table = document.getElementById('csv-table');
 let header = '<thead><tr>';
 rows[0].forEach((col, idx) => {
 header += `
-@@ -138,7 +257,6 @@
 });
 header += '</tr></thead>';
 
@@ -247,7 +242,6 @@ header += '</tr></thead>';
 let body = '<tbody>';
 for (let i = 1; i < rows.length; i++) {
 if (rows[i].length > 1) {
-@@ -156,7 +274,6 @@
 
 table.innerHTML = header + body;
 
@@ -255,7 +249,6 @@ table.innerHTML = header + body;
 const ths = table.querySelectorAll('th');
 const filters = Array(rows[0].length).fill(null);
 const sortState = Array(rows[0].length).fill(null);
-@@ -168,32 +285,26 @@
 const checkboxContainer = th.querySelector('.checkboxes');
 const headerName = rows[0][idx];
 
@@ -289,7 +282,6 @@ dropdown.addEventListener('click', e => e.stopPropagation());
 const searchInput = dropdown.querySelector('input[type=text]');
 searchInput.addEventListener('keyup', () => {
 const filterText = searchInput.value.toLowerCase();
-@@ -206,15 +317,13 @@
 });
 });
 
@@ -305,7 +297,6 @@ checkboxes.forEach(c => c.checked = !allChecked);
 dropdown.querySelector('.apply').addEventListener('click', () => {
 filters[idx] = Array.from(
 checkboxContainer.querySelectorAll('input[type=checkbox]:checked')
-@@ -229,7 +338,6 @@
 dropdown.style.display = 'none';
 });
 
@@ -313,7 +304,6 @@ dropdown.style.display = 'none';
 dropdown.querySelector('.cancel').addEventListener('click', () => {
 checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
 c.checked = !filters[idx] || filters[idx].includes(c.value);
-@@ -240,11 +348,9 @@
 });
 });
 
@@ -325,7 +315,6 @@ const rowsArr = Array.from(table.tBodies[0].rows);
 rowsArr.forEach(row => {
 let show = true;
 filters.forEach((vals, colIdx) => {
-@@ -256,7 +362,6 @@
 row.style.display = show ? '' : 'none';
 });
 
@@ -333,7 +322,6 @@ row.style.display = show ? '' : 'none';
 if (lastSortedColumn !== null) {
 const direction = sortState[lastSortedColumn];
 const ascending = direction === 'asc';
-@@ -279,18 +384,16 @@
 }
 }
 
