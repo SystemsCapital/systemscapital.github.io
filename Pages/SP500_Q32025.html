@@ -44,100 +44,46 @@ h2 {
 }
 
 /* TABLE CONTAINER */
-#csv-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    width: 100%;
-    overflow-x: auto;
-}
+#csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
 
 /* TABLE */
-table {
-    border-collapse: collapse;
-    width: 95%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-th, td {
-    border: 1px solid #ABABAB;
-    padding: 8px 12px;
-    text-align: center;
-    position: relative;
-}
-
-th {
-    background: #f9f9f9;
-    cursor: pointer;
-}
+table { border-collapse: collapse; width: 90%; max-width: 1200px; }
+th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
+th { background: #f9f9f9; cursor: pointer; }
 
 /* DROPDOWN FILTER UI */
-.filter-icon {
-    margin-left: 5px;
-    font-weight: bold;
-}
-
-.dropdown-container {
-    position: relative;
-}
+.filter-icon { margin-left: 5px; font-weight: bold; }
+.dropdown-container { position: relative; }
 
 .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ABABAB;
-    z-index: 1000;
-    max-height: 250px;
-    overflow-y: auto;
-    min-width: 180px;
-    padding: 5px;
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background: white;
+border: 1px solid #AbABAB;
+z-index: 1000;
+max-height: 250px;
+overflow-y: auto;
+min-width: 180px;
+padding: 5px;
 }
 
-.dropdown input[type="text"] {
-    width: 90%;
-    margin-bottom: 5px;
-}
+.dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
+.dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
+.dropdown label:hover { background-color: #f0f0f0; }
+.dropdown label:nth-child(even) { background-color: #fafafa; }
 
-.dropdown label {
-    display: block;
-    padding: 2px 5px;
-    cursor: pointer;
-}
-
-.dropdown label:hover {
-    background-color: #f0f0f0;
-}
-
-.dropdown label:nth-child(even) {
-    background-color: #fafafa;
-}
-
-.dropdown .buttons {
-    position: sticky;
-    bottom: 0;
-    background: white;
-    padding-top: 5px;
-}
-
-.dropdown button {
-    width: 48%;
-    margin: 2px 1%;
-}
+.dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
+.dropdown button { width: 48%; margin: 2px 1%; }
 
 @media screen and (max-width: 768px) {
-    table {
-        width: 100%;
-    }
-    #csv-container {
-        padding: 20px;
-    }
+table { width: 100%; }
+#csv-container { padding: 20px; }
 }
 </style>
 </head>
+
 
 <body>
 
