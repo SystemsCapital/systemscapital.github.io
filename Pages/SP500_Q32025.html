@@ -1,21 +1,93 @@
 <!DOCTYPE html>
+<html>
 <html lang="en">
 <head>
+    <title>Data Table</title>
+    <title>Available Data</title>
+
+<style>
+body {
+background: White;
+font-family: Arial, sans-serif;
+margin: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
+h2 { color: #AbABAB; text-align: center; padding: 20px; font-size: 20px; }
+
+/* TABLE CONTAINER */
+#csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
+
+/* TABLE */
+table { border-collapse: collapse; width: 90%; max-width: 1200px; }
+th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
+th { background: #f9f9f9; cursor: pointer; }
+
+/* DROPDOWN FILTER UI */
+.filter-icon { margin-left: 5px; font-weight: bold; }
+.dropdown-container { position: relative; }
+
+.dropdown {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background: white;
+border: 1px solid #AbABAB;
+z-index: 1000;
+max-height: 250px;
+overflow-y: auto;
+min-width: 180px;
+padding: 5px;
+}
+
+.dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
+.dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
+.dropdown label:hover { background-color: #f0f0f0; }
+.dropdown label:nth-child(even) { background-color: #fafafa; }
+
+.dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
+.dropdown button { width: 48%; margin: 2px 1%; }
+
+@media screen and (max-width: 768px) {
+table { width: 100%; }
+#csv-container { padding: 20px; }
+}
+</style>
+    <!-- ======================
+         CORE METADATA (SEO)
+    ======================= -->
     <meta charset="UTF-8">
+
+    <!-- PAGE-SPECIFIC TITLE (EDIT PER PAGE) -->
     <title>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</title>
 
+    <!-- PAGE-SPECIFIC DESCRIPTION (EDIT PER PAGE) -->
     <meta name="description" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CANONICAL URL (EDIT PER PAGE) -->
     <link rel="canonical" href="https://www.systemscapital.net/Pages/SP500_Q32025.html" />
+
+    <!-- ROBOTS -->
     <meta name="robots" content="index, follow">
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 
-    <meta property="og:title" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years | Systems Capital">
-    <meta property="og:description" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years">
+    <!-- OPEN GRAPH (OPTIONAL BUT RECOMMENDED) -->
+    <meta property="og:title" content="{S&P 500 Average Statistics on a Monthly basis for the past 5 years} | Systems Capital">
+    <meta property="og:description" content="{S&P 500 Average Statistics on a Monthly basis for the past 5 years}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.systemscapital.net/Pages/SP500_Q32025.html">
 
+    <!-- ======================
+         STYLES
+    ======================= -->
     <style>
         body {
             background: white;
@@ -24,10 +96,64 @@
             padding: 0;
         }
 
+        /* HEADER */
         .header {
             display: flex;
             align-items: center;
             padding: 20px;
+        }
+
+        .logo-container {
+            padding: 14px;
+        }
+
+        .flower-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .flower-btn:hover {
+            opacity: 0.85;
+        }
+
+        .flower {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+
+        .flower:hover {
+            transform: rotate(-45deg);
+        }
+
+        .circle {
+            width: 30px;
+            height: 30px;
+            border: 2px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
+        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
+        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
+        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
+        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
+        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
+
+        /* NAVIGATION */
+        nav {
+            margin-left: 30px;
+            font-size: 16px;
         }
 
         nav a {
@@ -40,50 +166,28 @@
             text-decoration: underline;
         }
 
+        /* PAGE CONTENT */
         .content {
             max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        h1, h2 {
+        h1 {
             color: #ABABAB;
+            font-size: 36px;
         }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
+        h2 {
+            color: #ABABAB;
+            font-size: 22px;
+            margin-top: 40px;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        th {
-            background: #f5f5f5;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            z-index: 1000;
-            padding: 8px;
-            max-height: 300px;
-            overflow-y: auto;
-            width: 200px;
-        }
-
-        .checkboxes label {
-            display: block;
-            font-size: 13px;
+        p {
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
         }
 
         footer {
@@ -93,152 +197,103 @@
             color: #777;
         }
     </style>
+
+    <!-- ======================
+         SCRIPT
+    ======================= -->
+    <script>
+        let rotation = 0;
+
+        function handleLogoClick() {
+            rotateFlower();
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 200);
+        }
+
+        function rotateFlower() {
+            rotation -= 45;
+            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+        }
+    </script>
 </head>
 
 <body>
 
+<h1>Data Table</h1>
+
+<div style="text-align:center; padding:10px;">
+<a href="index.html" style="font-size:20px; text-decoration:none; color:#555;">← Back to Home</a>
+</div>
+<!-- ======================
+     HEADER
+======================= -->
 <header class="header">
+    <div class="logo-container">
+        <button class="flower-btn" onclick="handleLogoClick()" aria-label="Systems Capital Home">
+            <span class="flower" id="flower">
+                <span class="circle circle-0"></span>
+                <span class="circle circle-45"></span>
+                <span class="circle circle-90"></span>
+                <span class="circle circle-135"></span>
+                <span class="circle circle-180"></span>
+                <span class="circle circle-225"></span>
+                <span class="circle circle-270"></span>
+                <span class="circle circle-315"></span>
+            </span>
+        </button>
+    </div>
+
     <nav>
         <a href="/">Home</a>
         <a href="/Pages/Tools.html">Tools</a>
     </nav>
 </header>
-
+    
+<!-- ======================
+     MAIN CONTENT
+======================= -->
 <main class="content">
 
-<h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
+    <!-- EXACTLY ONE H1 PER PAGE -->
+    <h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
 
-<p>
-    This was made using EXCEL, Python, SQL, and CSVs. The information is provided on an as-is basis.
-</p>
+    <p>
+        This was made using EXCEL, Python, SQL, and CSVs. The information is provided on an as-is basis and analyzed month-to-month closing prices of S&P 500 stocks.
+    </p>
 
 <div id="csv-container">
-    <h2>Data Table</h2>
-    <table id="csv-table"></table>
+<h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+<h2>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h2>
+<table id="csv-table"></table>
 </div>
 
-<script>
-const csvPath = '/data/SQL_Results.csv?version=' + new Date().getTime();
+@@ -112,7 +247,7 @@ <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+              </div>
+          </th>`;
+});
+header += '</tr></thead>';
+ += '</tr></thead>';
 
-function formatDisplay(val, headerName) {
-    const colName = headerName.toLowerCase();
+/* ----------------------- BUILD BODY ------------------------- */
+let body = '<tbody>';
+@@ -122,7 +257,7 @@ <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+rows[i].forEach((c, colIdx) => {
 
-    if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
-        return (parseFloat(val) * 100).toFixed(2) + '%';
-    }
-    if (!isNaN(val) && colName.includes('percentile')) {
-        return parseFloat(val).toFixed(2) + '%';
-    }
-    return val;
-}
+const rawVal = c;
+const headerName = rows[0][colIdx];
+const Name = rows[0][colIdx];
+const displayVal = formatDisplay(rawVal, headerName);
 
-fetch(csvPath)
-.then(res => res.text())
-.then(text => {
-
-    const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
-    const table = document.getElementById('csv-table');
-
-    /* ---------- HEADER ---------- */
-    let header = '<thead><tr>';
-    rows[0].forEach((col, idx) => {
-        header += `
-            <th data-col="${idx}">
-                ${col}
-                <div class="dropdown">
-                    <button class="select-all">Select All</button>
-                    <input type="text" placeholder="Search">
-                    <div class="checkboxes"></div>
-                    <button class="apply">Apply</button>
-                    <button class="cancel">Cancel</button>
-                </div>
-            </th>`;
-    });
-    header += '</tr></thead>';
-
-    /* ---------- BODY ---------- */
-    let body = '<tbody>';
-    for (let i = 1; i < rows.length; i++) {
-        if (rows[i].length > 1) {
-            body += '<tr>';
-            rows[i].forEach((c, colIdx) => {
-                const headerName = rows[0][colIdx];
-                body += `<td data-value="${c}">${formatDisplay(c, headerName)}</td>`;
-            });
-            body += '</tr>';
-        }
-    }
-    body += '</tbody>';
-
-    table.innerHTML = header + body;
-
-    /* ---------- FILTERS ---------- */
-    const ths = table.querySelectorAll('th');
-    const filters = Array(rows[0].length).fill(null);
-
-    ths.forEach(th => {
-        const idx = th.dataset.col;
-        const dropdown = th.querySelector('.dropdown');
-        const checkboxContainer = dropdown.querySelector('.checkboxes');
-        const headerName = rows[0][idx];
-
-        const unique = [...new Set(rows.slice(1).map(r => r[idx]))];
-
-        unique.forEach(val => {
-            const label = document.createElement('label');
-            label.innerHTML = `
-                <input type="checkbox" value="${val}" checked>
-                ${formatDisplay(val, headerName)}
-            `;
-            checkboxContainer.appendChild(label);
-        });
-
-        th.addEventListener('click', e => {
-            e.stopPropagation();
-            document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
-            dropdown.style.display = 'block';
-        });
-
-        dropdown.querySelector('.apply').addEventListener('click', () => {
-            filters[idx] = [...checkboxContainer.querySelectorAll('input:checked')].map(c => c.value);
-            applyFilters();
-            dropdown.style.display = 'none';
-        });
-
-        dropdown.querySelector('.cancel').addEventListener('click', () => {
-            dropdown.style.display = 'none';
-        });
-    });
-
-    function applyFilters() {
-        [...table.tBodies[0].rows].forEach(row => {
-            let show = true;
-            filters.forEach((vals, idx) => {
-                if (vals && !vals.includes(row.cells[idx].dataset.value)) {
-                    show = false;
-                }
-            });
-            row.style.display = show ? '' : 'none';
-        });
-    }
-
-    document.addEventListener('click', () => {
-        document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
-    });
-
-})
-.catch(err => {
-    console.error(err);
-    document.getElementById('csv-container').innerHTML =
-        '<p style="color:red;text-align:center;">Failed to load CSV.</p>';
+body += `<td data-value="${rawVal}">${displayVal}</td>`;
+@@ -286,6 +421,9 @@ <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+'<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
 </script>
 
 </main>
-
-<footer>
+    <footer>
     © Systems Capital Inc. · Investment Research · Financial Tools · Education
 </footer>
-
 </body>
 </html>
