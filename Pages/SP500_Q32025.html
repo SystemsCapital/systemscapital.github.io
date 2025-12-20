@@ -128,8 +128,15 @@ h2 {
 table { 
     border-collapse: collapse; 
     width: 100%; /* stretch to container width */
-    min-width: 900px; /* optional: keep table readable on wide screens */
+    min-width: 900px; /* prevent table shrinking */
 }
+
+/* Alternating row colors */
+table tbody tr:nth-child(odd) { background: #ffffff; }
+table tbody tr:nth-child(even) { background: #f9f9f9; }
+
+/* Hidden rows for filtering */
+table tbody tr.hidden { visibility: collapse; }
 
 /* DROPDOWN FILTER UI */
 .filter-icon { margin-left: 5px; font-weight: bold; }
@@ -142,7 +149,7 @@ table {
     left: 0;
     background: white;
     border: 1px solid #ABABAB;
-    z-index: 9999; /* very high so it’s never blocked */
+    z-index: 9999; /* always above table */
     max-height: 250px;
     overflow-y: auto;
     min-width: 180px;
@@ -351,6 +358,7 @@ fetch(csvPath)
     function applyFiltersAndSort() {
         const rowsArr = Array.from(table.tBodies[0].rows);
 
+        /* ---------------- Apply Filters ---------------- */
         rowsArr.forEach(row => {
             let show = true;
             filters.forEach((vals, colIdx) => {
@@ -359,13 +367,14 @@ fetch(csvPath)
                     if (!vals.includes(cellVal)) show = false;
                 }
             });
-            row.style.display = show ? '' : 'none';
+            row.classList.toggle('hidden', !show); // <-- updated to keep row space
         });
 
+        /* ---------------- Sort Visible Rows ---------------- */
         if (lastSortedColumn !== null) {
             const direction = sortState[lastSortedColumn];
             const ascending = direction === 'asc';
-            const visible = rowsArr.filter(r => r.style.display !== 'none');
+            const visible = rowsArr.filter(r => !r.classList.contains('hidden'));
 
             visible.sort((a, b) => {
                 const aVal = a.cells[lastSortedColumn].dataset.value;
