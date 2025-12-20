@@ -1,289 +1,303 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Data Table</title>
-    <title>Available Data</title>
+    <!-- ======================
+         CORE METADATA (SEO)
+    ======================= -->
+    <meta charset="UTF-8">
+    <title>Data Table | Systems Capital</title>
+    <meta name="description" content="Interactive data table showing monthly returns from the past five years of S&P 500 companies." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://systemscapital.net/data-table.html" />
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 
-<style>
-body {
-background: White;
-font-family: Arial, sans-serif;
-margin: 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
+    <!-- ======================
+         STYLES
+    ======================= -->
+    <style>
+        body {
+            background: white;
+            font-family: 'Century Schoolbook', serif;
+            margin: 0;
+            padding: 0;
+        }
 
-h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
-h2 { color: #AbABAB; text-align: center; padding: 20px; font-size: 20px; }
+        /* HEADER */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+        }
 
-/* TABLE CONTAINER */
-#csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
+        .logo-container {
+            padding: 14px;
+        }
 
-/* TABLE */
-table { border-collapse: collapse; width: 90%; max-width: 1200px; }
-th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
-th { background: #f9f9f9; cursor: pointer; }
+        .flower-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
 
-/* DROPDOWN FILTER UI */
-.filter-icon { margin-left: 5px; font-weight: bold; }
-.dropdown-container { position: relative; }
+        .flower {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
 
-.dropdown {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-background: white;
-border: 1px solid #AbABAB;
-z-index: 1000;
-max-height: 250px;
-overflow-y: auto;
-min-width: 180px;
-padding: 5px;
-}
+        .flower:hover {
+            transform: rotate(-45deg);
+        }
 
-.dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-.dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
-.dropdown label:hover { background-color: #f0f0f0; }
-.dropdown label:nth-child(even) { background-color: #fafafa; }
+        .circle {
+            width: 30px;
+            height: 30px;
+            border: 2px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
-.dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
-.dropdown button { width: 48%; margin: 2px 1%; }
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
+        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
+        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
+        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
+        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
+        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
 
-@media screen and (max-width: 768px) {
-table { width: 100%; }
-#csv-container { padding: 20px; }
-}
-</style>
+        nav {
+            margin-left: 30px;
+            font-size: 16px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #666;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* PAGE CONTENT */
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ABABAB;
+            font-size: 36px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ABABAB;
+            font-size: 22px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        /* ======================
+           DATA TABLE STYLES
+        ======================= */
+        #csv-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+            width: 100%;
+            overflow-x: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        th, td {
+            border: 1px solid #ABABAB;
+            padding: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        th {
+            background: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .filter-icon {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ABABAB;
+            z-index: 1000;
+            max-height: 250px;
+            overflow-y: auto;
+            min-width: 180px;
+            padding: 5px;
+        }
+
+        .dropdown input[type="text"] {
+            width: 90%;
+            margin-bottom: 5px;
+        }
+
+        .dropdown label {
+            display: block;
+            padding: 2px 5px;
+            cursor: pointer;
+        }
+
+        .dropdown label:hover {
+            background-color: #f0f0f0;
+        }
+
+        .dropdown .buttons {
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding-top: 5px;
+        }
+
+        .dropdown button {
+            width: 48%;
+            margin: 2px 1%;
+        }
+
+        footer {
+            margin: 60px 0 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+
+    <!-- ======================
+         HEADER SCRIPT
+    ======================= -->
+    <script>
+        let rotation = 0;
+        function handleLogoClick() {
+            rotation -= 45;
+            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+            setTimeout(() => window.location.href = "/", 200);
+        }
+    </script>
 </head>
 
 <body>
 
-<h1>Data Table</h1>
+<header class="header">
+    <div class="logo-container">
+        <button class="flower-btn" onclick="handleLogoClick()">
+            <span class="flower" id="flower">
+                <span class="circle circle-0"></span>
+                <span class="circle circle-45"></span>
+                <span class="circle circle-90"></span>
+                <span class="circle circle-135"></span>
+                <span class="circle circle-180"></span>
+                <span class="circle circle-225"></span>
+                <span class="circle circle-270"></span>
+                <span class="circle circle-315"></span>
+            </span>
+        </button>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/Pages/Tools.html">Tools</a>
+    </nav>
+</header>
 
-<div style="text-align:center; padding:10px;">
-<a href="index.html" style="font-size:20px; text-decoration:none; color:#555;">← Back to Home</a>
-</div>
+<main class="content">
+    <h1>Data Table</h1>
 
-<div id="csv-container">
-<h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
-<table id="csv-table"></table>
-</div>
+    <p style="text-align:center;">
+        Monthly returns from the past five years of S&P 500 companies. Use column filters to sort and explore performance data.
+    </p>
 
+    <div id="csv-container">
+        <h2>Monthly Returns from Past 5 Years</h2>
+        <table id="csv-table"></table>
+    </div>
+</main>
+
+<footer>
+    © Systems Capital Inc. · Investment Research · Financial Tools · Education
+</footer>
+
+<!-- ======================
+     DATA TABLE SCRIPT
+======================= -->
 <script>
-/* Ensure fresh CSV load each time */
 const csvPath = '/data/SQL_Results.csv?version=' + new Date().getTime();
 
-/* FORMATTER USED FOR BOTH CELLS AND CHECKBOX LABELS */
 function formatDisplay(val, headerName) {
-const colName = headerName.toLowerCase();
-
-if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
-return (parseFloat(val) * 100).toFixed(2) + '%';
-}
-if (!isNaN(val) && colName.includes('percentile')) {
-return parseFloat(val).toFixed(2) + '%';
-}
-return val;
+    const colName = headerName.toLowerCase();
+    if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
+        return (parseFloat(val) * 100).toFixed(2) + '%';
+    }
+    if (!isNaN(val) && colName.includes('percentile')) {
+        return parseFloat(val).toFixed(2) + '%';
+    }
+    return val;
 }
 
 fetch(csvPath)
 .then(res => res.text())
 .then(text => {
+    const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
+    const table = document.getElementById('csv-table');
 
-const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
-const table = document.getElementById('csv-table');
+    let header = '<thead><tr>';
+    rows[0].forEach((col, idx) => {
+        header += `
+        <th data-col="${idx}">
+            ${col} <span class="filter-icon">&#x25BC;</span>
+            <div class="dropdown">
+                <button class="select-all">Select All</button>
+                <input type="text" placeholder="Search">
+                <div class="checkboxes"></div>
+                <div class="buttons">
+                    <button class="apply">Apply</button>
+                    <button class="cancel">Cancel</button>
+                </div>
+            </div>
+        </th>`;
+    });
+    header += '</tr></thead>';
 
-/* ----------------------- BUILD HEADER ------------------------- */
-let header = '<thead><tr>';
-rows[0].forEach((col, idx) => {
-header += `
-           <th data-col="${idx}" class="dropdown-container">
-               ${col} <span class="filter-icon">&#x25BC;</span>
-               <div class="dropdown">
-                   <button class="select-all">Select All</button>
-                   <input type="text" placeholder="Search">
-                   <div class="checkboxes"></div>
-                   <div class="buttons">
-                       <button class="apply">Apply</button>
-                       <button class="cancel">Cancel</button>
-                   </div>
-               </div>
-           </th>`;
-});
-header += '</tr></thead>';
+    let body = '<tbody>';
+    for (let i = 1; i < rows.length; i++) {
+        body += '<tr>';
+        rows[i].forEach((c, j) => {
+            body += `<td data-value="${c}">${formatDisplay(c, rows[0][j])}</td>`;
+        });
+        body += '</tr>';
+    }
+    body += '</tbody>';
 
-/* ----------------------- BUILD BODY ------------------------- */
-let body = '<tbody>';
-for (let i = 1; i < rows.length; i++) {
-if (rows[i].length > 1) {
-body += '<tr>';
-rows[i].forEach((c, colIdx) => {
-
-const rawVal = c;
-const headerName = rows[0][colIdx];
-const displayVal = formatDisplay(rawVal, headerName);
-
-body += `<td data-value="${rawVal}">${displayVal}</td>`;
-});
-body += '</tr>';
-}
-}
-body += '</tbody>';
-
-table.innerHTML = header + body;
-
-/* ----------------------- FILTERS & SORTING LOGIC ------------------------- */
-const ths = table.querySelectorAll('th');
-const filters = Array(rows[0].length).fill(null);
-const sortState = Array(rows[0].length).fill(null);
-let lastSortedColumn = null;
-
-ths.forEach(th => {
-
-const idx = parseInt(th.dataset.col);
-const dropdown = th.querySelector('.dropdown');
-const checkboxContainer = th.querySelector('.checkboxes');
-const headerName = rows[0][idx];
-
-/* Populate unique checkbox values */
-const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
-
-unique.forEach(val => {
-const label = document.createElement('label');
-label.innerHTML = `
-               <input type="checkbox" value="${val}" checked>
-               ${formatDisplay(val, headerName)}
-           `;
-checkboxContainer.appendChild(label);
-});
-
-/* Sorting radios */
-checkboxContainer.insertAdjacentHTML('afterbegin', `
-           <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
-           <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
-       `);
-
-/* Dropdown toggle */
-th.addEventListener('click', e => {
-e.stopPropagation();
-document.querySelectorAll('.dropdown').forEach(d => {
-if (d !== dropdown) d.style.display = 'none';
-});
-dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-});
-
-dropdown.addEventListener('click', e => e.stopPropagation());
-
-/* Search inside dropdown */
-const searchInput = dropdown.querySelector('input[type=text]');
-searchInput.addEventListener('keyup', () => {
-const filterText = searchInput.value.toLowerCase();
-checkboxContainer.querySelectorAll('label').forEach(label => {
-const cb = label.querySelector('input[type=checkbox]');
-if (cb) {
-const val = label.textContent.toLowerCase();
-label.style.display = val.includes(filterText) ? 'block' : 'none';
-}
-});
-});
-
-/* Select-all / Deselect-all */
-dropdown.querySelector('.select-all').addEventListener('click', e => {
-e.stopPropagation();
-const checkboxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
-const allChecked = Array.from(checkboxes).every(c => c.checked);
-checkboxes.forEach(c => c.checked = !allChecked);
-});
-
-/* Apply filters/sort */
-dropdown.querySelector('.apply').addEventListener('click', () => {
-
-filters[idx] = Array.from(
-checkboxContainer.querySelectorAll('input[type=checkbox]:checked')
-).map(c => c.value);
-
-const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
-
-sortState.fill(null);
-sortState[idx] = selectedSort ? selectedSort.value : null;
-lastSortedColumn = idx;
-
-applyFiltersAndSort();
-dropdown.style.display = 'none';
-});
-
-/* Cancel handler */
-dropdown.querySelector('.cancel').addEventListener('click', () => {
-checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
-c.checked = !filters[idx] || filters[idx].includes(c.value);
-});
-
-const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
-radios.forEach(r => r.checked = sortState[idx] === r.value);
-
-dropdown.style.display = 'none';
-});
-
-}); // end th loop
-
-
-/* ---------------- APPLY FILTERS + SORT ----------------- */
-function applyFiltersAndSort() {
-
-const rowsArr = Array.from(table.tBodies[0].rows);
-
-/* Apply filters */
-rowsArr.forEach(row => {
-let show = true;
-
-filters.forEach((vals, colIdx) => {
-if (vals) {
-const cellVal = row.cells[colIdx].dataset.value;
-if (!vals.includes(cellVal)) show = false;
-}
-});
-
-row.style.display = show ? '' : 'none';
-});
-
-/* Sort visible rows */
-if (lastSortedColumn !== null) {
-const direction = sortState[lastSortedColumn];
-const ascending = direction === 'asc';
-
-const visible = rowsArr.filter(r => r.style.display !== 'none');
-
-visible.sort((a, b) => {
-const aVal = a.cells[lastSortedColumn].dataset.value;
-const bVal = b.cells[lastSortedColumn].dataset.value;
-
-const aNum = parseFloat(aVal);
-const bNum = parseFloat(bVal);
-
-if (!isNaN(aNum) && !isNaN(bNum)) {
-return ascending ? aNum - bNum : bNum - aNum;
-}
-return ascending
-? aVal.localeCompare(bVal)
-: bVal.localeCompare(aVal);
-});
-
-visible.forEach(r => table.tBodies[0].appendChild(r));
-}
-}
-
-/* Hide dropdowns when clicking outside */
-document.addEventListener('click', () => {
-document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
-});
-
-})
-.catch(err => {
-console.error(err);
-document.getElementById('csv-container').innerHTML =
-'<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+    table.innerHTML = header + body;
 });
 </script>
 
