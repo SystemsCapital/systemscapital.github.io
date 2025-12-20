@@ -1,37 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ======================
-         CORE METADATA (SEO)
-    ======================= -->
     <meta charset="UTF-8">
-
-    <!-- PAGE-SPECIFIC TITLE (EDIT PER PAGE) -->
     <title>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</title>
 
-    <!-- PAGE-SPECIFIC DESCRIPTION (EDIT PER PAGE) -->
     <meta name="description" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CANONICAL URL (EDIT PER PAGE) -->
     <link rel="canonical" href="https://www.systemscapital.net/Pages/SP500_Q32025.html" />
-
-    <!-- ROBOTS -->
     <meta name="robots" content="index, follow">
-
-    <!-- FAVICON -->
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 
-    <!-- OPEN GRAPH (OPTIONAL BUT RECOMMENDED) -->
-    <meta property="og:title" content="{S&P 500 Average Statistics on a Monthly basis for the past 5 years} | Systems Capital">
-    <meta property="og:description" content="{S&P 500 Average Statistics on a Monthly basis for the past 5 years}">
+    <meta property="og:title" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years | Systems Capital">
+    <meta property="og:description" content="S&P 500 Average Statistics on a Monthly basis for the past 5 years">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.systemscapital.net/Pages/SP500_Q32025.html">
 
-    <!-- ======================
-         STYLES
-    ======================= -->
     <style>
         body {
             background: white;
@@ -40,64 +24,10 @@
             padding: 0;
         }
 
-        /* HEADER */
         .header {
             display: flex;
             align-items: center;
             padding: 20px;
-        }
-
-        .logo-container {
-            padding: 14px;
-        }
-
-        .flower-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .flower-btn:hover {
-            opacity: 0.85;
-        }
-
-        .flower {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            transition: transform 0.2s ease;
-            transform-origin: center center;
-        }
-
-        .flower:hover {
-            transform: rotate(-45deg);
-        }
-
-        .circle {
-            width: 30px;
-            height: 30px;
-            border: 2px solid gray;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
-        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
-        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
-        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
-        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
-        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
-        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
-        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
-
-        /* NAVIGATION */
-        nav {
-            margin-left: 30px;
-            font-size: 16px;
         }
 
         nav a {
@@ -110,28 +40,50 @@
             text-decoration: underline;
         }
 
-        /* PAGE CONTENT */
         .content {
             max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        h1 {
+        h1, h2 {
             color: #ABABAB;
-            font-size: 36px;
         }
 
-        h2 {
-            color: #ABABAB;
-            font-size: 22px;
-            margin-top: 40px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
         }
 
-        p {
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f5f5f5;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            padding: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            width: 200px;
+        }
+
+        .checkboxes label {
+            display: block;
+            font-size: 13px;
         }
 
         footer {
@@ -141,289 +93,152 @@
             color: #777;
         }
     </style>
-
-    <!-- ======================
-         SCRIPT
-    ======================= -->
-    <script>
-        let rotation = 0;
-
-        function handleLogoClick() {
-            rotateFlower();
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 200);
-        }
-
-        function rotateFlower() {
-            rotation -= 45;
-            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
-        }
-    </script>
 </head>
 
 <body>
 
-<!-- ======================
-     HEADER
-======================= -->
 <header class="header">
-    <div class="logo-container">
-        <button class="flower-btn" onclick="handleLogoClick()" aria-label="Systems Capital Home">
-            <span class="flower" id="flower">
-                <span class="circle circle-0"></span>
-                <span class="circle circle-45"></span>
-                <span class="circle circle-90"></span>
-                <span class="circle circle-135"></span>
-                <span class="circle circle-180"></span>
-                <span class="circle circle-225"></span>
-                <span class="circle circle-270"></span>
-                <span class="circle circle-315"></span>
-            </span>
-        </button>
-    </div>
-
     <nav>
         <a href="/">Home</a>
         <a href="/Pages/Tools.html">Tools</a>
     </nav>
 </header>
-    
-<!-- ======================
-     MAIN CONTENT
-======================= -->
+
 <main class="content">
 
-    <!-- EXACTLY ONE H1 PER PAGE -->
-    <h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
+<h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
 
-    <p>
-        This was made using EXCEL, Python, SQL, and CSVs. The information is provided on an as-is basis and analyzed month-to-month closing prices of S&P 500 stocks.
-    </p>
+<p>
+    This was made using EXCEL, Python, SQL, and CSVs. The information is provided on an as-is basis.
+</p>
 
 <div id="csv-container">
-<h2>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h2>
-<table id="csv-table"></table>
+    <h2>Data Table</h2>
+    <table id="csv-table"></table>
 </div>
 
 <script>
-/* Ensure fresh CSV load each time */
 const csvPath = '/data/SQL_Results.csv?version=' + new Date().getTime();
 
-/* FORMATTER USED FOR BOTH CELLS AND CHECKBOX LABELS */
 function formatDisplay(val, headerName) {
-const colName = headerName.toLowerCase();
+    const colName = headerName.toLowerCase();
 
-if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
-return (parseFloat(val) * 100).toFixed(2) + '%';
-}
-if (!isNaN(val) && colName.includes('percentile')) {
-return parseFloat(val).toFixed(2) + '%';
-}
-return val;
+    if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
+        return (parseFloat(val) * 100).toFixed(2) + '%';
+    }
+    if (!isNaN(val) && colName.includes('percentile')) {
+        return parseFloat(val).toFixed(2) + '%';
+    }
+    return val;
 }
 
 fetch(csvPath)
 .then(res => res.text())
 .then(text => {
 
-const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
-const table = document.getElementById('csv-table');
+    const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
+    const table = document.getElementById('csv-table');
 
-/* ----------------------- BUILD HEADER ------------------------- */
-let header = '<thead><tr>';
-rows[0].forEach((col, idx) => {
-header += `
-           <th data-col="${idx}" class="dropdown-container">
-               ${col} <span class="filter-icon">&#x25BC;</span>
-               <div class="dropdown">
-                   <button class="select-all">Select All</button>
-                   <input type="text" placeholder="Search">
-                   <div class="checkboxes"></div>
-                   <div class="buttons">
-                       <button class="apply">Apply</button>
-                       <button class="cancel">Cancel</button>
-                   </div>
-               </div>
-           </th>`;
-});
- += '</tr></thead>';
+    /* ---------- HEADER ---------- */
+    let header = '<thead><tr>';
+    rows[0].forEach((col, idx) => {
+        header += `
+            <th data-col="${idx}">
+                ${col}
+                <div class="dropdown">
+                    <button class="select-all">Select All</button>
+                    <input type="text" placeholder="Search">
+                    <div class="checkboxes"></div>
+                    <button class="apply">Apply</button>
+                    <button class="cancel">Cancel</button>
+                </div>
+            </th>`;
+    });
+    header += '</tr></thead>';
 
-/* ----------------------- BUILD BODY ------------------------- */
-let body = '<tbody>';
-for (let i = 1; i < rows.length; i++) {
-if (rows[i].length > 1) {
-body += '<tr>';
-rows[i].forEach((c, colIdx) => {
+    /* ---------- BODY ---------- */
+    let body = '<tbody>';
+    for (let i = 1; i < rows.length; i++) {
+        if (rows[i].length > 1) {
+            body += '<tr>';
+            rows[i].forEach((c, colIdx) => {
+                const headerName = rows[0][colIdx];
+                body += `<td data-value="${c}">${formatDisplay(c, headerName)}</td>`;
+            });
+            body += '</tr>';
+        }
+    }
+    body += '</tbody>';
 
-const rawVal = c;
-const Name = rows[0][colIdx];
-const displayVal = formatDisplay(rawVal, headerName);
+    table.innerHTML = header + body;
 
-body += `<td data-value="${rawVal}">${displayVal}</td>`;
-});
-body += '</tr>';
-}
-}
-body += '</tbody>';
+    /* ---------- FILTERS ---------- */
+    const ths = table.querySelectorAll('th');
+    const filters = Array(rows[0].length).fill(null);
 
-table.innerHTML = header + body;
+    ths.forEach(th => {
+        const idx = th.dataset.col;
+        const dropdown = th.querySelector('.dropdown');
+        const checkboxContainer = dropdown.querySelector('.checkboxes');
+        const headerName = rows[0][idx];
 
-/* ----------------------- FILTERS & SORTING LOGIC ------------------------- */
-const ths = table.querySelectorAll('th');
-const filters = Array(rows[0].length).fill(null);
-const sortState = Array(rows[0].length).fill(null);
-let lastSortedColumn = null;
+        const unique = [...new Set(rows.slice(1).map(r => r[idx]))];
 
-ths.forEach(th => {
+        unique.forEach(val => {
+            const label = document.createElement('label');
+            label.innerHTML = `
+                <input type="checkbox" value="${val}" checked>
+                ${formatDisplay(val, headerName)}
+            `;
+            checkboxContainer.appendChild(label);
+        });
 
-const idx = parseInt(th.dataset.col);
-const dropdown = th.querySelector('.dropdown');
-const checkboxContainer = th.querySelector('.checkboxes');
-const headerName = rows[0][idx];
+        th.addEventListener('click', e => {
+            e.stopPropagation();
+            document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+            dropdown.style.display = 'block';
+        });
 
-/* Populate unique checkbox values */
-const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
+        dropdown.querySelector('.apply').addEventListener('click', () => {
+            filters[idx] = [...checkboxContainer.querySelectorAll('input:checked')].map(c => c.value);
+            applyFilters();
+            dropdown.style.display = 'none';
+        });
 
-unique.forEach(val => {
-const label = document.createElement('label');
-label.innerHTML = `
-               <input type="checkbox" value="${val}" checked>
-               ${formatDisplay(val, headerName)}
-           `;
-checkboxContainer.appendChild(label);
-});
+        dropdown.querySelector('.cancel').addEventListener('click', () => {
+            dropdown.style.display = 'none';
+        });
+    });
 
-/* Sorting radios */
-checkboxContainer.insertAdjacentHTML('afterbegin', `
-           <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
-           <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
-       `);
+    function applyFilters() {
+        [...table.tBodies[0].rows].forEach(row => {
+            let show = true;
+            filters.forEach((vals, idx) => {
+                if (vals && !vals.includes(row.cells[idx].dataset.value)) {
+                    show = false;
+                }
+            });
+            row.style.display = show ? '' : 'none';
+        });
+    }
 
-/* Dropdown toggle */
-th.addEventListener('click', e => {
-e.stopPropagation();
-document.querySelectorAll('.dropdown').forEach(d => {
-if (d !== dropdown) d.style.display = 'none';
-});
-dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-});
-
-dropdown.addEventListener('click', e => e.stopPropagation());
-
-/* Search inside dropdown */
-const searchInput = dropdown.querySelector('input[type=text]');
-searchInput.addEventListener('keyup', () => {
-const filterText = searchInput.value.toLowerCase();
-checkboxContainer.querySelectorAll('label').forEach(label => {
-const cb = label.querySelector('input[type=checkbox]');
-if (cb) {
-const val = label.textContent.toLowerCase();
-label.style.display = val.includes(filterText) ? 'block' : 'none';
-}
-});
-});
-
-/* Select-all / Deselect-all */
-dropdown.querySelector('.select-all').addEventListener('click', e => {
-e.stopPropagation();
-const checkboxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
-const allChecked = Array.from(checkboxes).every(c => c.checked);
-checkboxes.forEach(c => c.checked = !allChecked);
-});
-
-/* Apply filters/sort */
-dropdown.querySelector('.apply').addEventListener('click', () => {
-
-filters[idx] = Array.from(
-checkboxContainer.querySelectorAll('input[type=checkbox]:checked')
-).map(c => c.value);
-
-const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
-
-sortState.fill(null);
-sortState[idx] = selectedSort ? selectedSort.value : null;
-lastSortedColumn = idx;
-
-applyFiltersAndSort();
-dropdown.style.display = 'none';
-});
-
-/* Cancel handler */
-dropdown.querySelector('.cancel').addEventListener('click', () => {
-checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
-c.checked = !filters[idx] || filters[idx].includes(c.value);
-});
-
-const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
-radios.forEach(r => r.checked = sortState[idx] === r.value);
-
-dropdown.style.display = 'none';
-});
-
-}); // end th loop
-
-
-/* ---------------- APPLY FILTERS + SORT ----------------- */
-function applyFiltersAndSort() {
-
-const rowsArr = Array.from(table.tBodies[0].rows);
-
-/* Apply filters */
-rowsArr.forEach(row => {
-let show = true;
-
-filters.forEach((vals, colIdx) => {
-if (vals) {
-const cellVal = row.cells[colIdx].dataset.value;
-if (!vals.includes(cellVal)) show = false;
-}
-});
-
-row.style.display = show ? '' : 'none';
-});
-
-/* Sort visible rows */
-if (lastSortedColumn !== null) {
-const direction = sortState[lastSortedColumn];
-const ascending = direction === 'asc';
-
-const visible = rowsArr.filter(r => r.style.display !== 'none');
-
-visible.sort((a, b) => {
-const aVal = a.cells[lastSortedColumn].dataset.value;
-const bVal = b.cells[lastSortedColumn].dataset.value;
-
-const aNum = parseFloat(aVal);
-const bNum = parseFloat(bVal);
-
-if (!isNaN(aNum) && !isNaN(bNum)) {
-return ascending ? aNum - bNum : bNum - aNum;
-}
-return ascending
-? aVal.localeCompare(bVal)
-: bVal.localeCompare(aVal);
-});
-
-visible.forEach(r => table.tBodies[0].appendChild(r));
-}
-}
-
-/* Hide dropdowns when clicking outside */
-document.addEventListener('click', () => {
-document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
-});
+    document.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
+    });
 
 })
 .catch(err => {
-console.error(err);
-document.getElementById('csv-container').innerHTML =
-'<p style="color:red; text-align:center;">Failed to load CSV.</p>';
+    console.error(err);
+    document.getElementById('csv-container').innerHTML =
+        '<p style="color:red;text-align:center;">Failed to load CSV.</p>';
 });
 </script>
+
 </main>
-    <footer>
+
+<footer>
     © Systems Capital Inc. · Investment Research · Financial Tools · Education
 </footer>
+
 </body>
 </html>
