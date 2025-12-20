@@ -2,14 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>S&P 500 Average Statistics - Monthly | Q3 2025</title>
+<title>S&P 500 Average Statistics - Monthly | Q3 2025 | Systems Capital</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 
 <style>
+/* ================= HEADER STYLES ================= */
 body {
     background: white;
     font-family: 'Century Schoolbook', serif;
     margin: 0;
     padding: 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-container {
+    padding: 14px;
+}
+
+.flower-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.flower-btn:hover { opacity: 0.85; }
+
+.flower {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+}
+
+.flower:hover { transform: rotate(-45deg); }
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
+.circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
+.circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
+.circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
+.circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
+.circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
+.circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
+.circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
+
+nav {
+    margin-left: 30px;
+    font-size: 16px;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #666;
+}
+
+nav a:hover { text-decoration: underline; }
+
+/* ================= PAGE CONTENT ================= */
+.content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,7 +100,7 @@ h2 {
     color: #ABABAB;
     text-align: center;
     padding: 20px 0;
-    font-size: 20px;
+    font-size: 22px;
     margin: 0;
 }
 
@@ -44,11 +117,18 @@ h2 {
 }
 
 /* TABLE CONTAINER */
-#csv-container { display: flex; flex-direction: column; align-items: center; padding: 40px; width: 100%; overflow-x: auto; }
+#csv-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 40px; 
+    width: 100%; 
+    overflow-x: auto; 
+}
 
 /* TABLE */
 table { border-collapse: collapse; width: 90%; max-width: 1200px; }
-th, td { border: 1px solid #AbABAB; padding: 8px; text-align: center; position: relative; }
+th, td { border: 1px solid #ABABAB; padding: 8px; text-align: center; position: relative; }
 th { background: #f9f9f9; cursor: pointer; }
 
 /* DROPDOWN FILTER UI */
@@ -56,17 +136,17 @@ th { background: #f9f9f9; cursor: pointer; }
 .dropdown-container { position: relative; }
 
 .dropdown {
-display: none;
-position: absolute;
-top: 100%;
-left: 0;
-background: white;
-border: 1px solid #AbABAB;
-z-index: 1000;
-max-height: 250px;
-overflow-y: auto;
-min-width: 180px;
-padding: 5px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ABABAB;
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+    min-width: 180px;
+    padding: 5px;
 }
 
 .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
@@ -78,30 +158,70 @@ padding: 5px;
 .dropdown button { width: 48%; margin: 2px 1%; }
 
 @media screen and (max-width: 768px) {
-table { width: 100%; }
-#csv-container { padding: 20px; }
+    table { width: 100%; }
+    #csv-container { padding: 20px; }
 }
 </style>
-</head>
 
+<script>
+let rotation = 0;
+function handleLogoClick() {
+    rotateFlower();
+    setTimeout(() => { window.location.href = "/"; }, 200);
+}
+function rotateFlower() {
+    rotation -= 45;
+    document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
+}
+</script>
+</head>
 
 <body>
 
-<h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="logo-container">
+        <button class="flower-btn" onclick="handleLogoClick()" aria-label="Systems Capital Home">
+            <span class="flower" id="flower">
+                <span class="circle circle-0"></span>
+                <span class="circle circle-45"></span>
+                <span class="circle circle-90"></span>
+                <span class="circle circle-135"></span>
+                <span class="circle circle-180"></span>
+                <span class="circle circle-225"></span>
+                <span class="circle circle-270"></span>
+                <span class="circle circle-315"></span>
+            </span>
+        </button>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/Pages/Tools.html">Tools</a>
+    </nav>
+</header>
 
-<div class="back-link">
-    <a href="index.html">← Back to Home</a>
-</div>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="content">
 
-<div id="csv-container">
-    <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
-    <table id="csv-table"></table>
-</div>
+    <h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
+
+    <div class="back-link">
+        <a href="index.html">← Back to Home</a>
+    </div>
+
+    <div id="csv-container">
+        <h2>Monthly Returns from Past 5 Years of S&P 500 Companies</h2>
+        <table id="csv-table"></table>
+    </div>
+</main>
+
+<footer>
+    © Systems Capital Inc. · Investment Research · Financial Tools · Education
+</footer>
 
 <script>
 const csvPath = '/data/SQL_Results.csv?version=' + new Date().getTime();
 
-/* FORMATTER USED FOR BOTH CELLS AND CHECKBOX LABELS */
 function formatDisplay(val, headerName) {
     const colName = headerName.toLowerCase();
     if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
@@ -119,7 +239,6 @@ fetch(csvPath)
     const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
     const table = document.getElementById('csv-table');
 
-    /* ----------------------- BUILD HEADER ------------------------- */
     let header = '<thead><tr>';
     rows[0].forEach((col, idx) => {
         header += `
@@ -138,7 +257,6 @@ fetch(csvPath)
     });
     header += '</tr></thead>';
 
-    /* ----------------------- BUILD BODY ------------------------- */
     let body = '<tbody>';
     for (let i = 1; i < rows.length; i++) {
         if (rows[i].length > 1) {
@@ -156,7 +274,6 @@ fetch(csvPath)
 
     table.innerHTML = header + body;
 
-    /* ----------------------- FILTERS & SORTING LOGIC ------------------------- */
     const ths = table.querySelectorAll('th');
     const filters = Array(rows[0].length).fill(null);
     const sortState = Array(rows[0].length).fill(null);
@@ -168,7 +285,6 @@ fetch(csvPath)
         const checkboxContainer = th.querySelector('.checkboxes');
         const headerName = rows[0][idx];
 
-        /* Populate unique checkbox values */
         const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
         unique.forEach(val => {
             const label = document.createElement('label');
@@ -176,24 +292,19 @@ fetch(csvPath)
             checkboxContainer.appendChild(label);
         });
 
-        /* Sorting radios */
         checkboxContainer.insertAdjacentHTML('afterbegin', `
             <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
             <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
         `);
 
-        /* Dropdown toggle */
         th.addEventListener('click', e => {
             e.stopPropagation();
-            document.querySelectorAll('.dropdown').forEach(d => {
-                if (d !== dropdown) d.style.display = 'none';
-            });
+            document.querySelectorAll('.dropdown').forEach(d => { if (d !== dropdown) d.style.display = 'none'; });
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
 
         dropdown.addEventListener('click', e => e.stopPropagation());
 
-        /* Search inside dropdown */
         const searchInput = dropdown.querySelector('input[type=text]');
         searchInput.addEventListener('keyup', () => {
             const filterText = searchInput.value.toLowerCase();
@@ -206,7 +317,6 @@ fetch(csvPath)
             });
         });
 
-        /* Select-all / Deselect-all */
         dropdown.querySelector('.select-all').addEventListener('click', e => {
             e.stopPropagation();
             const checkboxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
@@ -214,7 +324,6 @@ fetch(csvPath)
             checkboxes.forEach(c => c.checked = !allChecked);
         });
 
-        /* Apply filters/sort */
         dropdown.querySelector('.apply').addEventListener('click', () => {
             filters[idx] = Array.from(
                 checkboxContainer.querySelectorAll('input[type=checkbox]:checked')
@@ -229,7 +338,6 @@ fetch(csvPath)
             dropdown.style.display = 'none';
         });
 
-        /* Cancel handler */
         dropdown.querySelector('.cancel').addEventListener('click', () => {
             checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
                 c.checked = !filters[idx] || filters[idx].includes(c.value);
@@ -240,11 +348,9 @@ fetch(csvPath)
         });
     });
 
-    /* ---------------- APPLY FILTERS + SORT ----------------- */
     function applyFiltersAndSort() {
         const rowsArr = Array.from(table.tBodies[0].rows);
 
-        /* Apply filters */
         rowsArr.forEach(row => {
             let show = true;
             filters.forEach((vals, colIdx) => {
@@ -256,7 +362,6 @@ fetch(csvPath)
             row.style.display = show ? '' : 'none';
         });
 
-        /* Sort visible rows */
         if (lastSortedColumn !== null) {
             const direction = sortState[lastSortedColumn];
             const ascending = direction === 'asc';
@@ -279,11 +384,9 @@ fetch(csvPath)
         }
     }
 
-    /* Hide dropdowns when clicking outside */
     document.addEventListener('click', () => {
         document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
     });
-
 })
 .catch(err => {
     console.error(err);
