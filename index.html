@@ -1,27 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Systems Capital Inc.</title>
+    <!-- ======================
+         CORE SEO METADATA
+    ======================= -->
+    <meta charset="UTF-8">
+    <title>Systems Capital | Investment Research, Excel & Python Tools</title>
+
+    <meta name="description" content="Systems Capital publishes open investment research, Excel and Python financial tools, and educational content. Build-in-public investing, tools, and education." />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Canonical URL (update username if needed) -->
+    <link rel="canonical" href="https://systemscapital.github.io/" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
 
+    <!-- Open Graph (social + SEO bonus) -->
+    <meta property="og:title" content="Systems Capital | Investment Research & Financial Tools">
+    <meta property="og:description" content="Open investment research, Excel & Python tools, and educational resources.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://systemscapital.github.io/">
+    <meta property="og:image" content="hero.png">
 
-
+    <!-- ======================
+         STYLES
+    ======================= -->
     <style>
         body {
-            background: White;
-            font-family: 'Century Schoolbook';
+            background: white;
+            font-family: 'Century Schoolbook', serif;
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        h1 { color: #AbABAB; text-align: center; padding-top: 20px; font-size: 48px; }
-        h2 { color: #AbABAB; text-align: center; padding-top: 5%; font-size: 20px; }
 
-        .flower-btn { position: relative; background: none; border: none; cursor: pointer; padding: 40px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; }
-        .flower-btn:hover { opacity: 0.8; }
-        .flower { position: relative; width: 200px; height: 200px; transition: transform 0.8s ease; }
-        .circle { width: 100px; height: 100px; border: 3px solid gray; border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        h1 {
+            color: #ABABAB;
+            text-align: center;
+            padding-top: 20px;
+            font-size: 48px;
+        }
+
+        h2 {
+            color: #ABABAB;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 22px;
+            max-width: 800px;
+        }
+
+        h3 {
+            color: #555;
+            text-align: center;
+            font-size: 18px;
+            max-width: 900px;
+            line-height: 1.4;
+        }
+
+        .flower-btn {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flower-btn:hover { opacity: 0.85; }
+
+        .flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transition: transform 0.8s ease;
+        }
+
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 3px solid gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
         .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
         .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
@@ -31,19 +101,23 @@
         .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
         .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
 
-        @media screen and (max-width: 768px) {
-            table { width: 100%; }
-            #csv-container { padding: 20px; }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+            padding-bottom: 20px;
         }
     </style>
 
+    <!-- ======================
+         SCRIPT
+    ======================= -->
     <script>
         let rotation = 0;
 
         function handleFlowerClick() {
             rotateFlower();
-
-            // delay email opening until rotation animation starts
             setTimeout(() => {
                 window.location.href = "mailto:eric@systemscapital.net";
             }, 300);
@@ -54,15 +128,28 @@
             document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
         }
     </script>
-
 </head>
+
 <body>
 
-<h1>Systems Capital Inc.</h1>
-<h2>This Site is Currently Under Construction. <br></br>Click our logo below to contact us.</h2>
+<!-- ======================
+     SEO-CRITICAL CONTENT
+======================= -->
 
-<div style="text-align:center; padding:15px;">
-    <button class="flower-btn" onclick="handleFlowerClick()" type="button">
+<h1>Systems Capital</h1>
+
+<h2>
+Open Investment Research, Financial Tools, and Education
+</h2>
+
+<h3>
+We publish build-in-public investment research, Excel and Python financial tools,
+and educational content focused on systems thinking and capital management.
+</h3>
+
+<!-- INTERACTIVE LOGO -->
+<div style="text-align:center; padding:20px;">
+    <button class="flower-btn" onclick="handleFlowerClick()" type="button" aria-label="Contact Systems Capital">
         <span class="flower" id="flower">
             <span class="circle circle-0"></span>
             <span class="circle circle-45"></span>
@@ -76,7 +163,19 @@
     </button>
 </div>
 
+<!-- KEYWORD-RICH TEXT BLOCK (VERY IMPORTANT) -->
+<section>
+    <p style="max-width:900px; text-align:center; font-size:16px; line-height:1.6; color:#444;">
+        Systems Capital develops open investment strategies, publishes market research,
+        and builds practical financial tools including Excel templates, Python scripts,
+        and data-driven investment workflows. Our mission is to educate, document,
+        and improve real-world capital allocation through transparent systems thinking.
+    </p>
+</section>
 
+<footer>
+    © Systems Capital Inc. · Investment Research · Financial Tools · Education
+</footer>
 
 </body>
 </html>
