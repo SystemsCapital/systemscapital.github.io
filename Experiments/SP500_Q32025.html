@@ -211,7 +211,11 @@ function rotateFlower() {
 <main class="content">
 
     <h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
-
+<p>This Table shows a calculation of distribution statistics for each stock represented on the S&P 500. Through the use of
+    Python libraries beautiful soup 4 and requests, we collected a list of current companies from the Wikipedia page on the S&P 500. 
+    We were then able to find month-to-month earnings over the past 5 years using Excel's STOCKHISTORY and LET functions. 
+    SQL databases are then used to store raw data. Information is provided "as-is". Calculations do not include dividends.
+</p>
 
     <div id="csv-container">
         <table id="csv-table"></table>
