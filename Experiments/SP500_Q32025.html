@@ -125,11 +125,25 @@ h2 {
 }
 
 /* TABLE */
-table { 
-    border-collapse: collapse; 
-    width: 100%; /* stretch to container width */
-    min-width: 900px; /* prevent table shrinking */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 900px;
 }
+
+table,
+table th,
+table td {
+    border: 1px solid #ABABAB;
+}
+
+table th,
+table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px 10px;
+}
+
 
 /* Alternating row colors */
 table tbody tr:nth-child(odd) { background: #ffffff; }
