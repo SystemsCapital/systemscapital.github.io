@@ -1,4 +1,4 @@
-﻿Symbol,Average Monthly Return,StdDev of Monthly Returns,Median of Monthly returns,Mode of Monthly Returns,Max Monthly Return,Min Monthly Retur,Kurtosis of Monthly Returns,Skewness of Monthly Returns
+﻿Symbol,Average Monthly Return,StdDev of Monthly Returns,Median of Monthly returns,Mode of Monthly Returns,Max Monthly Return,Min Monthly Return,Kurtosis of Monthly Returns,Skewness of Monthly Returns
 A,0.006467213,0.088444179,0.0136,-0.22796,0.23634,-0.22796,0.057101003,-0.029480959
 AAPL,0.01575623,0.073094067,0.01358,-0.12227,0.18863,-0.12227,-0.811129086,0.117295897
 ABBV,0.02562459,0.074711205,0.02457,-0.10689,0.22891,-0.10689,-0.047127317,0.26645711
@@ -502,3 +502,4 @@ YUM,0.014029344,0.068945086,0.00377,-0.09859,0.20582,-0.09859,0.338396534,0.7311
 ZBH,-0.002879344,0.06955819,-0.00447,-0.16434,0.15767,-0.16434,-0.263740439,0.084528672
 ZBRA,0.004482131,0.131523057,0.00576,-0.27907,0.33416,-0.27907,-0.166974594,0.420854299
 ZTS,-0.001444918,0.071480758,0.00912,-0.18129,0.12924,-0.18129,-0.413749148,-0.209426333
+
