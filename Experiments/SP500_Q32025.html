@@ -4,9 +4,22 @@
 <meta charset="UTF-8">
 <title>S&P 500 Average Statistics - Monthly | Q3 2025 | Systems Capital</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<meta name="description" content="Systems Capital publishes build-in-public investment research, Excel, SQL and Python financial tools, and educational content. S&P 500 Average Statistics - Monthly | Q3 2025 | Systems Capital." />
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Canonical URL (update username if needed) -->
+    <link rel="canonical" href="https://systemscapital.github.io/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+
+    <!-- Open Graph (social + SEO bonus) -->
+    <meta property="og:title" content="Systems Capital | Investment Research & Financial Tools">
+    <meta property="og:description" content="Investment Research, Excel, SQL & Python Tools, and Educational Resources.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://systemscapital.github.io/">
+    <meta property="og:image" content="hero.png">
 <style>
 /* ================= HEADER STYLES ================= */
 body {
@@ -225,12 +238,16 @@ function rotateFlower() {
 <main class="content">
 
     <h1>S&P 500 Average Statistics on a Monthly basis for the past 5 years | Q3 2025</h1>
-<p>This Table shows a calculation of distribution statistics for each stock represented on the S&P 500. Through the use of
-    Python libraries beautiful soup 4 and requests, we collected a list of current companies from the Wikipedia page on the S&P 500. 
-    We were then able to find month-to-month earnings over the past 5 years using Excel's STOCKHISTORY and LET functions. 
-    SQL databases are then used to store raw data. Information is provided "as-is". Calculations do not include dividends.
+    <section>
+<p>
+This table presents detailed distribution statistics for each stock included in the S&P 500 index,
+providing valuable insights into historical stock market performance. Using Python libraries such as Beautiful Soup 4
+and Requests, we programmatically collected an up-to-date list of S&P 500 companies from Wikipedia. Monthly earnings
+data spanning the past five years was then retrieved using Microsoft Excel’s STOCKHISTORY and LET functions. All
+raw financial data is stored and managed in structured SQL databases for efficient querying and analysis. 
+The information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.
 </p>
-
+</section>
     <div id="csv-container">
         <table id="csv-table"></table>
     </div>
