@@ -248,6 +248,13 @@ raw financial data is stored and managed in structured SQL databases for efficie
 The information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.
 </p>
 </section>
+    <div style="text-align:center; margin: 10px 0;">
+    <button id="download-csv"
+        style="padding:10px 16px; font-size:16px; font-family:'Century Schoolbook', serif; cursor:pointer;">
+        Download CSV
+    </button>
+</div>
+
     <div id="csv-container">
         <table id="csv-table"></table>
     </div>
@@ -433,6 +440,42 @@ fetch(csvPath)
     document.getElementById('csv-container').innerHTML =
         '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
 });
+    <script>
+document.getElementById('download-csv').addEventListener('click', () => {
+    const table = document.getElementById('csv-table');
+    let csv = [];
+
+    // ---- Headers ----
+    const headers = Array.from(table.querySelectorAll('thead th'))
+        .map(th => `"${th.childNodes[0].textContent.trim()}"`);
+    csv.push(headers.join(','));
+
+    // ---- Visible rows only (respects filters) ----
+    const rows = Array.from(table.querySelectorAll('tbody tr'))
+        .filter(row => !row.classList.contains('hidden'));
+
+    rows.forEach(row => {
+        const cells = Array.from(row.cells).map(cell => {
+            const val = cell.dataset.value ?? cell.textContent;
+            return `"${val.replace(/"/g, '""')}"`;
+        });
+        csv.push(cells.join(','));
+    });
+
+    // ---- Create file ----
+    const blob = new Blob([csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'SP500_Q3-2025_SystemsCapital.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+});
+</script>
+
 </script>
 
 </body>
