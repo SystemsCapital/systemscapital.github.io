@@ -182,10 +182,6 @@ table tbody tr.hidden { visibility: collapse; }
     min-width: 180px;
     padding: 5px;
 }
-.dropdown-header {
-        position: sticky;
-        
-}
 
 .dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
 .dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
@@ -301,16 +297,16 @@ fetch(csvPath)
         <th data-col="${idx}" class="dropdown-container">
             ${col} <span class="filter-icon">&#x25BC;</span>
             <div class="dropdown">
-                <div class="dropdown-header">
-                    <div class="buttons">
-                        <button class="select-all">Select All</button>   <button class="apply">Apply</button>
-                    </div>
+                <div>
+                    <button class="select-all">Select All</button><button class="apply">Apply</button>
                     <input type="text" placeholder="Search">
                 </div>
+                
                 <div class="checkboxes"></div>
-                <div class="buttons">
-                    <button class="cancel">Cancel</button>
-                </div>
+                
+               
+                <button class="cancel">Cancel</button>
+            
             </div>
         </th>`;
     });
