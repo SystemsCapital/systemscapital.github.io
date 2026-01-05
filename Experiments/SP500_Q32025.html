@@ -158,6 +158,11 @@ table td {
     padding: 8px 10px;
 }
 
+/* Highlight header when dropdown is active */
+th.active-dropdown {
+    background-color: #ebebeb; /* light blue; change if you like */
+    color: #000; /* optional: text color while active */
+}
 
 /* Alternating row colors */
 table tbody tr:nth-child(odd) { background: #ffffff; }
@@ -300,7 +305,7 @@ fetch(csvPath)
             <div class="dropdown">
                 <div style="position:sticky; top:0"; background:white;>
                     <button class="select-all">Select All</button><button class="apply">Apply</button>
-                    <input type="text" placeholder="Search"><button class="cancel">Cancel</button>
+                    <input type="text" placeholder="Search">
                 </div>
                 <div class="checkboxes">
                 </div>
@@ -350,10 +355,25 @@ fetch(csvPath)
         `);
 
         th.addEventListener('click', e => {
-            e.stopPropagation();
-            document.querySelectorAll('.dropdown').forEach(d => { if (d !== dropdown) d.style.display = 'none'; });
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-        });
+    e.stopPropagation();
+
+    // Close all other dropdowns and remove active class
+    document.querySelectorAll('.dropdown').forEach(d => {
+        const parentTh = d.closest('th');
+        if (d !== dropdown) {
+            d.style.display = 'none';
+            parentTh.classList.remove('active-dropdown'); // remove highlight from other headers
+        }
+    });
+
+    // Toggle this dropdown
+    const isVisible = dropdown.style.display === 'block';
+    dropdown.style.display = isVisible ? 'none' : 'block';
+
+    // Highlight header only if opening
+    th.classList.toggle('active-dropdown', !isVisible);
+});
+
 
         dropdown.addEventListener('click', e => e.stopPropagation());
 
@@ -388,16 +408,11 @@ fetch(csvPath)
 
             applyFiltersAndSort();
             dropdown.style.display = 'none';
+            th.classList.remove('active-dropdown'); // remove highlight when Apply pressed
+
         });
 
-        dropdown.querySelector('.cancel').addEventListener('click', () => {
-            checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
-                c.checked = !filters[idx] || filters[idx].includes(c.value);
-            });
-            const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
-            radios.forEach(r => r.checked = sortState[idx] === r.value);
-            dropdown.style.display = 'none';
-        });
+        
     });
 
     function applyFiltersAndSort() {
@@ -437,10 +452,34 @@ fetch(csvPath)
             visible.forEach(r => table.tBodies[0].appendChild(r));
         }
     }
+    function cancelDropdown(th, idx) {
+  const dropdown = th.querySelector('.dropdown');
+  const checkboxContainer = th.querySelector('.checkboxes');
+
+  // Restore checkboxes to last applied filter
+  checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
+    c.checked = !filters[idx] || filters[idx].includes(c.value);
+  });
+
+  // Restore sort radios
+  const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
+  radios.forEach(r => r.checked = sortState[idx] === r.value);
+
+  dropdown.style.display = 'none';
+  th.classList.remove('active-dropdown'); // remove active class when closing
+
+    }
 
     document.addEventListener('click', () => {
-        document.querySelectorAll('.dropdown').forEach(d => d.style.display = 'none');
-    });
+  ths.forEach(th => {
+    const idx = parseInt(th.dataset.col);
+    const dropdown = th.querySelector('.dropdown');
+
+    if (dropdown.style.display === 'block') {
+      cancelDropdown(th, idx);
+    }
+  });
+});
 })
 .catch(err => {
     console.error(err);
