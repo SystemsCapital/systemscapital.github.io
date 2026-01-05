@@ -64,6 +64,34 @@
             align-items: center;
         }
 
+        /* ===== Top Banner ===== */
+        .top-banner {
+            display: block;
+            width: 100%;
+            background-color: #fffb00;
+            color: #000;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 0;
+            text-decoration: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: background 0.3s;
+        }
+
+        .top-banner:hover {
+            background-color: #ffd000;
+        }
+
+        /* ===== Push content down so banner doesn't cover it ===== */
+        .banner-spacer {
+            height: 48px; /* matches banner height (padding + font) */
+        }
+
         h1 {
             color: #ABABAB;
             text-align: center;
@@ -160,6 +188,16 @@
 <body>
 
 <!-- ======================
+     TOP BANNER
+======================= -->
+<a href="https://www.systemscapital.net/Pages/SP500_Statistics" class="top-banner">
+    CLICK HERE FOR OUR NEWEST TOOL:<br>S&P 500 MONTHLY PRICE STATISTICS
+</a>
+
+<!-- Spacer to prevent banner from overlapping content -->
+<div class="banner-spacer"></div>
+
+<!-- ======================
      SEO-CRITICAL CONTENT
 ======================= -->
 
@@ -173,7 +211,6 @@ Investments | Financial Tools | Education
 Systems Capital publishes investment research, financial tools, and educational materials. Downloadable financial tools including Excel templates, databases, Python code and applications for investment workflows
     will become available soon. Our mission is to improve real-world capital allocation through transparent systems modelling. While we are still building, don't hesitate to send us an email by clicking our logo below,
     and ask to be put on our investment newsletter.
-    
 </h3>
 
 <!-- INTERACTIVE LOGO -->
@@ -192,8 +229,7 @@ Systems Capital publishes investment research, financial tools, and educational 
     </button>
 </div>
 
-<!-- KEYWORD-RICH TEXT BLOCK (VERY IMPORTANT) -->
-<!-- CURRENTLY WRITTEN BY AI -->    
+<!-- KEYWORD-RICH TEXT BLOCK -->
 <section>
     <p style="max-width:900px; text-align:center; font-size:16px; line-height:1.6; color:#ffffff;">
         This is a block of text that hopefully adds to our page getting picked up through SEO. Systems Capital publishes 'build-in-public' investment strategy and management commentary, we produce
@@ -202,7 +238,7 @@ Systems Capital publishes investment research, financial tools, and educational 
         and improve real-world capital allocation through transparent systems thinking.
     </p>
 </section>
-<!-- TO BE MADE INTO BUTTONS -->  
+
 <footer>
     © Systems Capital Inc.  Investments | Financial Tools | Education
 </footer>
