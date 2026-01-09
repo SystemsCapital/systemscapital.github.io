@@ -100,7 +100,7 @@ function rotateFlower(){rotation-=45; document.getElementById("flower").style.tr
 <p>This table presents detailed distribution statistics for each stock included in the S&P 500 index,
 providing valuable insights into historical stock market performance. Using Python libraries such as Beautiful Soup 4
 and Requests, we programmatically collected an up-to-date list of S&P 500 companies from Wikipedia. Monthly earnings
-data spanning the past five years was then retrieved using Microsoft Excel’s STOCKHISTORY and LET functions. All
+data spanning the past five years was then retrieved using Microsoft Excel STOCKHISTORY and LET functions. All
 raw financial data is stored and managed in structured SQL databases for efficient querying and analysis. 
 The information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.</p>
 </section>
@@ -163,7 +163,9 @@ Papa.parse(csvPath,{
             headers.forEach(col=>{
                 let titleAttr='';
                 if(col==='Symbol') titleAttr=` title="${row.Company}"`;
-                body+=`<td${titleAttr}>${formatDisplay(row[col], col)}</td>`;
+                const rawVal = row[col];
+                const displayVal = formatDisplay(rawVal, col);
+                body+=`<td data-value="${rawVal}"${titleAttr}>${displayVal}</td>`;
             });
             body+='</tr>';
         });
@@ -180,20 +182,27 @@ Papa.parse(csvPath,{
             const dropdown = th.querySelector('.dropdown');
             const checkboxContainer = th.querySelector('.checkboxes');
 
+            // Unique values for filter checkboxes
             const colValues = Array.from(table.querySelectorAll(`tbody tr td:nth-child(${idx+1})`))
-                                .map(td=>td.textContent);
-            [...new Set(colValues)].sort().forEach(val=>{
+                                .map(td=>td.dataset.value);
+            [...new Set(colValues)].sort((a,b)=>{
+                const aNum = parseFloat(a);
+                const bNum = parseFloat(b);
+                if(!isNaN(aNum) && !isNaN(bNum)) return aNum-bNum;
+                return a.localeCompare(b);
+            }).forEach(val=>{
                 const label = document.createElement('label');
-                label.innerHTML = `<input type="checkbox" value="${val}" checked> ${val}`;
+                label.innerHTML = `<input type="checkbox" value="${val}" checked> ${formatDisplay(val, headers[idx])}`;
                 checkboxContainer.appendChild(label);
             });
 
-            // sort radios
+            // Sort radio buttons
             checkboxContainer.insertAdjacentHTML('afterbegin', `
                 <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
                 <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
             `);
 
+            // Toggle dropdown
             th.addEventListener('click', e=>{
                 e.stopPropagation();
                 document.querySelectorAll('.dropdown').forEach(d=>{
@@ -205,23 +214,26 @@ Papa.parse(csvPath,{
             });
             dropdown.addEventListener('click', e=>e.stopPropagation());
 
-            dropdown.querySelector('input[type=text]').addEventListener('keyup', e=>{
-                const filterText=e.target.value.toLowerCase();
+            // Search filter inside dropdown
+            const searchInput = dropdown.querySelector('input[type=text]');
+            searchInput.addEventListener('keyup', ()=>{
+                const filterText = searchInput.value.toLowerCase();
                 checkboxContainer.querySelectorAll('label').forEach(label=>{
-                    label.style.display = label.textContent.toLowerCase().includes(filterText)?'block':'none';
+                    label.style.display = label.textContent.toLowerCase().includes(filterText) ? 'block' : 'none';
                 });
             });
 
+            // Select All button
             dropdown.querySelector('.select-all').addEventListener('click', e=>{
                 e.stopPropagation();
-                const boxes=checkboxContainer.querySelectorAll('input[type=checkbox]');
-                const allChecked=Array.from(boxes).every(c=>c.checked);
-                boxes.forEach(c=>c.checked=!allChecked);
+                const boxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
+                const allChecked = Array.from(boxes).every(c=>c.checked);
+                boxes.forEach(c=>c.checked = !allChecked);
             });
 
+            // Apply button
             dropdown.querySelector('.apply').addEventListener('click', ()=>{
-                filters[idx]=Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked'))
-                                .map(c=>c.value);
+                filters[idx] = Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked')).map(c=>c.value);
                 const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
                 sortState.fill(null);
                 sortState[idx] = selectedSort ? selectedSort.value : null;
@@ -232,40 +244,44 @@ Papa.parse(csvPath,{
             });
         });
 
+        // ---------- Apply Filters and Sort ----------
         function applyFiltersAndSort(){
             const rowsArr = Array.from(table.tBodies[0].rows);
+
+            // Apply filters
             rowsArr.forEach(row=>{
                 let show=true;
                 filters.forEach((vals,colIdx)=>{
                     if(vals){
-                        const cellVal=row.cells[colIdx].textContent;
+                        const cellVal=row.cells[colIdx].dataset.value;
                         if(!vals.includes(cellVal)) show=false;
                     }
                 });
                 row.classList.toggle('hidden', !show);
             });
 
+            // Apply sorting
             if(lastSortedColumn!==null){
-                const dir=sortState[lastSortedColumn];
-                const ascending = dir==='asc';
+                const ascending = sortState[lastSortedColumn]==='asc';
                 const visible = rowsArr.filter(r=>!r.classList.contains('hidden'));
                 visible.sort((a,b)=>{
-                    const aVal=parseFloat(a.cells[lastSortedColumn].textContent)||a.cells[lastSortedColumn].textContent;
-                    const bVal=parseFloat(b.cells[lastSortedColumn].textContent)||b.cells[lastSortedColumn].textContent;
-                    if(typeof aVal==='number' && typeof bVal==='number') return ascending?aVal-bVal:bVal-aVal;
-                    return ascending?aVal.localeCompare(bVal):bVal.localeCompare(aVal);
+                    const aVal=parseFloat(a.cells[lastSortedColumn].dataset.value);
+                    const bVal=parseFloat(b.cells[lastSortedColumn].dataset.value);
+                    if(!isNaN(aVal) && !isNaN(bVal)) return ascending ? aVal-bVal : bVal-aVal;
+                    return ascending ? a.cells[lastSortedColumn].dataset.value.localeCompare(b.cells[lastSortedColumn].dataset.value)
+                                     : b.cells[lastSortedColumn].dataset.value.localeCompare(a.cells[lastSortedColumn].dataset.value);
                 });
                 visible.forEach(r=>table.tBodies[0].appendChild(r));
             }
         }
 
+        // Close dropdowns when clicking outside
         document.addEventListener('click', ()=>{
             ths.forEach(th=>{
                 const dropdown = th.querySelector('.dropdown');
                 if(dropdown.style.display==='block'){ dropdown.style.display='none'; th.classList.remove('active-dropdown'); }
             });
         });
-
     },
     error:function(err){
         console.error(err);
@@ -276,13 +292,12 @@ Papa.parse(csvPath,{
 // ---------- CSV DOWNLOAD ----------
 document.getElementById('download-csv').addEventListener('click', ()=>{
     const table=document.getElementById('csv-table');
-    let csv=[];
     const headers=Array.from(table.querySelectorAll('thead th')).map(th=>`"${th.textContent.trim()}"`);
-    csv.push(headers.join(','));
+    let csv=[headers.join(',')];
     const rows=Array.from(table.querySelectorAll('tbody tr')).filter(r=>!r.classList.contains('hidden'));
     rows.forEach(row=>{
-        const values=Array.from(row.cells).map(c=>`"${c.textContent.replace(/"/g,'""')}"`);
-        csv.push(values.join(','));
+        const vals=Array.from(row.cells).map(c=>`"${c.dataset.value.replace(/"/g,'""')}"`);
+        csv.push(vals.join(','));
     });
     const blob=new Blob([csv.join('\n')],{type:'text/csv;charset=utf-8;'});
     const url=URL.createObjectURL(blob);
@@ -290,6 +305,7 @@ document.getElementById('download-csv').addEventListener('click', ()=>{
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 });
 </script>
+
 
 </body>
 </html>
