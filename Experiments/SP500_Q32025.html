@@ -5,220 +5,77 @@
 <title>S&P 500 Price Statistics - Monthly | Q3 2025 | Systems Capital</title>
 
 <meta name="description" content="Systems Capital publishes build-in-public investment research, Excel, SQL and Python financial tools, and educational content. S&P 500 Average Statistics - Monthly | Q3 2025 | Systems Capital." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://www.systemscapital.net/" />
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
 
-    <!-- Canonical URL (update username if needed) -->
-    <link rel="canonical" href="https://www.systemscapital.net/" />
+<meta property="og:title" content="Systems Capital | Investment Research & Financial Tools">
+<meta property="og:description" content="Investment Research, Excel, SQL & Python Tools, and Educational Resources.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.systemscapital.net/">
+<meta property="og:image" content="hero.png">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
-
-    <!-- Open Graph (social + SEO bonus) -->
-    <meta property="og:title" content="Systems Capital | Investment Research & Financial Tools">
-    <meta property="og:description" content="Investment Research, Excel, SQL & Python Tools, and Educational Resources.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.systemscapital.net//">
-    <meta property="og:image" content="hero.png">
+<!-- ================== STYLES (UNCHANGED) ================== -->
 <style>
-/* ================= HEADER STYLES ================= */
-body {
-    background: white;
-    font-family: 'Century Schoolbook', serif;
-    margin: 0;
-    padding: 0;
-}
-
-.header {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-}
-
-.logo-container {
-    padding: 14px;
-}
-
-.flower-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-}
-
-.flower-btn:hover { opacity: 0.85; }
-
-.flower {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    transition: transform 0.2s ease;
-    transform-origin: center center;
-}
-
+body { background: white; font-family: 'Century Schoolbook', serif; margin:0; padding:0; }
+.header { display:flex; align-items:center; padding:20px; }
+.logo-container { padding:14px; }
+.flower-btn { background:none; border:none; cursor:pointer; padding:8px; }
+.flower-btn:hover { opacity:0.85; }
+.flower { position:relative; width:60px; height:60px; transition: transform 0.2s ease; transform-origin:center center; }
 .flower:hover { transform: rotate(-45deg); }
+.circle { width:30px; height:30px; border:2px solid gray; border-radius:50%; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); }
+.circle-0{transform:translate(-50%,-50%) rotate(0deg) translate(0,-15px);}
+.circle-45{transform:translate(-50%,-50%) rotate(45deg) translate(0,-15px);}
+.circle-90{transform:translate(-50%,-50%) rotate(90deg) translate(0,-15px);}
+.circle-135{transform:translate(-50%,-50%) rotate(135deg) translate(0,-15px);}
+.circle-180{transform:translate(-50%,-50%) rotate(180deg) translate(0,-15px);}
+.circle-225{transform:translate(-50%,-50%) rotate(225deg) translate(0,-15px);}
+.circle-270{transform:translate(-50%,-50%) rotate(270deg) translate(0,-15px);}
+.circle-315{transform:translate(-50%,-50%) rotate(315deg) translate(0,-15px);}
+nav{margin-left:30px;font-size:16px;}
+nav a{margin-right:20px;text-decoration:none;color:#666;}
+nav a:hover{text-decoration:underline;}
 
-.circle {
-    width: 30px;
-    height: 30px;
-    border: 2px solid gray;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+.content{max-width:1200px;margin:40px auto;padding:0 20px;display:flex;flex-direction:column;align-items:stretch;background:transparent;}
+h1{color:#ABABAB;text-align:center;padding-top:20px;font-size:48px;margin:0;}
+h2{color:#ABABAB;text-align:center;padding:20px 0;font-size:22px;margin:0;}
 
-.circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
-.circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
-.circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
-.circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
-.circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
-.circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
-.circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
-.circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
+.back-link{text-align:center;padding:10px;}
+.back-link a{font-size:20px;text-decoration:none;color:#555;}
 
-nav {
-    margin-left: 30px;
-    font-size: 16px;
-}
+#csv-container{width:100%;min-height:350px;overflow-x:auto;padding:20px 0;}
+table{border-collapse:collapse;width:100%;min-width:900px;}
+table, table th, table td{border:1px solid #ABABAB;}
+table th, table td{text-align:center;vertical-align:middle;padding:8px 10px;}
+th.active-dropdown{background-color:#ebebeb;color:#000;}
+table tbody tr:nth-child(odd){background:#ffffff;}
+table tbody tr:nth-child(even){background:#f9f9f9;}
+table tbody tr.hidden{visibility:collapse;}
 
-nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #666;
-}
+.filter-icon{margin-left:5px;font-weight:bold;}
+.dropdown-container{position:relative;}
+.dropdown{display:none;position:absolute;top:100%;left:0;background:white;border:1px solid #ABABAB;z-index:9999;max-height:250px;overflow-y:auto;min-width:180px;padding:5px;}
+.dropdown input[type=text]{width:90%;margin-bottom:5px;}
+.dropdown label{display:block;padding:2px 5px;cursor:pointer;}
+.dropdown label:hover{background-color:#f0f0f0;}
+.dropdown label:nth-child(even){background-color:#fafafa;}
+.dropdown .buttons{position:sticky;bottom:0;background:white;padding-top:5px;}
+.dropdown button{width:48%;margin:2px 1%;}
 
-nav a:hover { text-decoration: underline; }
-
-/* ================= PAGE CONTENT ================= */
-.content {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; /* stretch children, not centered */
-    background: transparent; /* ensure background doesn’t block dropdowns */
-}
-
-h1 {
-    color: #ABABAB;
-    text-align: center;
-    padding-top: 20px;
-    font-size: 48px;
-    margin: 0;
-}
-
-h2 {
-    color: #ABABAB;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 22px;
-    margin: 0;
-}
-
-/* BACK LINK */
-.back-link {
-    text-align: center;
-    padding: 10px;
-}
-
-.back-link a {
-    font-size: 20px;
-    text-decoration: none;
-    color: #555;
-}
-
-/* TABLE CONTAINER */
-#csv-container { 
-    width: 100%; /* full width */
-    min-height:350px;
-    overflow-x: auto; 
-    padding: 20px 0; /* keep some spacing */
-}
-
-/* TABLE */
-table {
-    border-collapse: collapse;
-    width: 100%;
-    min-width: 900px;
-}
-
-table,
-table th,
-table td {
-    border: 1px solid #ABABAB;
-}
-
-table th,
-table td {
-    text-align: center;
-    vertical-align: middle;
-    padding: 8px 10px;
-}
-
-/* Highlight header when dropdown is active */
-th.active-dropdown {
-    background-color: #ebebeb; /* light blue; change if you like */
-    color: #000; /* optional: text color while active */
-}
-
-/* Alternating row colors */
-table tbody tr:nth-child(odd) { background: #ffffff; }
-table tbody tr:nth-child(even) { background: #f9f9f9; }
-
-/* Hidden rows for filtering */
-table tbody tr.hidden { visibility: collapse; }
-
-/* DROPDOWN FILTER UI */
-.filter-icon { margin-left: 5px; font-weight: bold; }
-.dropdown-container { position: relative; }
-
-.dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    border: 1px solid #ABABAB;
-    z-index: 9999; /* always above table */
-    max-height: 250px;
-    overflow-y: auto;
-    min-width: 180px;
-    padding: 5px;
-}
-
-.dropdown input[type="text"] { width: 90%; margin-bottom: 5px; }
-.dropdown label { display: block; padding: 2px 5px; cursor: pointer; }
-.dropdown label:hover { background-color: #f0f0f0; }
-.dropdown label:nth-child(even) { background-color: #fafafa; }
-
-.dropdown .buttons { position: sticky; bottom: 0; background: white; padding-top: 5px; }
-.dropdown button { width: 48%; margin: 2px 1%; }
-
-@media screen and (max-width: 768px) {
-    table { width: 100%; }
-    #csv-container { padding: 20px; }
-}
+@media screen and (max-width:768px){table{width:100%;} #csv-container{padding:20px;}}
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
 let rotation = 0;
-function handleLogoClick() {
-    rotateFlower();
-    setTimeout(() => { window.location.href = "/"; }, 200);
-}
-function rotateFlower() {
-    rotation -= 45;
-    document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
-}
+function handleLogoClick() { rotateFlower(); setTimeout(()=>{window.location.href="/";},200);}
+function rotateFlower(){rotation-=45; document.getElementById("flower").style.transform=`rotate(${rotation}deg)`;}
 </script>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="header">
     <div class="logo-container">
         <button class="flower-btn" onclick="handleLogoClick()" aria-label="Systems Capital Home">
@@ -234,291 +91,95 @@ function rotateFlower() {
             </span>
         </button>
     </div>
-    <nav>
-        <a href="/">Home</a>
-       
-    </nav>
+    <nav><a href="/">Home</a></nav>
 </header>
 
-<!-- ================= MAIN CONTENT ================= -->
 <main class="content">
-
-    <h1>S&P 500 Price Statistics | Monthly | Past 5 years | Published: Q3 2025</h1>
-    <section>
-<p>
-This table presents detailed distribution statistics for each stock included in the S&P 500 index,
+<h1>S&P 500 Average Statistics | Monthly | Past 5 years | Published: Q3 2025</h1>
+<section>
+<p>This table presents detailed distribution statistics for each stock included in the S&P 500 index,
 providing valuable insights into historical stock market performance. Using Python libraries such as Beautiful Soup 4
 and Requests, we programmatically collected an up-to-date list of S&P 500 companies from Wikipedia. Monthly earnings
 data spanning the past five years was then retrieved using Microsoft Excel’s STOCKHISTORY and LET functions. All
 raw financial data is stored and managed in structured SQL databases for efficient querying and analysis. 
-The information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.
-</p>
+The information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.</p>
 </section>
-    <div style="text-align:right; margin: 5px 0;">
-    <button id="download-csv"
-        style="
-            font-size: 13px;
-            padding: 4px 8px;
-            border: 1px solid #ABABAB;
-            background: white;
-            cursor: pointer;
-        ">
-        Download CSV
-    </button>
+
+<div style="text-align:right; margin:5px 0;">
+<button id="download-csv" style="font-size:13px; padding:4px 8px; border:1px solid #ABABAB; background:white; cursor:pointer;">Download CSV</button>
 </div>
 
-
-    <div id="csv-container">
-        <table id="csv-table"></table>
-    </div>
+<div id="csv-container">
+    <table id="csv-table"></table>
+</div>
 </main>
 
 <footer>
-    © Systems Capital Inc. · Investment Research · Financial Tools · Education
+© Systems Capital Inc. · Investment Research · Financial Tools · Education
 </footer>
 
 <script>
 const csvPath = 'data/SQL_Results.csv?version=' + new Date().getTime();
 
-function formatDisplay(val, headerName) {
+function formatDisplay(val, headerName){
     const colName = headerName.toLowerCase();
-    if (!isNaN(val) && val.trim() !== '' && !colName.includes('percentile')) {
-        return (parseFloat(val) * 100).toFixed(2) + '%';
-    }
-    if (!isNaN(val) && colName.includes('percentile')) {
-        return parseFloat(val).toFixed(2) + '%';
-    }
+    if(!isNaN(val) && val.trim()!=='' && !colName.includes('percentile')) return (parseFloat(val)*100).toFixed(2)+'%';
+    if(!isNaN(val) && colName.includes('percentile')) return parseFloat(val).toFixed(2)+'%';
     return val;
 }
 
-fetch(csvPath)
-.then(res => res.text())
-.then(text => {
-    const rows = text.trim().split(/\r?\n/).map(r => r.split(','));
-    const table = document.getElementById('csv-table');
+// ==================== Load CSV using PapaParse ====================
+Papa.parse(csvPath,{
+    download:true,
+    header:true,
+    skipEmptyLines:true,
+    complete:function(results){
+        const rows = results.data;
+        const table = document.getElementById('csv-table');
 
-    let header = '<thead><tr>';
-    rows[0].forEach((col, idx) => {
-        header += `
-        <th data-col="${idx}" class="dropdown-container">
-            ${col} <span class="filter-icon">&#x25BC;</span>
-            <div class="dropdown">
-                <div style="position:sticky; top:0"; background:white;>
-                    <button class="select-all">Select All</button><button class="apply">Apply</button>
-                    <input type="text" placeholder="Search">
-                </div>
-                <div class="checkboxes">
-                </div>
-            </div>
-        </th>`;
-    });
-    header += '</tr></thead>';
-
-    let body = '<tbody>';
-    for (let i = 1; i < rows.length; i++) {
-        if (rows[i].length > 1) {
-            body += '<tr>';
-            rows[i].forEach((c, colIdx) => {
-                const rawVal = c;
-                const headerName = rows[0][colIdx];
-                const displayVal = formatDisplay(rawVal, headerName);
-                body += `<td data-value="${rawVal}">${displayVal}</td>`;
-            });
-            body += '</tr>';
-        }
-    }
-    body += '</tbody>';
-
-    table.innerHTML = header + body;
-
-    const ths = table.querySelectorAll('th');
-    const filters = Array(rows[0].length).fill(null);
-    const sortState = Array(rows[0].length).fill(null);
-    let lastSortedColumn = null;
-
-    ths.forEach(th => {
-        const idx = parseInt(th.dataset.col);
-        const dropdown = th.querySelector('.dropdown');
-        const checkboxContainer = th.querySelector('.checkboxes');
-        const headerName = rows[0][idx];
-
-        const unique = Array.from(new Set(rows.slice(1).map(r => r[idx]))).sort();
-        unique.forEach(val => {
-            const label = document.createElement('label');
-            label.innerHTML = `<input type="checkbox" value="${val}" checked> ${formatDisplay(val, headerName)}`;
-            checkboxContainer.appendChild(label);
+        // Build header
+        let header='<thead><tr>';
+        Object.keys(rows[0]).forEach(col=>{
+            if(col==='Company') return; // hide Company
+            header+=`<th>${col}</th>`;
         });
+        header+='</tr></thead>';
 
-        checkboxContainer.insertAdjacentHTML('afterbegin', `
-            <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
-            <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
-        `);
+        // Build body
+        let body='<tbody>';
+        rows.forEach(row=>{
+            body+='<tr>';
+            Object.keys(row).forEach(col=>{
+                if(col==='Company') return;
+                let titleAttr='';
+                if(col==='Symbol') titleAttr=` title="${row.Company}"`; // tooltip
+                body+=`<td${titleAttr}>${formatDisplay(row[col], col)}</td>`;
+            });
+            body+='</tr>';
+        });
+        body+='</tbody>';
 
-        th.addEventListener('click', e => {
-    e.stopPropagation();
-
-    // Close all other dropdowns and remove active class
-    document.querySelectorAll('.dropdown').forEach(d => {
-        const parentTh = d.closest('th');
-        if (d !== dropdown) {
-            d.style.display = 'none';
-            parentTh.classList.remove('active-dropdown'); // remove highlight from other headers
-        }
-    });
-
-    // Toggle this dropdown
-    const isVisible = dropdown.style.display === 'block';
-    dropdown.style.display = isVisible ? 'none' : 'block';
-
-    // Highlight header only if opening
-    th.classList.toggle('active-dropdown', !isVisible);
+        table.innerHTML=header+body;
+    },
+    error:function(err){console.error(err); document.getElementById('csv-container').innerHTML='<p style="color:red;text-align:center;">Failed to load CSV.</p>';}
 });
 
-
-        dropdown.addEventListener('click', e => e.stopPropagation());
-
-        const searchInput = dropdown.querySelector('input[type=text]');
-        searchInput.addEventListener('keyup', () => {
-            const filterText = searchInput.value.toLowerCase();
-            checkboxContainer.querySelectorAll('label').forEach(label => {
-                const cb = label.querySelector('input[type=checkbox]');
-                if (cb) {
-                    const val = label.textContent.toLowerCase();
-                    label.style.display = val.includes(filterText) ? 'block' : 'none';
-                }
-            });
-        });
-
-        dropdown.querySelector('.select-all').addEventListener('click', e => {
-            e.stopPropagation();
-            const checkboxes = checkboxContainer.querySelectorAll('input[type=checkbox]');
-            const allChecked = Array.from(checkboxes).every(c => c.checked);
-            checkboxes.forEach(c => c.checked = !allChecked);
-        });
-
-        dropdown.querySelector('.apply').addEventListener('click', () => {
-            filters[idx] = Array.from(
-                checkboxContainer.querySelectorAll('input[type=checkbox]:checked')
-            ).map(c => c.value);
-
-            const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
-            sortState.fill(null);
-            sortState[idx] = selectedSort ? selectedSort.value : null;
-            lastSortedColumn = idx;
-
-            applyFiltersAndSort();
-            dropdown.style.display = 'none';
-            th.classList.remove('active-dropdown'); // remove highlight when Apply pressed
-
-        });
-
-        
-    });
-
-    function applyFiltersAndSort() {
-        const rowsArr = Array.from(table.tBodies[0].rows);
-
-        /* ---------------- Apply Filters ---------------- */
-        rowsArr.forEach(row => {
-            let show = true;
-            filters.forEach((vals, colIdx) => {
-                if (vals) {
-                    const cellVal = row.cells[colIdx].dataset.value;
-                    if (!vals.includes(cellVal)) show = false;
-                }
-            });
-            row.classList.toggle('hidden', !show); // <-- updated to keep row space
-        });
-
-        /* ---------------- Sort Visible Rows ---------------- */
-        if (lastSortedColumn !== null) {
-            const direction = sortState[lastSortedColumn];
-            const ascending = direction === 'asc';
-            const visible = rowsArr.filter(r => !r.classList.contains('hidden'));
-
-            visible.sort((a, b) => {
-                const aVal = a.cells[lastSortedColumn].dataset.value;
-                const bVal = b.cells[lastSortedColumn].dataset.value;
-
-                const aNum = parseFloat(aVal);
-                const bNum = parseFloat(bVal);
-
-                if (!isNaN(aNum) && !isNaN(bNum)) {
-                    return ascending ? aNum - bNum : bNum - aNum;
-                }
-                return ascending ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-            });
-
-            visible.forEach(r => table.tBodies[0].appendChild(r));
-        }
-    }
-    function cancelDropdown(th, idx) {
-  const dropdown = th.querySelector('.dropdown');
-  const checkboxContainer = th.querySelector('.checkboxes');
-
-  // Restore checkboxes to last applied filter
-  checkboxContainer.querySelectorAll('input[type=checkbox]').forEach(c => {
-    c.checked = !filters[idx] || filters[idx].includes(c.value);
-  });
-
-  // Restore sort radios
-  const radios = dropdown.querySelectorAll(`input[name=sort${idx}]`);
-  radios.forEach(r => r.checked = sortState[idx] === r.value);
-
-  dropdown.style.display = 'none';
-  th.classList.remove('active-dropdown'); // remove active class when closing
-
-    }
-
-    document.addEventListener('click', () => {
-  ths.forEach(th => {
-    const idx = parseInt(th.dataset.col);
-    const dropdown = th.querySelector('.dropdown');
-
-    if (dropdown.style.display === 'block') {
-      cancelDropdown(th, idx);
-    }
-  });
-});
-})
-.catch(err => {
-    console.error(err);
-    document.getElementById('csv-container').innerHTML =
-        '<p style="color:red; text-align:center;">Failed to load CSV.</p>';
-});
-  
-document.getElementById('download-csv').addEventListener('click', () => {
-    const table = document.getElementById('csv-table');
-    let csv = [];
-
-    // Header row
-    const headers = Array.from(table.querySelectorAll('thead th'))
-        .map(th => `"${th.childNodes[0].textContent.trim()}"`);
+// ==================== CSV Download ====================
+document.getElementById('download-csv').addEventListener('click',()=>{
+    const table=document.getElementById('csv-table');
+    let csv=[];
+    const headers=Array.from(table.querySelectorAll('thead th')).map(th=>`"${th.textContent.trim()}"`);
     csv.push(headers.join(','));
-
-    // Visible rows only
-    const rows = Array.from(table.querySelectorAll('tbody tr'))
-        .filter(r => !r.classList.contains('hidden'));
-
-    rows.forEach(row => {
-        const values = Array.from(row.cells).map(cell =>
-            `"${cell.dataset.value.replace(/"/g, '""')}"`
-        );
+    const rows=Array.from(table.querySelectorAll('tbody tr'));
+    rows.forEach(row=>{
+        const values=Array.from(row.cells).map(cell=>`"${cell.textContent.replace(/"/g,'""')}"`);
         csv.push(values.join(','));
     });
-
-    const blob = new Blob([csv.join('\n')], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'SP500 Stats_Q3-2025_SystemsCapital.csv';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const blob=new Blob([csv.join('\n')],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download='SP500 Stats_Q3-2025_SystemsCapital.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 });
-
 </script>
 
 </body>
