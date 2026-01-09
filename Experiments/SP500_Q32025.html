@@ -128,7 +128,7 @@ function formatDisplay(val, headerName){
     return val;
 }
 
-// ==================== Load CSV using PapaParse ====================
+// ---------- Load CSV ----------
 Papa.parse(csvPath,{
     download:true,
     header:true,
@@ -137,47 +137,156 @@ Papa.parse(csvPath,{
         const rows = results.data;
         const table = document.getElementById('csv-table');
 
-        // Build header
+        // --- Header ---
         let header='<thead><tr>';
-        Object.keys(rows[0]).forEach(col=>{
-            if(col==='Company') return; // hide Company
-            header+=`<th>${col}</th>`;
+        const headers = Object.keys(rows[0]).filter(c=>c!=='Company');
+        headers.forEach((col, idx)=>{
+            header+=`
+            <th data-col="${idx}" class="dropdown-container">
+                ${col} <span class="filter-icon">&#x25BC;</span>
+                <div class="dropdown">
+                    <div style="position:sticky; top:0; background:white;">
+                        <button class="select-all">Select All</button>
+                        <button class="apply">Apply</button>
+                        <input type="text" placeholder="Search">
+                    </div>
+                    <div class="checkboxes"></div>
+                </div>
+            </th>`;
         });
         header+='</tr></thead>';
 
-        // Build body
+        // --- Body ---
         let body='<tbody>';
         rows.forEach(row=>{
             body+='<tr>';
-            Object.keys(row).forEach(col=>{
-                if(col==='Company') return;
+            headers.forEach(col=>{
                 let titleAttr='';
-                if(col==='Symbol') titleAttr=` title="${row.Company}"`; // tooltip
+                if(col==='Symbol') titleAttr=` title="${row.Company}"`;
                 body+=`<td${titleAttr}>${formatDisplay(row[col], col)}</td>`;
             });
             body+='</tr>';
         });
         body+='</tbody>';
+        table.innerHTML = header + body;
 
-        table.innerHTML=header+body;
+        // --- Filters & Sort ---
+        const ths = table.querySelectorAll('th');
+        const filters = Array(headers.length).fill(null);
+        const sortState = Array(headers.length).fill(null);
+        let lastSortedColumn = null;
+
+        ths.forEach((th, idx)=>{
+            const dropdown = th.querySelector('.dropdown');
+            const checkboxContainer = th.querySelector('.checkboxes');
+
+            const colValues = Array.from(table.querySelectorAll(`tbody tr td:nth-child(${idx+1})`))
+                                .map(td=>td.textContent);
+            [...new Set(colValues)].sort().forEach(val=>{
+                const label = document.createElement('label');
+                label.innerHTML = `<input type="checkbox" value="${val}" checked> ${val}`;
+                checkboxContainer.appendChild(label);
+            });
+
+            // sort radios
+            checkboxContainer.insertAdjacentHTML('afterbegin', `
+                <label><input type="radio" name="sort${idx}" value="asc"> Sort Asc</label>
+                <label><input type="radio" name="sort${idx}" value="desc"> Sort Desc</label>
+            `);
+
+            th.addEventListener('click', e=>{
+                e.stopPropagation();
+                document.querySelectorAll('.dropdown').forEach(d=>{
+                    if(d!==dropdown){ d.style.display='none'; d.closest('th').classList.remove('active-dropdown'); }
+                });
+                const visible = dropdown.style.display==='block';
+                dropdown.style.display = visible ? 'none' : 'block';
+                th.classList.toggle('active-dropdown', !visible);
+            });
+            dropdown.addEventListener('click', e=>e.stopPropagation());
+
+            dropdown.querySelector('input[type=text]').addEventListener('keyup', e=>{
+                const filterText=e.target.value.toLowerCase();
+                checkboxContainer.querySelectorAll('label').forEach(label=>{
+                    label.style.display = label.textContent.toLowerCase().includes(filterText)?'block':'none';
+                });
+            });
+
+            dropdown.querySelector('.select-all').addEventListener('click', e=>{
+                e.stopPropagation();
+                const boxes=checkboxContainer.querySelectorAll('input[type=checkbox]');
+                const allChecked=Array.from(boxes).every(c=>c.checked);
+                boxes.forEach(c=>c.checked=!allChecked);
+            });
+
+            dropdown.querySelector('.apply').addEventListener('click', ()=>{
+                filters[idx]=Array.from(checkboxContainer.querySelectorAll('input[type=checkbox]:checked'))
+                                .map(c=>c.value);
+                const selectedSort = dropdown.querySelector(`input[name=sort${idx}]:checked`);
+                sortState.fill(null);
+                sortState[idx] = selectedSort ? selectedSort.value : null;
+                lastSortedColumn = idx;
+                applyFiltersAndSort();
+                dropdown.style.display='none';
+                th.classList.remove('active-dropdown');
+            });
+        });
+
+        function applyFiltersAndSort(){
+            const rowsArr = Array.from(table.tBodies[0].rows);
+            rowsArr.forEach(row=>{
+                let show=true;
+                filters.forEach((vals,colIdx)=>{
+                    if(vals){
+                        const cellVal=row.cells[colIdx].textContent;
+                        if(!vals.includes(cellVal)) show=false;
+                    }
+                });
+                row.classList.toggle('hidden', !show);
+            });
+
+            if(lastSortedColumn!==null){
+                const dir=sortState[lastSortedColumn];
+                const ascending = dir==='asc';
+                const visible = rowsArr.filter(r=>!r.classList.contains('hidden'));
+                visible.sort((a,b)=>{
+                    const aVal=parseFloat(a.cells[lastSortedColumn].textContent)||a.cells[lastSortedColumn].textContent;
+                    const bVal=parseFloat(b.cells[lastSortedColumn].textContent)||b.cells[lastSortedColumn].textContent;
+                    if(typeof aVal==='number' && typeof bVal==='number') return ascending?aVal-bVal:bVal-aVal;
+                    return ascending?aVal.localeCompare(bVal):bVal.localeCompare(aVal);
+                });
+                visible.forEach(r=>table.tBodies[0].appendChild(r));
+            }
+        }
+
+        document.addEventListener('click', ()=>{
+            ths.forEach(th=>{
+                const dropdown = th.querySelector('.dropdown');
+                if(dropdown.style.display==='block'){ dropdown.style.display='none'; th.classList.remove('active-dropdown'); }
+            });
+        });
+
     },
-    error:function(err){console.error(err); document.getElementById('csv-container').innerHTML='<p style="color:red;text-align:center;">Failed to load CSV.</p>';}
+    error:function(err){
+        console.error(err);
+        document.getElementById('csv-container').innerHTML='<p style="color:red;text-align:center;">Failed to load CSV.</p>';
+    }
 });
 
-// ==================== CSV Download ====================
-document.getElementById('download-csv').addEventListener('click',()=>{
+// ---------- CSV DOWNLOAD ----------
+document.getElementById('download-csv').addEventListener('click', ()=>{
     const table=document.getElementById('csv-table');
     let csv=[];
     const headers=Array.from(table.querySelectorAll('thead th')).map(th=>`"${th.textContent.trim()}"`);
     csv.push(headers.join(','));
-    const rows=Array.from(table.querySelectorAll('tbody tr'));
+    const rows=Array.from(table.querySelectorAll('tbody tr')).filter(r=>!r.classList.contains('hidden'));
     rows.forEach(row=>{
-        const values=Array.from(row.cells).map(cell=>`"${cell.textContent.replace(/"/g,'""')}"`);
+        const values=Array.from(row.cells).map(c=>`"${c.textContent.replace(/"/g,'""')}"`);
         csv.push(values.join(','));
     });
     const blob=new Blob([csv.join('\n')],{type:'text/csv;charset=utf-8;'});
     const url=URL.createObjectURL(blob);
-    const a=document.createElement('a'); a.href=url; a.download='SP500 Stats_Q3-2025_SystemsCapital.csv';
+    const a=document.createElement('a'); a.href=url; a.download='SP500_Stats_Q3-2025_SystemsCapital.csv';
     document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
 });
 </script>
