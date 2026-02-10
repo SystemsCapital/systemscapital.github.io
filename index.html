@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- =====================================================
+         BASIC DOCUMENT SETUP
+         ===================================================== -->
+    <meta charset="UTF-8">
+    <title>Systems Capital Inc.</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+
     <!-- ======================
          CORE SEO METADATA
     ======================= -->
@@ -51,10 +59,14 @@
     }
     </script>
 
-    <!-- ======================
-         STYLES
-    ======================= -->
+    <!-- =====================================================
+         GLOBAL STYLES & RESET
+         ===================================================== -->
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background: white;
             font-family: 'Century Schoolbook', serif;
@@ -64,32 +76,90 @@
             align-items: center;
         }
 
-        /* ===== Top Banner ===== */
-        .top-banner {
-            display: block;
-            width: 100%;
-            background-color: #fffb00;
-            color: #000;
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 12px 0;
-            text-decoration: none;
+        /* =====================================================
+           CENTERED INTRO CONTAINER (FLOWER ONLY)
+           ===================================================== */
+        #intro {
             position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            transition: background 0.3s;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            z-index: 10;
+            transition: opacity 1.2s ease;
         }
 
-        .top-banner:hover {
-            background-color: #ffd000;
+        #intro.fade-out {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        /* ===== Push content down so banner doesn't cover it ===== */
-        .banner-spacer {
-            height: 48px; /* matches banner height (padding + font) */
+        /* =====================================================
+           FLOWER BUTTON STYLES
+           ===================================================== */
+        .flower-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .flower-btn:hover { opacity: 0.8; }
+
+        .flower {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transition:
+                transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 1.2s ease;
+        }
+
+        .flower.dim {
+            opacity: 0.15;
+        }
+
+        /* =====================================================
+           PETAL (CIRCLE) DESIGN
+           ===================================================== */
+        .circle {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #aaa;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: border-color 0.6s ease;
+        }
+
+        .flower.active .circle {
+            border-color: #666;
+        }
+
+        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
+        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
+        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
+        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
+        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
+        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
+        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
+        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
+
+        /* =====================================================
+           MAIN WEBSITE CONTENT (HIDDEN INITIALLY)
+           ===================================================== */
+        #site-content {
+            opacity: 0;
+            transition: opacity 1.4s ease;
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        #site-content.visible {
+            opacity: 1;
         }
 
         h1 {
@@ -115,53 +185,22 @@
             line-height: 1.4;
         }
 
-        .flower-btn {
-            position: relative;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 40px;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .flower-btn:hover { opacity: 0.75; }
-
-        .flower {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            transition: transform 0.8s ease;
-        }
-
-        .circle {
-            width: 100px;
-            height: 100px;
-            border: 3px solid gray;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
-        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
-        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
-        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
-        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
-        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
-        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
-        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
-
-        footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #777;
+        .links {
             text-align: center;
-            padding-bottom: 20px;
+            margin-top: 60px;
+        }
+
+        .links a {
+            display: block;
+            margin: 20px 0;
+            font-size: 22px;
+            color: #555;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .links a:hover {
+            opacity: 0.6;
         }
 
         .plain-button {
@@ -174,33 +213,30 @@
         }
     </style>
 
-    <!-- ======================
-         SCRIPT
-    ======================= -->
-    <script>
-        let rotation = 0;
-
-        function handleFlowerClick() {
-            rotateFlower();
-            setTimeout(() => {
-                window.location.href = "mailto:eric@systemscapital.net";
-            }, 300);
-        }
-
-        function rotateFlower() {
-            rotation -= 45;
-            document.getElementById("flower").style.transform = `rotate(${rotation}deg)`;
-        }
-    </script>
 </head>
-
 <body>
 
-<!-- ======================
-     TOP BANNER
-======================= -->
+<!-- =====================================================
+     INTRO SCREEN — FLOWER ONLY
+     ===================================================== -->
+<div id="intro">
+    <button class="flower-btn" id="flowerBtn">
+        <div class="flower" id="flower">
+            <span class="circle circle-0"></span>
+            <span class="circle circle-45"></span>
+            <span class="circle circle-90"></span>
+            <span class="circle circle-135"></span>
+            <span class="circle circle-180"></span>
+            <span class="circle circle-225"></span>
+            <span class="circle circle-270"></span>
+            <span class="circle circle-315"></span>
+        </div>
+    </button>
+</div>
 
-
+<!-- =====================================================
+     FULL WEBSITE CONTENT
+     ===================================================== -->
 <!-- Spacer to prevent banner from overlapping content -->
 <div class="banner-spacer"></div>
 
@@ -221,7 +257,7 @@ Systems Capital takes a 'build-in-public' approach to investment management. We 
 </h3>
 
 <!-- INTERACTIVE LOGO -->
-<div style="text-align:center; padding:20px;">
+<div style="text-align:center; padding:100px;">
     <button class="flower-btn" onclick="handleFlowerClick()" type="button" aria-label="Contact Systems Capital">
         <span class="flower" id="flower">
             <span class="circle circle-0"></span>
@@ -246,6 +282,37 @@ Systems Capital takes a 'build-in-public' approach to investment management. We 
 <footer>
     © Systems Capital Inc.  Investments | Financial Tools | Education
 </footer>
+
+<!-- =====================================================
+     INTERACTION & ANIMATION LOGIC
+     ===================================================== -->
+<script>
+    let rotation = 0;
+    const flower = document.getElementById("flower");
+    const intro = document.getElementById("intro");
+    const content = document.getElementById("site-content");
+
+    document.getElementById("flowerBtn").addEventListener("click", () => {
+
+        // Rotate flower
+        rotation -= 45;
+        flower.style.transform = `rotate(${rotation}deg)`;
+
+        // Activate highlight state
+        flower.classList.add("active");
+
+        // Dim flower slightly
+        setTimeout(() => {
+            flower.classList.add("dim");
+        }, 500);
+
+        // Fade out intro, fade in site
+        setTimeout(() => {
+            intro.classList.add("fade-out");
+            content.classList.add("visible");
+        }, 900);
+    });
+</script>
 
 </body>
 </html>
