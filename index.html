@@ -2,225 +2,234 @@
 <html lang="en">
 <head>
 
-    <!-- =====================================================
-         BASIC DOCUMENT SETUP
-         ===================================================== -->
-    <meta charset="UTF-8">
-    <title>Systems Capital Inc.</title>
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
-
-    <!-- ======================
-         CORE SEO METADATA
-    ======================= -->
-    <meta charset="UTF-8">
-    <title>Systems Capital | Home</title>
-
-    <meta name="description" content="Systems Capital publishes build-in-public investment research, Excel, SQL and Python financial tools, and educational content. Build-in-public investing, tools, and education." />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.systemscapital.net/" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="512x512" href="https://www.systemscapital.net/favicon.png">
-
-    <!-- Open Graph (social + SEO bonus) -->
-    <meta property="og:title" content="Systems Capital | Investment Research & Financial Tools">
-    <meta property="og:description" content="Investment Research, Excel, SQL & Python Tools, and Educational Resources.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.systemscapital.net/">
-    <meta property="og:image" content="https://www.systemscapital.net/hero.png">
-    <meta property="og:site_name" content="Systems Capital">
-    <meta property="og:locale" content="en_US">
-
-    <!-- ======================
-         GOOGLE SEARCH / JSON-LD
-    ======================= -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Systems Capital",
-      "alternateName": "Systems Capital Inc",
-      "url": "https://www.systemscapital.net/"
-    }
-    </script>
-
-    <!-- ======================
-         ORGANIZATION (LOGO / BRAND)
-    ======================= -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Systems Capital",
-      "url": "https://www.systemscapital.net/",
-      "logo": "https://www.systemscapital.net/logo.png"
-    }
-    </script>
-
-    <!-- =====================================================
-         GLOBAL STYLES & RESET
-         ===================================================== -->
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background: white;
-            font-family: 'Century Schoolbook', serif;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* =====================================================
-           CENTERED INTRO CONTAINER (FLOWER ONLY)
-           ===================================================== */
-        #intro {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            z-index: 10;
-            transition: opacity 1.2s ease;
-        }
-
-        #intro.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        /* =====================================================
-           FLOWER BUTTON STYLES
-           ===================================================== */
-        .flower-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .flower-btn:hover { opacity: 0.8; }
-
-        .flower {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            transition:
-                transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-                opacity 1.2s ease;
-        }
-
-        .flower.dim {
-            opacity: 0.15;
-        }
-
-        /* =====================================================
-           PETAL (CIRCLE) DESIGN
-           ===================================================== */
-        .circle {
-            width: 100px;
-            height: 100px;
-            border: 2px solid #aaa;
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transition: border-color 0.6s ease;
-        }
-
-        .flower.active .circle {
-            border-color: #666;
-        }
-
-        .circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
-        .circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
-        .circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
-        .circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
-        .circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
-        .circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
-        .circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
-        .circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
-
-        /* =====================================================
-           MAIN WEBSITE CONTENT (HIDDEN INITIALLY)
-           ===================================================== */
-        #site-content {
-            opacity: 0;
-            transition: opacity 1.4s ease;
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        #site-content.visible {
-            opacity: 1;
-        }
-
-        h1 {
-            color: #ABABAB;
-            text-align: center;
-            padding-top: 20px;
-            font-size: 64px;
-        }
-
-        h2 {
-            color: #ABABAB;
-            text-align: center;
-            padding-top: 10px;
-            font-size: 22px;
-            max-width: 800px;
-        }
-
-        h3 {
-            color: #555;
-            text-align: center;
-            font-size: 18px;
-            max-width: 900px;
-            line-height: 1.4;
-        }
-
-        .links {
-            text-align: center;
-            margin-top: 60px;
-        }
-
-        .links a {
-            display: block;
-            margin: 20px 0;
-            font-size: 22px;
-            color: #555;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .links a:hover {
-            opacity: 0.6;
-        }
-
-        .plain-button {
-            color:inherit;
-            text-decoration: none;
-        }
-
-        .plain-button:hover {
-            opacity: 0.75;
-        }
-    </style>
-
-</head>
-<body>
+<!-- =====================================================
+     BASIC DOCUMENT SETUP
+===================================================== -->
+<meta charset="UTF-8">
+<title>Systems Capital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="favicon.png">
 
 <!-- =====================================================
-     INTRO SCREEN — FLOWER ONLY
-     ===================================================== -->
+     SEO & SOCIAL METADATA
+===================================================== -->
+<meta name="description" content="Systems Capital publishes build-in-public investment research, financial tools, and educational content.">
+<link rel="canonical" href="https://www.systemscapital.net/">
+
+<meta property="og:title" content="Systems Capital">
+<meta property="og:description" content="Investment research, financial systems, and tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.systemscapital.net/">
+
+<!-- =====================================================
+     GLOBAL STYLES
+===================================================== -->
+<style>
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #ffffff;
+    font-family: "Century Schoolbook", Georgia, serif;
+    color: #4a4a4a;
+}
+
+/* =====================================================
+   INTRO OVERLAY (UNCHANGED)
+===================================================== */
+#intro {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 1.2s ease;
+}
+
+#intro.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =====================================================
+   FLOWER BUTTON FRONT 
+===================================================== */
+.flower-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.flower {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+                opacity 1.2s ease;
+}
+
+.flower.dim { opacity: 0.15; }
+
+.flowerL {
+    position: ABSOLUTE;
+    width: 48px;
+    height: 32px;
+    transition: transform 0.2s ease;
+    transform-origin: center center;
+}
+
+.flower:hover { transform: rotate(-45deg); }
+
+
+.flower.active .circle { border-color: #666; }
+
+.circle-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -50px); }
+.circle-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -50px); }
+.circle-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -50px); }
+.circle-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -50px); }
+.circle-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -50px); }
+.circle-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -50px); }
+.circle-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -50px); }
+.circle-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -50px); }
+
+/* =====================================================
+   FLOWER BUTTON LOGO
+===================================================== */
+
+
+.flower-logo {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.5;
+}
+
+.flower-ogo:hover { opacity: 0.85; }
+
+.circleL {
+    width: 30px;
+    height: 30px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #aaa;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: border-color 0.6s ease;
+}
+
+.circleL-0   { transform: translate(-50%, -50%) rotate(0deg) translate(0, -15px); }
+.circleL-45  { transform: translate(-50%, -50%) rotate(45deg) translate(0, -15px); }
+.circleL-90  { transform: translate(-50%, -50%) rotate(90deg) translate(0, -15px); }
+.circleL-135 { transform: translate(-50%, -50%) rotate(135deg) translate(0, -15px); }
+.circleL-180 { transform: translate(-50%, -50%) rotate(180deg) translate(0, -15px); }
+.circleL-225 { transform: translate(-50%, -50%) rotate(225deg) translate(0, -15px); }
+.circleL-270 { transform: translate(-50%, -50%) rotate(270deg) translate(0, -15px); }
+.circleL-315 { transform: translate(-50%, -50%) rotate(315deg) translate(0, -15px); }
+
+
+
+/* =====================================================
+   MAIN CONTENT WRAPPER
+===================================================== */
+#site-content {
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+#site-content.visible {
+    opacity: 1;
+}
+
+/* =====================================================
+   HERO SECTION
+===================================================== */
+.hero {
+    max-width: 820px;
+    margin: 10px auto 80px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 64px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+.hero nav {
+    font-size: 20px;
+    color: #666;
+}
+
+.hero nav a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0 12px;
+}
+
+.hero nav a:hover { opacity: 0.6; }
+
+
+.logo-container {
+    text-align: TOP;
+}
+/* =====================================================
+   MISSION / DESCRIPTION
+===================================================== */
+.mission {
+    max-width: 760px;
+    margin: 0 auto 120px;
+    padding: 0 20px;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    color: #555;
+}
+
+/* =====================================================
+   FOOTER FLOWER (CONTACT)
+===================================================== */
+.contact {
+    text-align: center;
+    padding: 80px 0 120px;
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    padding-bottom: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     INTRO SCREEN (FLOWER ONLY)
+===================================================== -->
 <div id="intro">
-    <button class="flower-btn" id="flowerBtn">
+    <button class="flower-btn" id="flowerBtn" aria-label="Enter site">
         <div class="flower" id="flower">
             <span class="circle circle-0"></span>
             <span class="circle circle-45"></span>
@@ -231,87 +240,81 @@
             <span class="circle circle-270"></span>
             <span class="circle circle-315"></span>
         </div>
-    </button>
 </div>
 
 <!-- =====================================================
-     FULL WEBSITE CONTENT
-     ===================================================== -->
-<!-- Spacer to prevent banner from overlapping content -->
-<div class="banner-spacer"></div>
+     MAIN SITE CONTENT
+===================================================== -->
+<!-- ================= HEADER ================= -->
+<header class="header">
+    <div class="logo-container">
+        <button class="flower-logo" aria-label="Systems Capital Home">
+            <span class="flowerL" id="flowerL">
+                <span class="circleL circleL-0"></span>
+                <span class="circleL circleL-45"></span>
+                <span class="circleL circleL-90"></span>
+                <span class="circleL circleL-135"></span>
+                <span class="circleL circleL-180"></span>
+                <span class="circleL circleL-225"></span>
+                <span class="circleL circleL-270"></span>
+                <span class="circleL circleL-315"></span>
+            </span>
+        </button>
+    </div>
+</header>
 
-<!-- ======================
-     SEO-CRITICAL CONTENT
-======================= -->
 
-<h1>Systems Capital</h1>
+<div id="site-content">
 
-<h2>
-<a href="/Pages/SP500_Statistics.html" class="plain-button"> Investment Tools</a> | <a href="/Pages/Investment_Journal.html" class="plain-button">Market Commentary </a>| Education
-</h2>
+<section class="hero">
+    <h1>Systems Capital</h1>
+    <nav>
+        <a href="/Pages/SP500_Statistics.html">Investment Tools</a> ·
+        <a href="/Pages/Investment_Journal.html">Market Commentary</a> 
+    </nav>
+</section>
 
-<h3>
-Systems Capital takes a 'build-in-public' approach to investment management. We publish investment and economic outlook research and we produce our own financial tools and models which we make available to the public. Financial tools including Excel templates, statistic databases, Python code, and applications for investment workflows
-    will become available soon as our firm grows. Our mission is to progress decision-making theory through a proprietary systems modelling process. We implement our findings, and fully back out conclusions through our capital allocations. While we are still building out website, don't hesitate to send us an email by clicking our logo below,
-    and ask to be put on our investment newsletter.
-</h3>
-
-<!-- INTERACTIVE LOGO -->
-<div style="text-align:center; padding:100px;">
-    <button class="flower-btn" onclick="handleFlowerClick()" type="button" aria-label="Contact Systems Capital">
-        <span class="flower" id="flower">
-            <span class="circle circle-0"></span>
-            <span class="circle circle-45"></span>
-            <span class="circle circle-90"></span>
-            <span class="circle circle-135"></span>
-            <span class="circle circle-180"></span>
-            <span class="circle circle-225"></span>
-            <span class="circle circle-270"></span>
-            <span class="circle circle-315"></span>
-        </span>
-    </button>
-</div>
-
-<!-- KEYWORD-RICH TEXT BLOCK -->
-<section>
-    <p style="max-width:900px; text-align:center; font-size:16px; line-height:1.6; color:#ffffff;">
-        
+<section class="mission">
+    <p>
+        Systems Capital takes a build-in-public approach to investment management.
+        We publish research, design financial systems, and develop internal tools
+        across Excel, Python, and statistical databases.
+    </p>
+    <p>
+        Our mission is to advance decision-making theory through proprietary systems
+        modeling, implemented directly through capital allocation.
+        Tools and publications will continue to open as the firm grows.
     </p>
 </section>
 
+
+
 <footer>
-    © Systems Capital Inc.  Investments | Financial Tools | Education
+    © Systems Capital Inc. — Investment Research · Financial Tools 
 </footer>
 
+</div>
+
 <!-- =====================================================
-     INTERACTION & ANIMATION LOGIC
-     ===================================================== -->
+     INTERACTION LOGIC (UNCHANGED)
+===================================================== -->
 <script>
-    let rotation = 0;
-    const flower = document.getElementById("flower");
-    const intro = document.getElementById("intro");
-    const content = document.getElementById("site-content");
+let rotation = 0;
+const flower = document.getElementById("flower");
+const intro = document.getElementById("intro");
+const content = document.getElementById("site-content");
 
-    document.getElementById("flowerBtn").addEventListener("click", () => {
+document.getElementById("flowerBtn").addEventListener("click", () => {
+    rotation -= 45;
+    flower.style.transform = `rotate(${rotation}deg)`;
+    flower.classList.add("active");
 
-        // Rotate flower
-        rotation -= 45;
-        flower.style.transform = `rotate(${rotation}deg)`;
-
-        // Activate highlight state
-        flower.classList.add("active");
-
-        // Dim flower slightly
-        setTimeout(() => {
-            flower.classList.add("dim");
-        }, 500);
-
-        // Fade out intro, fade in site
-        setTimeout(() => {
-            intro.classList.add("fade-out");
-            content.classList.add("visible");
-        }, 900);
-    });
+    setTimeout(() => flower.classList.add("dim"), 500);
+    setTimeout(() => {
+        intro.classList.add("fade-out");
+        content.classList.add("visible");
+    }, 900);
+});
 </script>
 
 </body>
