@@ -12,22 +12,27 @@
   </url>
   
  <url>
-    <loc>https://www.systemscapital.net/Pages/Investment_Journal</loc>
+    <loc>https://www.systemscapital.net/Pages/Investment_Journal/Investment_Journal</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.systemscapital.net/Pages/Investment_Thesesl</loc>
+    <loc>https://www.systemscapital.net/Pages/Investment_Theses/Investment_Theses</loc>
     <priority>0.8</priority>
   </url>
 
     <url>
-    <loc>https://www.systemscapital.net/Pages/Research_Home</loc>
+    <loc>https://www.systemscapital.net/Pages/Research_Home/Research_Home</loc>
     <priority>0.9</priority>
   </url>
 
     <url>
-    <loc>https://www.systemscapital.net/Pages/Data_Home</loc>
+    <loc>https://www.systemscapital.net/Pages/Data_Home/Data_Home</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.systemscapital.net/Pages/About/About</loc>
     <priority>0.9</priority>
   </url>
 
