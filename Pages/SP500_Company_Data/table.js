@@ -3,7 +3,7 @@
    Full feature parity with original CSV implementation
 ========================================================== */
 
-const DATA_FILE = "https://www.systemscapital.net/Pages/SP500_Company_Data/SP500_Company_Data.JSON"; // CHANGE THIS ONLY
+const DATA_FILE = "/SP500_Company_Data/SP500_Company_Data.JSON";
 
 document.addEventListener("DOMContentLoaded", initTable);
 
@@ -248,3 +248,4 @@ function initializeDropdownLogic(table, headers) {
         });
     });
 }
+
