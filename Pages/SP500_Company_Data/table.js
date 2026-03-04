@@ -3,7 +3,7 @@
    Full feature parity with original CSV implementation
 ========================================================== */
 
-const DATA_FILE = "4 - SP500_Symbols.json"; 
+const DATA_FILE = "https://www.systemscapital.net/Pages/SP500_Company_Data/SP500_Company_Data.JSON"; // CHANGE THIS ONLY
 
 document.addEventListener("DOMContentLoaded", initTable);
 
