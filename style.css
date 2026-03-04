@@ -313,14 +313,14 @@ nav a:hover::after {
 ================================= */
 
 .hero {
-    padding-top: 220px;
+    padding-top: 160px;
     padding-bottom: 180px;
 }
 
 .hero-grid {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
-    gap: 80px;
+    gap: 5px;
 }
 
 .hero-statement {
@@ -355,6 +355,46 @@ nav a:hover::after {
     color: #666;
 }
 
+/* ===============================
+   LATEST PUBLICATION BANNER
+================================= */
+
+.latest-publication {
+    margin-top: 5px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.latest-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 14px;
+}
+
+.latest-link a {
+    text-decoration: none;
+    color: #555;              /* matches nav a */
+    position: relative;       /* required for underline animation */
+}
+
+/* Recreate the nav underline animation */
+.latest-link a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 1px;
+    background: #000;
+    transition: width 0.3s ease;
+}
+
+.latest-link a:hover::after {
+    width: 100%;
+}
 /* ===============================
    GRID SECTIONS
 ================================= */
