@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>S&P 500 Company Data | Systems Capital</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+
+            <div class="brand">
+        <button class="flower-logo" onclick="window.location.href='https://www.systemscapital.net/';" aria-label="Systems Capital Home">
+            <span id="flower-logo">
+                <span class="circleL circleL-0"></span>
+                <span class="circleL circleL-45"></span>
+                <span class="circleL circleL-90"></span>
+                <span class="circleL circleL-135"></span>
+                <span class="circleL circleL-180"></span>
+                <span class="circleL circleL-225"></span>
+                <span class="circleL circleL-270"></span>
+                <span class="circleL circleL-315"></span>
+            </span>
+        </button>
+                <div class="brand-text">Systems Capital</div>
+
+            </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+    
+            <div class="nav-links" id="navLinks">
+                <a href="/Pages/Investment_Journal.html">Journal</a>
+                <a href="/Pages/SP500_Statistics.html">Data</a>
+                <a href="/Pages/Investment_Theses.html">Theses</a>
+                <a href="https://github.com/SystemsCapital/SEC-FILING-DOWNLOAD.git">Tools</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main class="content">
+
+<h1>S&P 500 Company Data</h1>
+<section>
+This table presents detailed short-term qualities for each stock included in the S&P 500 index, and is updated daily.
+The data below provides valuable insights into daily stock market performance. Using Python libraries such as Beautiful Soup 4
+and Requests, we programmatically collect an up-to-date list of S&P 500 companies from Wikipedia. Daily price and earnings
+data in recent days is then retrieved using Microsoft Excel’s STOCKHISTORY and LET functions. Then a JSON is created using our Excel-to-JSON 
+tool (found: <a href="https://github.com/SystemsCapital/SEC-FILING-DOWNLOAD.git">here</a>) and the data is displayed on our table below. 
+All information is provided on an “as-is” basis and reflects price-based calculations only; dividend data is not included.
+    
+</section>
+
+<div style="text-align:right; margin: 5px 0;">
+    <button id="download-csv">Download CSV</button>
+</div>
+
+<div id="table-container">
+    <table id="data-table"></table>
+</div>
+
+</main>
+
+<footer>
+© Systems Capital Inc.
+</footer>
+
+<script src="app.js"></script>
+<script src="table.js"></script>
+
+</body>
+</html>
