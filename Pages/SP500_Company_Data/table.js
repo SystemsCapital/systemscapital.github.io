@@ -3,7 +3,7 @@
    Full feature parity with original CSV implementation
 ========================================================== */
 
-const DATA_FILE = "4 - SP500_Symbols.json"; // CHANGE THIS ONLY
+const DATA_FILE = "4 - SP500_Symbols.json"; 
 
 document.addEventListener("DOMContentLoaded", initTable);
 
@@ -67,7 +67,6 @@ function buildTable(data) {
     table.innerHTML = thead + tbody;
 
     initializeDropdownLogic(table, headers);
-    initializeCSVDownload();
 }
 
 /* ==========================================================
@@ -248,45 +247,4 @@ function initializeDropdownLogic(table, headers) {
             }
         });
     });
-}
-
-/* ==========================================================
-   CSV DOWNLOAD (VISIBLE ROWS ONLY)
-========================================================== */
-
-function initializeCSVDownload() {
-
-    document.getElementById("download-csv")
-        .addEventListener("click", () => {
-
-            const table = document.getElementById("data-table");
-
-            let csv = [];
-
-            const headers = Array.from(table.querySelectorAll("thead th"))
-                .map(th => `"${th.childNodes[0].textContent.trim()}"`);
-
-            csv.push(headers.join(","));
-
-            const rows = Array.from(table.querySelectorAll("tbody tr"))
-                .filter(r => !r.classList.contains("hidden"));
-
-            rows.forEach(row => {
-                const values = Array.from(row.cells)
-                    .map(cell => `"${cell.dataset.value.replace(/"/g,'""')}"`);
-                csv.push(values.join(","));
-            });
-
-            const blob = new Blob([csv.join("\n")], { type: "text/csv;charset=utf-8;" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-
-            a.href = url;
-            a.download = "SystemsCapital_Data.csv";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            URL.revokeObjectURL(url);
-        });
 }
