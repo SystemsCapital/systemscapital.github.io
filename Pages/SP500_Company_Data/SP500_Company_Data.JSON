@@ -2,39 +2,39 @@
     {
         "Company": "Nvidia",
         "Symbol": "NVDA",
-        "Market Cap": "$4,412,394,000,000",
+        "Market Cap": "$4,413,852,000,000",
         "Total Shares Outstanding": "24,300,000,000",
-        "Price": "$181.58",
+        "Price": "$181.64",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Apple Inc.",
         "Symbol": "AAPL",
-        "Market Cap": "$3,867,398,208,000",
+        "Market Cap": "$3,836,375,511,000",
         "Total Shares Outstanding": "14,702,700,000",
-        "Price": "$263.04",
+        "Price": "$260.93",
         "Headquarters": "CUPERTINO, CA",
         "Industry": "Computers, Phones & Household Electronics",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Alphabet Inc.(Class C)",
         "Symbol": "GOOG",
-        "Market Cap": "$3,659,342,500,000",
+        "Market Cap": "$3,640,955,060,000",
         "Total Shares Outstanding": "12,097,000,000",
-        "Price": "$302.50",
+        "Price": "$300.98",
         "Headquarters": "MOUNTAIN VIEW, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Microsoft",
         "Symbol": "MSFT",
-        "Market Cap": "$3,005,523,337,750",
+        "Market Cap": "$3,019,929,058,010",
         "Total Shares Outstanding": "7,425,629,000",
-        "Price": "$404.75",
+        "Price": "$406.69",
         "Headquarters": "REDMOND, WA",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "0.00%"
@@ -42,9 +42,9 @@
     {
         "Company": "Amazon",
         "Symbol": "AMZN",
-        "Market Cap": "$2,269,737,810,200",
+        "Market Cap": "$2,348,317,424,600",
         "Total Shares Outstanding": "10,734,920,000",
-        "Price": "$211.44",
+        "Price": "$218.75",
         "Headquarters": "SEATTLE, WA",
         "Industry": "Diversified Retail",
         "Performance Since Last Close": "0.01%"
@@ -52,119 +52,119 @@
     {
         "Company": "Meta Platforms",
         "Symbol": "META",
-        "Market Cap": "$1,674,274,511,175",
+        "Market Cap": "$1,681,597,572,900",
         "Total Shares Outstanding": "2,529,555,000",
-        "Price": "$661.88",
+        "Price": "$664.78",
         "Headquarters": "MENLO PARK, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Broadcom",
         "Symbol": "AVGO",
-        "Market Cap": "$1,493,264,246,300",
-        "Total Shares Outstanding": "4,741,274,000",
-        "Price": "$314.95",
+        "Market Cap": "$1,539,070,975,000",
+        "Total Shares Outstanding": "4,735,603,000",
+        "Price": "$325.00",
         "Headquarters": "PALO ALTO, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Tesla, Inc.",
         "Symbol": "TSLA",
-        "Market Cap": "$1,506,151,156,160",
+        "Market Cap": "$1,518,759,327,680",
         "Total Shares Outstanding": "3,752,432,000",
-        "Price": "$401.38",
+        "Price": "$404.74",
         "Headquarters": "AUSTIN, TX",
         "Industry": "Automobiles & Auto Parts",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Berkshire Hathaway",
         "Symbol": "BRK.B",
         "Market Cap": "$1,068,106,000,000",
         "Total Shares Outstanding": "1,438,220",
-        "Price": "$484.36",
+        "Price": "$497.73",
         "Headquarters": "OMAHA, NE",
         "Industry": "Consumer Goods Conglomerates",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Walmart",
         "Symbol": "WMT",
-        "Market Cap": "$1,012,131,507,330",
+        "Market Cap": "$1,000,096,555,160",
         "Total Shares Outstanding": "7,970,167,000",
-        "Price": "$126.99",
+        "Price": "$125.48",
         "Headquarters": "BENTONVILLE, AR",
         "Industry": "Food & Drug Retailing",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Lilly (Eli)",
         "Symbol": "LLY",
-        "Market Cap": "$949,017,544,400",
+        "Market Cap": "$935,206,792,064",
         "Total Shares Outstanding": "943,357,400",
-        "Price": "$1006.00",
+        "Price": "$991.36",
         "Headquarters": "INDIANAPOLIS, IN",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "JPMorgan Chase",
         "Symbol": "JPM",
-        "Market Cap": "$805,765,010,616",
+        "Market Cap": "$809,406,273,520",
         "Total Shares Outstanding": "2,697,032,000",
-        "Price": "$298.76",
+        "Price": "$300.11",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Banking Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "ExxonMobil",
         "Symbol": "XOM",
-        "Market Cap": "$624,431,253,040",
+        "Market Cap": "$634,056,477,880",
         "Total Shares Outstanding": "4,166,764,000",
-        "Price": "$149.86",
+        "Price": "$152.17",
         "Headquarters": "SPRING, TX",
         "Industry": "Oil & Gas",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Visa Inc.",
         "Symbol": "V",
-        "Market Cap": "$613,429,936,560",
+        "Market Cap": "$614,497,301,600",
         "Total Shares Outstanding": "1,906,009,000",
-        "Price": "$321.84",
+        "Price": "$322.40",
         "Headquarters": "SAN FRANCISCO, CA",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Johnson & Johnson",
         "Symbol": "JNJ",
-        "Market Cap": "$587,906,910,545",
+        "Market Cap": "$581,725,519,610",
         "Total Shares Outstanding": "2,409,899,000",
-        "Price": "$243.96",
+        "Price": "$241.39",
         "Headquarters": "NEW BRUNSWICK, NJ",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Mastercard",
         "Symbol": "MA",
-        "Market Cap": "$465,987,533,465",
+        "Market Cap": "$466,997,510,895",
         "Total Shares Outstanding": "891,812,300",
-        "Price": "$522.52",
+        "Price": "$523.65",
         "Headquarters": "PURCHASE, NY",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Costco",
         "Symbol": "COST",
-        "Market Cap": "$444,954,660,683",
+        "Market Cap": "$442,617,688,292",
         "Total Shares Outstanding": "443,869,400",
-        "Price": "$1002.45",
+        "Price": "$997.18",
         "Headquarters": "ISSAQUAH, WA",
         "Industry": "Diversified Retail",
         "Performance Since Last Close": "-0.01%"
@@ -172,9 +172,9 @@
     {
         "Company": "Oracle Corporation",
         "Symbol": "ORCL",
-        "Market Cap": "$435,279,195,000",
+        "Market Cap": "$444,968,825,925",
         "Total Shares Outstanding": "2,873,130,000",
-        "Price": "$151.50",
+        "Price": "$154.87",
         "Headquarters": "AUSTIN, TX",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "0.02%"
@@ -182,59 +182,59 @@
     {
         "Company": "Micron Technology",
         "Symbol": "MU",
-        "Market Cap": "$440,406,044,155",
+        "Market Cap": "$451,700,526,970",
         "Total Shares Outstanding": "1,125,509,000",
-        "Price": "$391.30",
+        "Price": "$401.33",
         "Headquarters": "BOISE, ID",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.03%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "AbbVie",
         "Symbol": "ABBV",
-        "Market Cap": "$412,672,962,910",
+        "Market Cap": "$412,867,461,500",
         "Total Shares Outstanding": "1,768,169,000",
-        "Price": "$233.39",
+        "Price": "$233.50",
         "Headquarters": "NORTH CHICAGO, IL",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Netflix",
         "Symbol": "NFLX",
-        "Market Cap": "$419,636,459,018",
+        "Market Cap": "$419,872,900,090",
         "Total Shares Outstanding": "4,222,162,000",
-        "Price": "$99.39",
+        "Price": "$99.44",
         "Headquarters": "LOS GATOS, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Chevron Corporation",
         "Symbol": "CVX",
-        "Market Cap": "$372,518,425,650",
+        "Market Cap": "$378,165,365,200",
         "Total Shares Outstanding": "1,995,385,000",
-        "Price": "$186.69",
+        "Price": "$189.52",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Oil & Gas",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Procter & Gamble",
         "Symbol": "PG",
-        "Market Cap": "$367,145,677,980",
+        "Market Cap": "$362,288,515,889",
         "Total Shares Outstanding": "2,324,001,000",
-        "Price": "$157.98",
+        "Price": "$155.89",
         "Headquarters": "CINCINNATI, OH",
         "Industry": "Personal & Household Products & Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Home Depot (The)",
         "Symbol": "HD",
-        "Market Cap": "$361,310,943,810",
+        "Market Cap": "$364,357,209,000",
         "Total Shares Outstanding": "995,511,500",
-        "Price": "$362.94",
+        "Price": "$366.00",
         "Headquarters": "ATLANTA, GA",
         "Industry": "Specialty Retailers",
         "Performance Since Last Close": "-0.01%"
@@ -242,39 +242,39 @@
     {
         "Company": "Bank of America",
         "Symbol": "BAC",
-        "Market Cap": "$356,035,194,020",
+        "Market Cap": "$360,110,114,059",
         "Total Shares Outstanding": "7,176,682,000",
-        "Price": "$49.61",
+        "Price": "$50.18",
         "Headquarters": "CHARLOTTE, NC",
         "Industry": "Banking Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Palantir Technologies",
         "Symbol": "PLTR",
-        "Market Cap": "$362,294,236,695",
+        "Market Cap": "$368,545,841,360",
         "Total Shares Outstanding": "2,390,671,000",
-        "Price": "$151.54",
+        "Price": "$154.16",
         "Headquarters": "Floor 15, DENVER",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.03%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "GE Aerospace",
         "Symbol": "GE",
-        "Market Cap": "$351,153,415,340",
+        "Market Cap": "$355,186,105,170",
         "Total Shares Outstanding": "1,048,814,000",
-        "Price": "$334.81",
+        "Price": "$338.65",
         "Headquarters": "Evendale, OH",
         "Industry": "Aerospace & Defense",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Coca-Cola Company (The)",
         "Symbol": "KO",
-        "Market Cap": "$337,520,741,040",
+        "Market Cap": "$333,004,981,890",
         "Total Shares Outstanding": "4,300,723,000",
-        "Price": "$78.48",
+        "Price": "$77.43",
         "Headquarters": "ATLANTA, GA",
         "Industry": "Beverages",
         "Performance Since Last Close": "-0.01%"
@@ -282,59 +282,59 @@
     {
         "Company": "Caterpillar Inc.",
         "Symbol": "CAT",
-        "Market Cap": "$342,323,498,792",
+        "Market Cap": "$335,472,143,300",
         "Total Shares Outstanding": "465,287,300",
-        "Price": "$735.73",
+        "Price": "$721.00",
         "Headquarters": "IRVING, TX",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Cisco",
         "Symbol": "CSCO",
-        "Market Cap": "$313,384,510,620",
+        "Market Cap": "$316,905,050,250",
         "Total Shares Outstanding": "3,949,893,000",
-        "Price": "$79.34",
+        "Price": "$80.23",
         "Headquarters": "SAN JOSE, CA",
         "Industry": "Communications & Networking",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Advanced Micro Devices",
         "Symbol": "AMD",
-        "Market Cap": "$314,131,287,370",
+        "Market Cap": "$328,266,950,740",
         "Total Shares Outstanding": "1,630,411,000",
-        "Price": "$192.67",
+        "Price": "$201.34",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Merck & Co.",
         "Symbol": "MRK",
-        "Market Cap": "$294,808,022,080",
+        "Market Cap": "$292,100,752,840",
         "Total Shares Outstanding": "2,472,392,000",
-        "Price": "$119.24",
+        "Price": "$118.14",
         "Headquarters": "RAHWAY, NJ",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Applied Materials",
         "Symbol": "AMAT",
-        "Market Cap": "$283,048,906,934",
+        "Market Cap": "$278,941,975,701",
         "Total Shares Outstanding": "793,609,900",
-        "Price": "$356.66",
+        "Price": "$351.49",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "RTX Corporation",
         "Symbol": "RTX",
-        "Market Cap": "$276,377,099,200",
+        "Market Cap": "$279,571,744,640",
         "Total Shares Outstanding": "1,342,288,000",
-        "Price": "$205.90",
+        "Price": "$208.28",
         "Headquarters": "ARLINGTON, VA",
         "Industry": "Aerospace & Defense",
         "Performance Since Last Close": "-0.00%"
@@ -342,9 +342,9 @@
     {
         "Company": "Philip Morris International",
         "Symbol": "PM",
-        "Market Cap": "$275,314,424,800",
+        "Market Cap": "$275,096,489,600",
         "Total Shares Outstanding": "1,556,680,000",
-        "Price": "$176.86",
+        "Price": "$176.72",
         "Headquarters": "STAMFORD, CT",
         "Industry": "Food & Tobacco",
         "Performance Since Last Close": "-0.01%"
@@ -352,69 +352,69 @@
     {
         "Company": "Lam Research",
         "Symbol": "LRCX",
-        "Market Cap": "$277,114,772,610",
+        "Market Cap": "$276,440,436,270",
         "Total Shares Outstanding": "1,248,771,000",
-        "Price": "$221.91",
+        "Price": "$221.37",
         "Headquarters": "FREMONT, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Morgan Stanley",
         "Symbol": "MS",
-        "Market Cap": "$265,855,399,800",
+        "Market Cap": "$265,506,070,600",
         "Total Shares Outstanding": "1,587,860,000",
-        "Price": "$167.43",
+        "Price": "$167.21",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "UnitedHealth Group",
         "Symbol": "UNH",
-        "Market Cap": "$263,035,370,082",
+        "Market Cap": "$263,216,905,242",
         "Total Shares Outstanding": "907,675,800",
-        "Price": "$289.79",
+        "Price": "$289.99",
         "Headquarters": "EDEN PRAIRIE, MN",
         "Industry": "Healthcare Providers & Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Goldman Sachs",
         "Symbol": "GS",
-        "Market Cap": "$256,893,050,472",
+        "Market Cap": "$255,919,700,960",
         "Total Shares Outstanding": "296,752,900",
-        "Price": "$865.68",
+        "Price": "$862.40",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Wells Fargo",
         "Symbol": "WFC",
-        "Market Cap": "$255,336,379,000",
+        "Market Cap": "$258,113,451,400",
         "Total Shares Outstanding": "3,085,636,000",
-        "Price": "$82.75",
+        "Price": "$83.65",
         "Headquarters": "SAN FRANCISCO, CA",
         "Industry": "Banking Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "T-Mobile US",
         "Symbol": "TMUS",
-        "Market Cap": "$240,812,158,650",
+        "Market Cap": "$239,545,016,200",
         "Total Shares Outstanding": "1,101,863,000",
-        "Price": "$218.55",
+        "Price": "$217.40",
         "Headquarters": "BELLEVUE, WA",
         "Industry": "Telecommunications Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "McDonald's",
         "Symbol": "MCD",
-        "Market Cap": "$234,261,042,336",
+        "Market Cap": "$233,934,258,980",
         "Total Shares Outstanding": "710,398,600",
-        "Price": "$329.76",
+        "Price": "$329.30",
         "Headquarters": "CHICAGO, IL",
         "Industry": "Hotels & Entertainment Services",
         "Performance Since Last Close": "-0.01%"
@@ -422,19 +422,19 @@
     {
         "Company": "Linde plc",
         "Symbol": "LIN",
-        "Market Cap": "$231,664,662,406",
+        "Market Cap": "$230,135,461,546",
         "Total Shares Outstanding": "463,394,200",
-        "Price": "$499.93",
+        "Price": "$496.63",
         "Headquarters": "WOKING, SURREY",
         "Industry": "Chemicals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "IBM",
         "Symbol": "IBM",
-        "Market Cap": "$231,187,958,224",
+        "Market Cap": "$235,287,168,552",
         "Total Shares Outstanding": "938,034,400",
-        "Price": "$246.46",
+        "Price": "$250.83",
         "Headquarters": "ARMONK, NY",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "0.00%"
@@ -442,9 +442,9 @@
     {
         "Company": "GE Vernova",
         "Symbol": "GEV",
-        "Market Cap": "$226,690,397,164",
+        "Market Cap": "$225,970,726,713",
         "Total Shares Outstanding": "269,529,400",
-        "Price": "$841.06",
+        "Price": "$838.39",
         "Headquarters": "CAMBRIDGE, MA",
         "Industry": "Electrical Utilities & IPPs",
         "Performance Since Last Close": "-0.00%"
@@ -452,29 +452,29 @@
     {
         "Company": "PepsiCo",
         "Symbol": "PEP",
-        "Market Cap": "$225,182,755,730",
+        "Market Cap": "$221,663,634,555",
         "Total Shares Outstanding": "1,366,649,000",
-        "Price": "$164.77",
+        "Price": "$162.19",
         "Headquarters": "PURCHASE, NY",
         "Industry": "Beverages",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Intel",
         "Symbol": "INTC",
-        "Market Cap": "$217,338,444,000",
+        "Market Cap": "$227,871,400,500",
         "Total Shares Outstanding": "4,995,000,000",
-        "Price": "$43.51",
+        "Price": "$45.62",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Verizon",
         "Symbol": "VZ",
-        "Market Cap": "$211,938,621,000",
+        "Market Cap": "$213,288,701,648",
         "Total Shares Outstanding": "4,217,684,000",
-        "Price": "$50.25",
+        "Price": "$50.57",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Telecommunications Services",
         "Performance Since Last Close": "-0.01%"
@@ -482,29 +482,29 @@
     {
         "Company": "American Express",
         "Symbol": "AXP",
-        "Market Cap": "$211,490,844,280",
+        "Market Cap": "$211,387,852,180",
         "Total Shares Outstanding": "686,614,000",
-        "Price": "$308.02",
+        "Price": "$307.87",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Banking Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Amgen",
         "Symbol": "AMGN",
-        "Market Cap": "$202,295,935,779",
+        "Market Cap": "$201,611,319,800",
         "Total Shares Outstanding": "539,067,700",
-        "Price": "$375.27",
+        "Price": "$374.00",
         "Headquarters": "THOUSAND OAKS, CA",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "AT&T",
         "Symbol": "T",
-        "Market Cap": "$197,696,294,480",
+        "Market Cap": "$201,826,634,910",
         "Total Shares Outstanding": "7,000,577,000",
-        "Price": "$28.24",
+        "Price": "$28.83",
         "Headquarters": "DALLAS, TX",
         "Industry": "Telecommunications Services",
         "Performance Since Last Close": "-0.01%"
@@ -512,9 +512,9 @@
     {
         "Company": "Abbott Laboratories",
         "Symbol": "ABT",
-        "Market Cap": "$195,359,011,275",
+        "Market Cap": "$194,255,582,570",
         "Total Shares Outstanding": "1,737,683,000",
-        "Price": "$112.42",
+        "Price": "$111.79",
         "Headquarters": "Abbot Park, ABBOTT PARK",
         "Industry": "Healthcare Equipment & Supplies",
         "Performance Since Last Close": "-0.01%"
@@ -522,19 +522,19 @@
     {
         "Company": "Citigroup",
         "Symbol": "C",
-        "Market Cap": "$195,311,466,350",
+        "Market Cap": "$193,649,613,300",
         "Total Shares Outstanding": "1,749,319,000",
-        "Price": "$111.65",
+        "Price": "$110.70",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "NextEra Energy",
         "Symbol": "NEE",
-        "Market Cap": "$191,017,296,960",
+        "Market Cap": "$191,329,825,260",
         "Total Shares Outstanding": "2,083,522,000",
-        "Price": "$91.68",
+        "Price": "$91.83",
         "Headquarters": "JUNO BEACH, FL",
         "Industry": "Electrical Utilities & IPPs",
         "Performance Since Last Close": "-0.01%"
@@ -542,89 +542,89 @@
     {
         "Company": "KLA Corporation",
         "Symbol": "KLAC",
-        "Market Cap": "$191,306,297,700",
+        "Market Cap": "$191,633,989,200",
         "Total Shares Outstanding": "131,076,600",
-        "Price": "$1459.50",
+        "Price": "$1462.00",
         "Headquarters": "MILPITAS, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Thermo Fisher Scientific",
         "Symbol": "TMO",
-        "Market Cap": "$189,601,871,877",
+        "Market Cap": "$187,828,034,344",
         "Total Shares Outstanding": "371,484,300",
-        "Price": "$510.39",
+        "Price": "$505.62",
         "Headquarters": "WALTHAM, MA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Texas Instruments",
         "Symbol": "TXN",
-        "Market Cap": "$185,176,665,232",
+        "Market Cap": "$182,903,250,478",
         "Total Shares Outstanding": "907,550,800",
-        "Price": "$204.04",
+        "Price": "$201.53",
         "Headquarters": "DALLAS, TX",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Salesforce",
         "Symbol": "CRM",
-        "Market Cap": "$179,948,080,000",
+        "Market Cap": "$181,540,255,000",
         "Total Shares Outstanding": "923,000,000",
-        "Price": "$194.96",
+        "Price": "$196.69",
         "Headquarters": "SAN FRANCISCO, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Gilead Sciences",
         "Symbol": "GILD",
-        "Market Cap": "$182,973,041,189",
+        "Market Cap": "$180,217,086,569",
         "Total Shares Outstanding": "1,241,421,000",
-        "Price": "$147.39",
+        "Price": "$145.17",
         "Headquarters": "FOSTER CITY, CA",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Walt Disney Company (The)",
         "Symbol": "DIS",
-        "Market Cap": "$182,803,148,800",
+        "Market Cap": "$184,273,510,400",
         "Total Shares Outstanding": "1,771,520,000",
-        "Price": "$103.19",
+        "Price": "$104.02",
         "Headquarters": "BURBANK, CA",
         "Industry": "Media & Publishing",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "TJX Companies",
         "Symbol": "TJX",
-        "Market Cap": "$176,919,602,440",
+        "Market Cap": "$178,490,913,245",
         "Total Shares Outstanding": "1,110,467,000",
-        "Price": "$159.32",
+        "Price": "$160.74",
         "Headquarters": "FRAMINGHAM, MA",
         "Industry": "Diversified Retail",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Intuitive Surgical",
         "Symbol": "ISRG",
-        "Market Cap": "$176,513,914,608",
+        "Market Cap": "$176,684,377,104",
         "Total Shares Outstanding": "355,130,200",
-        "Price": "$497.04",
+        "Price": "$497.52",
         "Headquarters": "SUNNYVALE, CA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Boeing",
         "Symbol": "BA",
-        "Market Cap": "$175,497,589,701",
+        "Market Cap": "$178,273,791,700",
         "Total Shares Outstanding": "785,347,100",
-        "Price": "$223.47",
+        "Price": "$227.00",
         "Headquarters": "ARLINGTON, VA",
         "Industry": "Aerospace & Defense",
         "Performance Since Last Close": "-0.00%"
@@ -632,19 +632,19 @@
     {
         "Company": "Deere & Company",
         "Symbol": "DE",
-        "Market Cap": "$166,708,875,023",
+        "Market Cap": "$164,715,483,149",
         "Total Shares Outstanding": "270,107,300",
-        "Price": "$617.20",
+        "Price": "$609.82",
         "Headquarters": "MOLINE, IL",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Charles Schwab Corporation",
         "Symbol": "SCHW",
-        "Market Cap": "$168,510,035,700",
+        "Market Cap": "$169,386,140,700",
         "Total Shares Outstanding": "1,752,210,000",
-        "Price": "$96.17",
+        "Price": "$96.67",
         "Headquarters": "WESTLAKE, TX",
         "Industry": "Investment Banking & Investment Services",
         "Performance Since Last Close": "0.01%"
@@ -652,39 +652,39 @@
     {
         "Company": "Analog Devices",
         "Symbol": "ADI",
-        "Market Cap": "$167,529,712,251",
+        "Market Cap": "$165,296,178,036",
         "Total Shares Outstanding": "488,204,200",
-        "Price": "$343.15",
+        "Price": "$338.58",
         "Headquarters": "WILMINGTON, MA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "BlackRock",
         "Symbol": "BLK",
-        "Market Cap": "$164,197,384,475",
+        "Market Cap": "$162,269,447,582",
         "Total Shares Outstanding": "155,541,500",
-        "Price": "$1055.65",
+        "Price": "$1043.26",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Amphenol",
         "Symbol": "APH",
-        "Market Cap": "$159,773,365,700",
+        "Market Cap": "$168,875,702,775",
         "Total Shares Outstanding": "1,229,215,000",
-        "Price": "$129.98",
+        "Price": "$137.38",
         "Headquarters": "WALLINGFORD, CT",
         "Industry": "Electronic Equipment & Parts",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.03%"
     },
     {
         "Company": "Union Pacific Corporation",
         "Symbol": "UNP",
-        "Market Cap": "$157,486,104,100",
+        "Market Cap": "$157,913,345,980",
         "Total Shares Outstanding": "593,391,500",
-        "Price": "$265.40",
+        "Price": "$266.12",
         "Headquarters": "OMAHA, NE",
         "Industry": "Freight & Logistics Services",
         "Performance Since Last Close": "-0.00%"
@@ -692,39 +692,39 @@
     {
         "Company": "Uber",
         "Symbol": "UBER",
-        "Market Cap": "$155,696,475,400",
+        "Market Cap": "$160,059,681,320",
         "Total Shares Outstanding": "2,058,116,000",
-        "Price": "$75.65",
+        "Price": "$77.77",
         "Headquarters": "SAN FRANCISCO, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Arista Networks",
         "Symbol": "ANET",
-        "Market Cap": "$162,589,734,510",
+        "Market Cap": "$170,889,168,000",
         "Total Shares Outstanding": "1,256,538,000",
-        "Price": "$129.40",
+        "Price": "$136.00",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Communications & Networking",
-        "Performance Since Last Close": "0.04%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Honeywell",
         "Symbol": "HON",
-        "Market Cap": "$154,729,822,137",
+        "Market Cap": "$153,935,227,512",
         "Total Shares Outstanding": "635,675,700",
-        "Price": "$243.41",
+        "Price": "$242.16",
         "Headquarters": "CHARLOTTE, NC",
         "Industry": "Consumer Goods Conglomerates",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Lockheed Martin",
         "Symbol": "LMT",
-        "Market Cap": "$152,225,661,924",
+        "Market Cap": "$151,809,216,762",
         "Total Shares Outstanding": "230,080,200",
-        "Price": "$661.62",
+        "Price": "$659.81",
         "Headquarters": "BETHESDA, MD",
         "Industry": "Aerospace & Defense",
         "Performance Since Last Close": "-0.01%"
@@ -732,29 +732,29 @@
     {
         "Company": "Pfizer",
         "Symbol": "PFE",
-        "Market Cap": "$151,027,278,080",
+        "Market Cap": "$149,890,024,480",
         "Total Shares Outstanding": "5,686,268,000",
-        "Price": "$26.56",
+        "Price": "$26.36",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "AppLovin",
         "Symbol": "APP",
-        "Market Cap": "$154,770,128,640",
+        "Market Cap": "$169,499,058,900",
         "Total Shares Outstanding": "337,278,000",
-        "Price": "$458.88",
+        "Price": "$502.55",
         "Headquarters": "PALO ALTO, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.05%"
+        "Performance Since Last Close": "0.04%"
     },
     {
         "Company": "Qualcomm",
         "Symbol": "QCOM",
-        "Market Cap": "$147,101,955,000",
+        "Market Cap": "$147,592,775,000",
         "Total Shares Outstanding": "1,067,000,000",
-        "Price": "$137.87",
+        "Price": "$138.32",
         "Headquarters": "SAN DIEGO, CA",
         "Industry": "Semiconductors & Semiconductor Equipment",
         "Performance Since Last Close": "-0.00%"
@@ -762,39 +762,39 @@
     {
         "Company": "Stryker Corporation",
         "Symbol": "SYK",
-        "Market Cap": "$146,565,945,213",
+        "Market Cap": "$143,535,050,709",
         "Total Shares Outstanding": "382,688,700",
-        "Price": "$382.99",
+        "Price": "$375.07",
         "Headquarters": "PORTAGE, MI",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Welltower",
         "Symbol": "WELL",
-        "Market Cap": "$144,630,138,200",
+        "Market Cap": "$142,819,470,462",
         "Total Shares Outstanding": "697,752,500",
-        "Price": "$207.28",
+        "Price": "$204.69",
         "Headquarters": "TOLEDO, OH",
         "Industry": "Residential & Commercial REIT",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "ConocoPhillips",
         "Symbol": "COP",
-        "Market Cap": "$141,644,643,320",
+        "Market Cap": "$144,572,145,225",
         "Total Shares Outstanding": "1,222,339,000",
-        "Price": "$115.88",
+        "Price": "$118.28",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Oil & Gas",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Lowe's",
         "Symbol": "LOW",
-        "Market Cap": "$143,587,950,000",
+        "Market Cap": "$143,436,480,000",
         "Total Shares Outstanding": "561,000,000",
-        "Price": "$255.95",
+        "Price": "$255.68",
         "Headquarters": "MOORESVILLE, NC",
         "Industry": "Specialty Retailers",
         "Performance Since Last Close": "-0.01%"
@@ -802,19 +802,19 @@
     {
         "Company": "Danaher Corporation",
         "Symbol": "DHR",
-        "Market Cap": "$144,302,381,254",
+        "Market Cap": "$143,485,635,363",
         "Total Shares Outstanding": "707,139,300",
-        "Price": "$204.06",
+        "Price": "$202.91",
         "Headquarters": "WASHINGTON, DC",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Eaton Corporation",
         "Symbol": "ETN",
-        "Market Cap": "$137,347,632,000",
+        "Market Cap": "$137,312,721,000",
         "Total Shares Outstanding": "387,900,000",
-        "Price": "$354.08",
+        "Price": "$353.99",
         "Headquarters": "Eaton House, DUBLIN",
         "Industry": "Machinery, Equipment & Components",
         "Performance Since Last Close": "-0.00%"
@@ -822,169 +822,169 @@
     {
         "Company": "S&P Global",
         "Symbol": "SPGI",
-        "Market Cap": "$132,980,940,000",
+        "Market Cap": "$134,330,022,000",
         "Total Shares Outstanding": "298,800,000",
-        "Price": "$445.05",
+        "Price": "$449.56",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Chubb Limited",
         "Symbol": "CB",
-        "Market Cap": "$131,494,478,897",
+        "Market Cap": "$130,476,170,172",
         "Total Shares Outstanding": "390,156,600",
-        "Price": "$337.03",
+        "Price": "$334.42",
         "Headquarters": "ZUERICH, ZUERICH",
         "Industry": "Insurance",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Blackstone Inc.",
         "Symbol": "BX",
-        "Market Cap": "$133,955,887,153",
+        "Market Cap": "$136,628,838,010",
         "Total Shares Outstanding": "1,187,767,000",
-        "Price": "$112.78",
+        "Price": "$115.03",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Booking Holdings",
         "Symbol": "BKNG",
-        "Market Cap": "$132,830,745,029",
+        "Market Cap": "$144,691,306,037",
         "Total Shares Outstanding": "31,673,350",
-        "Price": "$4193.77",
+        "Price": "$4568.23",
         "Headquarters": "NORWALK, CT",
         "Industry": "Hotels & Entertainment Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "0.07%"
     },
     {
         "Company": "Prologis",
         "Symbol": "PLD",
-        "Market Cap": "$130,421,775,495",
+        "Market Cap": "$127,925,909,580",
         "Total Shares Outstanding": "929,559,000",
-        "Price": "$140.31",
+        "Price": "$137.62",
         "Headquarters": "SAN FRANCISCO, CA",
         "Industry": "Residential & Commercial REIT",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Accenture",
         "Symbol": "ACN",
-        "Market Cap": "$129,195,968,796",
+        "Market Cap": "$130,352,745,580",
         "Total Shares Outstanding": "615,306,800",
-        "Price": "$209.97",
+        "Price": "$211.85",
         "Headquarters": "Grand Canal Harbour, Dublin 2",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Newmont",
         "Symbol": "NEM",
-        "Market Cap": "$131,132,114,385",
+        "Market Cap": "$128,037,330,430",
         "Total Shares Outstanding": "1,087,874,000",
-        "Price": "$120.54",
+        "Price": "$117.69",
         "Headquarters": "DENVER, CO",
         "Industry": "Metals & Mining",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Palo Alto Networks",
         "Symbol": "PANW",
-        "Market Cap": "$127,018,560,000",
+        "Market Cap": "$130,988,400,000",
         "Total Shares Outstanding": "816,000,000",
-        "Price": "$155.66",
+        "Price": "$160.53",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Corning Inc.",
         "Symbol": "GLW",
-        "Market Cap": "$127,632,649,096",
+        "Market Cap": "$119,036,009,134",
         "Total Shares Outstanding": "857,948,100",
-        "Price": "$148.76",
+        "Price": "$138.75",
         "Headquarters": "CORNING, NY",
         "Industry": "Electronic Equipment & Parts",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.04%"
     },
     {
         "Company": "Progressive Corporation",
         "Symbol": "PGR",
-        "Market Cap": "$124,270,747,440",
+        "Market Cap": "$124,411,364,976",
         "Total Shares Outstanding": "585,906,400",
-        "Price": "$212.10",
+        "Price": "$212.34",
         "Headquarters": "MAYFIELD VILLAGE, OH",
         "Industry": "Insurance",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Parker Hannifin",
         "Symbol": "PH",
-        "Market Cap": "$124,275,921,312",
+        "Market Cap": "$124,022,857,230",
         "Total Shares Outstanding": "126,216,500",
-        "Price": "$984.62",
+        "Price": "$982.62",
         "Headquarters": "CLEVELAND, OH",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Bristol Myers Squibb",
         "Symbol": "BMY",
-        "Market Cap": "$125,833,728,460",
+        "Market Cap": "$124,774,761,980",
         "Total Shares Outstanding": "2,036,474,000",
-        "Price": "$61.79",
+        "Price": "$61.27",
         "Headquarters": "PRINCETON, NJ",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Medtronic",
         "Symbol": "MDT",
-        "Market Cap": "$123,612,447,800",
+        "Market Cap": "$121,249,971,011",
         "Total Shares Outstanding": "1,283,885,000",
-        "Price": "$96.28",
+        "Price": "$94.44",
         "Headquarters": "GALWAY, CONNACHT",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "McKesson Corporation",
         "Symbol": "MCK",
-        "Market Cap": "$121,036,023,125",
+        "Market Cap": "$114,109,355,000",
         "Total Shares Outstanding": "122,487,500",
-        "Price": "$988.15",
+        "Price": "$931.60",
         "Headquarters": "IRVING, TX",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.05%"
     },
     {
         "Company": "HCA Healthcare",
         "Symbol": "HCA",
-        "Market Cap": "$120,590,507,572",
+        "Market Cap": "$119,820,129,093",
         "Total Shares Outstanding": "223,622,200",
-        "Price": "$539.26",
+        "Price": "$535.82",
         "Headquarters": "NASHVILLE, TN",
         "Industry": "Healthcare Providers & Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Vertex Pharmaceuticals",
         "Symbol": "VRTX",
-        "Market Cap": "$121,025,703,393",
+        "Market Cap": "$120,214,064,124",
         "Total Shares Outstanding": "254,034,200",
-        "Price": "$476.42",
+        "Price": "$473.22",
         "Headquarters": "BOSTON, MA",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Capital One",
         "Symbol": "COF",
-        "Market Cap": "$120,539,673,054",
+        "Market Cap": "$122,147,366,240",
         "Total Shares Outstanding": "621,931,600",
-        "Price": "$193.81",
+        "Price": "$196.40",
         "Headquarters": "MCLEAN, VA",
         "Industry": "Banking Services",
         "Performance Since Last Close": "0.00%"
@@ -992,59 +992,59 @@
     {
         "Company": "Intuit",
         "Symbol": "INTU",
-        "Market Cap": "$119,985,365,750",
+        "Market Cap": "$124,479,303,250",
         "Total Shares Outstanding": "276,550,000",
-        "Price": "$433.87",
+        "Price": "$450.12",
         "Headquarters": "MOUNTAIN VIEW, CA",
         "Industry": "Financial Technology (Fintech) & Infrastructure",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "ServiceNow",
         "Symbol": "NOW",
-        "Market Cap": "$118,700,080,000",
+        "Market Cap": "$122,172,800,000",
         "Total Shares Outstanding": "1,046,000,000",
-        "Price": "$113.48",
+        "Price": "$116.80",
         "Headquarters": "SANTA CLARA, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.03%"
     },
     {
         "Company": "Interactive Brokers",
         "Symbol": "IBKR",
-        "Market Cap": "$119,190,357,790",
+        "Market Cap": "$117,155,115,007",
         "Total Shares Outstanding": "1,696,177,000",
-        "Price": "$70.27",
+        "Price": "$69.07",
         "Headquarters": "GREENWICH, CT",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Constellation Energy",
         "Symbol": "CEG",
-        "Market Cap": "$116,531,917,376",
+        "Market Cap": "$117,230,558,655",
         "Total Shares Outstanding": "361,990,300",
-        "Price": "$321.92",
+        "Price": "$323.85",
         "Headquarters": "BALTIMORE, MD",
         "Industry": "Electrical Utilities & IPPs",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "CME Group",
         "Symbol": "CME",
-        "Market Cap": "$114,572,652,404",
+        "Market Cap": "$114,818,308,679",
         "Total Shares Outstanding": "358,622,300",
-        "Price": "$319.48",
+        "Price": "$320.17",
         "Headquarters": "CHICAGO, IL",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Altria",
         "Symbol": "MO",
-        "Market Cap": "$114,215,711,870",
+        "Market Cap": "$113,128,978,170",
         "Total Shares Outstanding": "1,671,898,000",
-        "Price": "$68.31",
+        "Price": "$67.67",
         "Headquarters": "RICHMOND, VA",
         "Industry": "Food & Tobacco",
         "Performance Since Last Close": "-0.01%"
@@ -1052,69 +1052,69 @@
     {
         "Company": "Comcast",
         "Symbol": "CMCSA",
-        "Market Cap": "$110,795,667,570",
+        "Market Cap": "$115,328,953,530",
         "Total Shares Outstanding": "3,597,846,000",
-        "Price": "$30.80",
+        "Price": "$32.05",
         "Headquarters": "PHILADELPHIA, PA",
         "Industry": "Telecommunications Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Adobe Inc.",
         "Symbol": "ADBE",
-        "Market Cap": "$111,468,310,305",
+        "Market Cap": "$113,922,284,443",
         "Total Shares Outstanding": "407,636,900",
-        "Price": "$273.45",
+        "Price": "$279.47",
         "Headquarters": "SAN JOSE, CA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Starbucks",
         "Symbol": "SBUX",
-        "Market Cap": "$109,794,454,930",
+        "Market Cap": "$111,298,217,000",
         "Total Shares Outstanding": "1,139,300,000",
-        "Price": "$96.37",
+        "Price": "$97.69",
         "Headquarters": "SEATTLE, WA",
         "Industry": "Hotels & Entertainment Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Boston Scientific",
         "Symbol": "BSX",
-        "Market Cap": "$107,359,079,749",
+        "Market Cap": "$106,602,298,400",
         "Total Shares Outstanding": "1,483,885,000",
-        "Price": "$72.35",
+        "Price": "$71.84",
         "Headquarters": "MARLBOROUGH, MA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Southern Company",
         "Symbol": "SO",
-        "Market Cap": "$108,401,824,440",
+        "Market Cap": "$108,911,147,345",
         "Total Shares Outstanding": "1,119,391,000",
-        "Price": "$96.84",
+        "Price": "$97.30",
         "Headquarters": "N.W., ATLANTA",
         "Industry": "Electrical Utilities & IPPs",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Northrop Grumman",
         "Symbol": "NOC",
-        "Market Cap": "$105,437,814,288",
+        "Market Cap": "$106,354,627,824",
         "Total Shares Outstanding": "141,921,600",
-        "Price": "$742.93",
+        "Price": "$749.39",
         "Headquarters": "FALLS CHURCH, VA",
         "Industry": "Aerospace & Defense",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Howmet Aerospace",
         "Symbol": "HWM",
-        "Market Cap": "$103,624,973,545",
+        "Market Cap": "$103,843,485,900",
         "Total Shares Outstanding": "400,940,100",
-        "Price": "$258.45",
+        "Price": "$259.00",
         "Headquarters": "PITTSBURGH, PA",
         "Industry": "Aerospace & Defense",
         "Performance Since Last Close": "-0.00%"
@@ -1122,9 +1122,9 @@
     {
         "Company": "CVS Health",
         "Symbol": "CVS",
-        "Market Cap": "$101,598,770,460",
+        "Market Cap": "$101,217,107,160",
         "Total Shares Outstanding": "1,272,211,000",
-        "Price": "$79.86",
+        "Price": "$79.56",
         "Headquarters": "WOONSOCKET, RI",
         "Industry": "Healthcare Providers & Services",
         "Performance Since Last Close": "-0.01%"
@@ -1132,9 +1132,9 @@
     {
         "Company": "Duke Energy",
         "Symbol": "DUK",
-        "Market Cap": "$101,657,140,048",
+        "Market Cap": "$101,803,653,245",
         "Total Shares Outstanding": "777,670,900",
-        "Price": "$130.72",
+        "Price": "$130.91",
         "Headquarters": "CHARLOTTE, NC",
         "Industry": "Electrical Utilities & IPPs",
         "Performance Since Last Close": "-0.01%"
@@ -1142,12 +1142,12 @@
     {
         "Company": "Trane Technologies",
         "Symbol": "TT",
-        "Market Cap": "$98,525,895,285",
+        "Market Cap": "$97,536,541,692",
         "Total Shares Outstanding": "221,331,900",
-        "Price": "$445.15",
+        "Price": "$440.68",
         "Headquarters": "Airside Business Park, Swords",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "CrowdStrike",
@@ -1162,12 +1162,12 @@
     {
         "Company": "General Dynamics",
         "Symbol": "GD",
-        "Market Cap": "$98,085,251,899",
+        "Market Cap": "$98,750,437,845",
         "Total Shares Outstanding": "270,389,800",
-        "Price": "$362.75",
+        "Price": "$365.22",
         "Headquarters": "RESTON, VA",
         "Industry": "Aerospace & Defense",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Waste Management",
@@ -1302,12 +1302,12 @@
     {
         "Company": "Sherwin-Williams",
         "Symbol": "SHW",
-        "Market Cap": "$85,433,989,914",
+        "Market Cap": "$84,802,164,174",
         "Total Shares Outstanding": "247,774,800",
-        "Price": "$344.81",
+        "Price": "$342.25",
         "Headquarters": "CLEVELAND, OH",
         "Industry": "Chemicals",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "PNC Financial Services",
@@ -1352,9 +1352,9 @@
     {
         "Company": "Ecolab",
         "Symbol": "ECL",
-        "Market Cap": "$83,601,137,055",
+        "Market Cap": "$82,997,722,325",
         "Total Shares Outstanding": "281,969,500",
-        "Price": "$296.49",
+        "Price": "$294.35",
         "Headquarters": "SAINT PAUL, MN",
         "Industry": "Chemicals",
         "Performance Since Last Close": "-0.01%"
@@ -1532,12 +1532,12 @@
     {
         "Company": "O\u2019Reilly Automotive",
         "Symbol": "ORLY",
-        "Market Cap": "$78,826,162,870",
+        "Market Cap": "$78,910,011,570",
         "Total Shares Outstanding": "838,487,000",
-        "Price": "$94.01",
+        "Price": "$94.11",
         "Headquarters": "SPRINGFIELD, MO",
         "Industry": "Specialty Retailers",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Cummins",
@@ -1592,32 +1592,32 @@
     {
         "Company": "Kinder Morgan",
         "Symbol": "KMI",
-        "Market Cap": "$74,820,893,221",
+        "Market Cap": "$75,309,683,100",
         "Total Shares Outstanding": "2,224,806,000",
-        "Price": "$33.63",
+        "Price": "$33.85",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Oil & Gas Related Equipment and Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Mondelez International",
         "Symbol": "MDLZ",
-        "Market Cap": "$75,244,360,200",
+        "Market Cap": "$74,231,701,860",
         "Total Shares Outstanding": "1,281,846,000",
-        "Price": "$58.70",
+        "Price": "$57.91",
         "Headquarters": "CHICAGO, IL",
         "Industry": "Food & Tobacco",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "TransDigm Group",
         "Symbol": "TDG",
-        "Market Cap": "$74,553,005,498",
+        "Market Cap": "$73,725,103,108",
         "Total Shares Outstanding": "56,473,560",
-        "Price": "$1320.14",
+        "Price": "$1305.48",
         "Headquarters": "CLEVELAND, OH",
         "Industry": "Aerospace & Defense",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Cigna",
@@ -1642,12 +1642,12 @@
     {
         "Company": "Aon plc",
         "Symbol": "AON",
-        "Market Cap": "$72,830,460,912",
+        "Market Cap": "$72,645,130,770",
         "Total Shares Outstanding": "214,254,500",
-        "Price": "$339.93",
+        "Price": "$339.06",
         "Headquarters": "DUBLIN, DUBLIN",
         "Industry": "Insurance",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Cencora",
@@ -1762,9 +1762,9 @@
     {
         "Company": "Travelers Companies (The)",
         "Symbol": "TRV",
-        "Market Cap": "$66,830,485,374",
+        "Market Cap": "$67,109,432,265",
         "Total Shares Outstanding": "216,237,900",
-        "Price": "$309.06",
+        "Price": "$310.35",
         "Headquarters": "SAINT PAUL, MN",
         "Industry": "Insurance",
         "Performance Since Last Close": "-0.01%"
@@ -1892,12 +1892,12 @@
     {
         "Company": "Digital Realty",
         "Symbol": "DLR",
-        "Market Cap": "$61,502,002,369",
+        "Market Cap": "$62,125,664,320",
         "Total Shares Outstanding": "343,615,400",
-        "Price": "$178.99",
+        "Price": "$180.80",
         "Headquarters": "DALLAS, TX",
         "Industry": "Residential & Commercial REIT",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Air Products",
@@ -1922,9 +1922,9 @@
     {
         "Company": "Fortinet",
         "Symbol": "FTNT",
-        "Market Cap": "$60,488,754,300",
+        "Market Cap": "$61,628,236,644",
         "Total Shares Outstanding": "739,923,600",
-        "Price": "$81.75",
+        "Price": "$83.29",
         "Headquarters": "SUNNYVALE, CA",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "0.01%"
@@ -1952,12 +1952,12 @@
     {
         "Company": "Arthur J. Gallagher & Co.",
         "Symbol": "AJG",
-        "Market Cap": "$57,724,092,000",
+        "Market Cap": "$58,415,691,000",
         "Total Shares Outstanding": "257,100,000",
-        "Price": "$224.52",
+        "Price": "$227.21",
         "Headquarters": "ROLLING MEADOWS, IL",
         "Industry": "Insurance",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Allstate",
@@ -2012,22 +2012,22 @@
     {
         "Company": "NXP Semiconductors",
         "Symbol": "NXPI",
-        "Market Cap": "$54,608,830,886",
+        "Market Cap": "$54,390,883,260",
         "Total Shares Outstanding": "252,692,900",
-        "Price": "$216.11",
+        "Price": "$215.25",
         "Headquarters": "EINDHOVEN, NOORD-BRABANT",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Ametek",
         "Symbol": "AME",
-        "Market Cap": "$54,047,778,288",
+        "Market Cap": "$52,689,943,492",
         "Total Shares Outstanding": "228,977,200",
-        "Price": "$236.04",
+        "Price": "$230.11",
         "Headquarters": "BERWYN, PA",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Public Storage",
@@ -2072,22 +2072,22 @@
     {
         "Company": "Zoetis",
         "Symbol": "ZTS",
-        "Market Cap": "$53,131,102,960",
+        "Market Cap": "$52,791,290,162",
         "Total Shares Outstanding": "422,127,700",
-        "Price": "$125.86",
+        "Price": "$125.06",
         "Headquarters": "PARSIPPANY, NJ",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Fastenal",
         "Symbol": "FAST",
-        "Market Cap": "$52,765,671,600",
+        "Market Cap": "$55,401,084,360",
         "Total Shares Outstanding": "1,148,328,000",
-        "Price": "$45.95",
+        "Price": "$48.24",
         "Headquarters": "WINONA, MN",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.04%"
     },
     {
         "Company": "Corteva",
@@ -2112,42 +2112,42 @@
     {
         "Company": "Monolithic Power Systems",
         "Symbol": "MPWR",
-        "Market Cap": "$53,681,062,200",
+        "Market Cap": "$53,172,690,900",
         "Total Shares Outstanding": "49,118,000",
-        "Price": "$1092.90",
+        "Price": "$1082.55",
         "Headquarters": "KIRKLAND, WA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "United Rentals",
         "Symbol": "URI",
-        "Market Cap": "$52,719,371,846",
+        "Market Cap": "$53,990,044,531",
         "Total Shares Outstanding": "62,998,150",
-        "Price": "$836.84",
+        "Price": "$857.01",
         "Headquarters": "STAMFORD, CT",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Targa Resources",
         "Symbol": "TRGP",
-        "Market Cap": "$51,319,742,250",
+        "Market Cap": "$52,100,017,284",
         "Total Shares Outstanding": "214,951,800",
-        "Price": "$238.75",
+        "Price": "$242.38",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Oil & Gas Related Equipment and Services",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Keysight Technologies",
         "Symbol": "KEYS",
-        "Market Cap": "$52,390,112,010",
+        "Market Cap": "$50,845,594,221",
         "Total Shares Outstanding": "171,517,800",
-        "Price": "$305.45",
+        "Price": "$296.44",
         "Headquarters": "SANTA ROSA, CA",
         "Industry": "Electronic Equipment & Parts",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Xcel Energy",
@@ -2192,9 +2192,9 @@
     {
         "Company": "Electronic Arts",
         "Symbol": "EA",
-        "Market Cap": "$50,213,404,905",
+        "Market Cap": "$50,367,310,930",
         "Total Shares Outstanding": "250,253,700",
-        "Price": "$200.65",
+        "Price": "$201.26",
         "Headquarters": "REDWOOD CITY, CA",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "-0.00%"
@@ -2302,12 +2302,12 @@
     {
         "Company": "Teradyne",
         "Symbol": "TER",
-        "Market Cap": "$48,181,674,560",
+        "Market Cap": "$47,511,614,880",
         "Total Shares Outstanding": "156,556,000",
-        "Price": "$307.76",
+        "Price": "$303.48",
         "Headquarters": "NORTH READING, MA",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Hershey Company (The)",
@@ -2362,9 +2362,9 @@
     {
         "Company": "Fifth Third Bancorp",
         "Symbol": "FITB",
-        "Market Cap": "$44,473,203,985",
+        "Market Cap": "$44,360,476,610",
         "Total Shares Outstanding": "901,819,000",
-        "Price": "$49.31",
+        "Price": "$49.19",
         "Headquarters": "CINCINNATI, OH",
         "Industry": "Banking Services",
         "Performance Since Last Close": "-0.01%"
@@ -2372,12 +2372,12 @@
     {
         "Company": "Wabtec",
         "Symbol": "WAB",
-        "Market Cap": "$44,484,527,136",
+        "Market Cap": "$44,137,524,634",
         "Total Shares Outstanding": "170,517,200",
-        "Price": "$260.88",
+        "Price": "$258.85",
         "Headquarters": "PITTSBURGH, PA",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Yum! Brands",
@@ -2412,19 +2412,19 @@
     {
         "Company": "Old Dominion",
         "Symbol": "ODFL",
-        "Market Cap": "$46,062,057,600",
+        "Market Cap": "$44,472,812,400",
         "Total Shares Outstanding": "208,425,600",
-        "Price": "$221.00",
+        "Price": "$213.38",
         "Headquarters": "THOMASVILLE, NC",
         "Industry": "Freight & Logistics Services",
-        "Performance Since Last Close": "0.06%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "PayPal",
         "Symbol": "PYPL",
-        "Market Cap": "$42,875,350,422",
+        "Market Cap": "$43,644,105,363",
         "Total Shares Outstanding": "920,664,600",
-        "Price": "$46.57",
+        "Price": "$47.41",
         "Headquarters": "SAN JOSE, CA",
         "Industry": "Professional & Commercial Services",
         "Performance Since Last Close": "0.01%"
@@ -2452,12 +2452,12 @@
     {
         "Company": "American International Group",
         "Symbol": "AIG",
-        "Market Cap": "$42,388,208,400",
+        "Market Cap": "$42,736,972,140",
         "Total Shares Outstanding": "536,559,600",
-        "Price": "$79.00",
+        "Price": "$79.65",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Insurance",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "Delta Air Lines",
@@ -2522,12 +2522,12 @@
     {
         "Company": "Ventas",
         "Symbol": "VTR",
-        "Market Cap": "$40,966,840,919",
+        "Market Cap": "$40,837,507,896",
         "Total Shares Outstanding": "474,965,200",
-        "Price": "$86.25",
+        "Price": "$85.98",
         "Headquarters": "CHICAGO, IL",
         "Industry": "Residential & Commercial REIT",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Consolidated Edison",
@@ -2542,22 +2542,22 @@
     {
         "Company": "Nucor",
         "Symbol": "NUE",
-        "Market Cap": "$40,502,879,372",
+        "Market Cap": "$39,920,277,500",
         "Total Shares Outstanding": "227,774,600",
-        "Price": "$177.82",
+        "Price": "$175.26",
         "Headquarters": "CHARLOTTE, NC",
         "Industry": "Metals & Mining",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Take-Two Interactive",
         "Symbol": "TTWO",
-        "Market Cap": "$39,997,908,000",
+        "Market Cap": "$39,380,347,707",
         "Total Shares Outstanding": "185,175,500",
-        "Price": "$216.00",
+        "Price": "$212.66",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Keurig Dr Pepper",
@@ -2612,9 +2612,9 @@
     {
         "Company": "Crown Castle",
         "Symbol": "CCI",
-        "Market Cap": "$39,032,661,504",
+        "Market Cap": "$39,357,533,952",
         "Total Shares Outstanding": "436,070,400",
-        "Price": "$89.51",
+        "Price": "$90.25",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Residential & Commercial REIT",
         "Performance Since Last Close": "-0.01%"
@@ -2652,22 +2652,22 @@
     {
         "Company": "EQT Corporation",
         "Symbol": "EQT",
-        "Market Cap": "$37,824,761,660",
+        "Market Cap": "$38,608,225,530",
         "Total Shares Outstanding": "624,274,000",
-        "Price": "$60.59",
+        "Price": "$61.84",
         "Headquarters": "PITTSBURGH, PA",
         "Industry": "Oil & Gas",
-        "Performance Since Last Close": "-0.02%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Block, Inc.",
         "Symbol": "XYZ",
-        "Market Cap": "$37,647,192,640",
+        "Market Cap": "$39,965,694,160",
         "Total Shares Outstanding": "599,096,000",
-        "Price": "$62.84",
+        "Price": "$66.71",
         "Headquarters": "OAKLAND, CA",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "WEC Energy Group",
@@ -2732,22 +2732,22 @@
     {
         "Company": "Ares Management",
         "Symbol": "ARES",
-        "Market Cap": "$37,711,319,336",
-        "Total Shares Outstanding": "329,471,600",
-        "Price": "$114.46",
+        "Market Cap": "$38,558,190,081",
+        "Total Shares Outstanding": "329,472,700",
+        "Price": "$117.03",
         "Headquarters": "LOS ANGELES, CA",
         "Industry": "Investment Banking & Investment Services",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Roper Technologies",
         "Symbol": "ROP",
-        "Market Cap": "$36,577,345,675",
+        "Market Cap": "$37,477,446,662",
         "Total Shares Outstanding": "102,927,500",
-        "Price": "$355.37",
+        "Price": "$364.12",
         "Headquarters": "SARASOTA, FL",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Texas Pacific Land Corporation",
@@ -2802,12 +2802,12 @@
     {
         "Company": "GE HealthCare",
         "Symbol": "GEHC",
-        "Market Cap": "$35,657,864,352",
+        "Market Cap": "$35,320,609,500",
         "Total Shares Outstanding": "455,749,800",
-        "Price": "$78.24",
+        "Price": "$77.50",
         "Headquarters": "CHICAGO, IL",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "State Street Corporation",
@@ -2822,12 +2822,12 @@
     {
         "Company": "NRG Energy",
         "Symbol": "NRG",
-        "Market Cap": "$34,984,042,260",
-        "Total Shares Outstanding": "214,205,500",
-        "Price": "$163.32",
+        "Market Cap": "$34,532,370,120",
+        "Total Shares Outstanding": "212,376,200",
+        "Price": "$162.60",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Electrical Utilities & IPPs",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Kenvue",
@@ -2842,12 +2842,12 @@
     {
         "Company": "Kimberly-Clark",
         "Symbol": "KMB",
-        "Market Cap": "$34,646,060,112",
+        "Market Cap": "$34,347,329,952",
         "Total Shares Outstanding": "331,922,400",
-        "Price": "$104.38",
+        "Price": "$103.48",
         "Headquarters": "IRVING, TX",
         "Industry": "Personal & Household Products & Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Prudential Financial",
@@ -2882,9 +2882,9 @@
     {
         "Company": "Huntington Bancshares",
         "Symbol": "HBAN",
-        "Market Cap": "$33,856,930,560",
+        "Market Cap": "$34,028,447,984",
         "Total Shares Outstanding": "2,029,792,000",
-        "Price": "$16.68",
+        "Price": "$16.76",
         "Headquarters": "COLUMBUS, OH",
         "Industry": "Banking Services",
         "Performance Since Last Close": "-0.00%"
@@ -2892,12 +2892,12 @@
     {
         "Company": "Dollar General",
         "Symbol": "DG",
-        "Market Cap": "$33,754,132,720",
+        "Market Cap": "$32,562,188,877",
         "Total Shares Outstanding": "220,118,900",
-        "Price": "$153.34",
+        "Price": "$147.93",
         "Headquarters": "GOODLETTSVILLE, TN",
         "Industry": "Diversified Retail",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Agilent Technologies",
@@ -2912,12 +2912,12 @@
     {
         "Company": "Fiserv",
         "Symbol": "FISV",
-        "Market Cap": "$33,434,289,300",
+        "Market Cap": "$34,046,609,537",
         "Total Shares Outstanding": "534,777,500",
-        "Price": "$62.52",
+        "Price": "$63.66",
         "Headquarters": "MILWAUKEE, WI",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.02%"
     },
     {
         "Company": "United Airlines Holdings",
@@ -2952,9 +2952,9 @@
     {
         "Company": "M&T Bank",
         "Symbol": "MTB",
-        "Market Cap": "$32,550,583,692",
+        "Market Cap": "$32,552,818,695",
         "Total Shares Outstanding": "149,000,200",
-        "Price": "$218.46",
+        "Price": "$218.47",
         "Headquarters": "BUFFALO, NY",
         "Industry": "Banking Services",
         "Performance Since Last Close": "-0.00%"
@@ -3122,9 +3122,9 @@
     {
         "Company": "FirstEnergy",
         "Symbol": "FE",
-        "Market Cap": "$29,018,010,909",
+        "Market Cap": "$29,150,935,476",
         "Total Shares Outstanding": "577,932,900",
-        "Price": "$50.21",
+        "Price": "$50.44",
         "Headquarters": "AKRON, OH",
         "Industry": "Electrical Utilities & IPPs",
         "Performance Since Last Close": "-0.01%"
@@ -3162,12 +3162,12 @@
     {
         "Company": "Hewlett Packard Enterprise",
         "Symbol": "HPE",
-        "Market Cap": "$28,874,997,840",
+        "Market Cap": "$28,801,913,400",
         "Total Shares Outstanding": "1,328,808,000",
-        "Price": "$21.73",
+        "Price": "$21.68",
         "Headquarters": "SPRING, TX",
         "Industry": "Computers, Phones & Household Electronics",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "PPL Corporation",
@@ -3222,9 +3222,9 @@
     {
         "Company": "CenterPoint Energy",
         "Symbol": "CNP",
-        "Market Cap": "$28,171,409,540",
+        "Market Cap": "$28,530,488,920",
         "Total Shares Outstanding": "652,871,600",
-        "Price": "$43.15",
+        "Price": "$43.70",
         "Headquarters": "HOUSTON, TX",
         "Industry": "Multiline Utilities",
         "Performance Since Last Close": "-0.01%"
@@ -3252,12 +3252,12 @@
     {
         "Company": "Devon Energy",
         "Symbol": "DVN",
-        "Market Cap": "$26,935,900,000",
+        "Market Cap": "$27,701,600,000",
         "Total Shares Outstanding": "620,000,000",
-        "Price": "$43.45",
+        "Price": "$44.68",
         "Headquarters": "OKLAHOMA CITY, OK",
         "Industry": "Oil & Gas",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.03%"
     },
     {
         "Company": "W. R. Berkley Corporation",
@@ -3322,12 +3322,12 @@
     {
         "Company": "Mettler Toledo",
         "Symbol": "MTD",
-        "Market Cap": "$26,808,903,123",
+        "Market Cap": "$25,815,709,782",
         "Total Shares Outstanding": "20,325,250",
-        "Price": "$1318.99",
+        "Price": "$1270.13",
         "Headquarters": "COLUMBUS, OH",
         "Industry": "Office Equipment",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "American Water Works",
@@ -3412,22 +3412,22 @@
     {
         "Company": "Fidelity National Information Services",
         "Symbol": "FIS",
-        "Market Cap": "$25,653,312,519",
+        "Market Cap": "$25,925,946,480",
         "Total Shares Outstanding": "514,403,700",
-        "Price": "$49.87",
+        "Price": "$50.40",
         "Headquarters": "JACKSONVILLE, FL",
         "Industry": "Financial Technology (Fintech) & Infrastructure",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "PulteGroup",
         "Symbol": "PHM",
-        "Market Cap": "$25,094,653,667",
+        "Market Cap": "$25,353,084,119",
         "Total Shares Outstanding": "192,141,600",
-        "Price": "$130.60",
+        "Price": "$131.95",
         "Headquarters": "Suite 1500, ATLANTA",
         "Industry": "Homebuilding & Construction Supplies",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Citizens Financial Group",
@@ -3442,19 +3442,19 @@
     {
         "Company": "ON Semiconductor",
         "Symbol": "ON",
-        "Market Cap": "$24,894,215,190",
+        "Market Cap": "$24,244,081,365",
         "Total Shares Outstanding": "394,020,500",
-        "Price": "$63.18",
+        "Price": "$61.53",
         "Headquarters": "SCOTTSDALE, AZ",
         "Industry": "Semiconductors & Semiconductor Equipment",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "AvalonBay Communities",
         "Symbol": "AVB",
-        "Market Cap": "$24,650,493,495",
+        "Market Cap": "$24,810,188,685",
         "Total Shares Outstanding": "140,083,500",
-        "Price": "$175.97",
+        "Price": "$177.11",
         "Headquarters": "Ste 1000, ARLINGTON",
         "Industry": "Residential & Commercial REIT",
         "Performance Since Last Close": "-0.01%"
@@ -3462,12 +3462,12 @@
     {
         "Company": "Equifax",
         "Symbol": "EFX",
-        "Market Cap": "$24,731,721,450",
+        "Market Cap": "$25,109,369,250",
         "Total Shares Outstanding": "120,270,000",
-        "Price": "$205.63",
+        "Price": "$208.78",
         "Headquarters": "ATLANTA, GA",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Brown & Brown",
@@ -3552,9 +3552,9 @@
     {
         "Company": "CMS Energy",
         "Symbol": "CMS",
-        "Market Cap": "$23,631,179,808",
+        "Market Cap": "$23,667,950,316",
         "Total Shares Outstanding": "306,420,900",
-        "Price": "$77.12",
+        "Price": "$77.24",
         "Headquarters": "JACKSON, MI",
         "Industry": "Multiline Utilities",
         "Performance Since Last Close": "-0.01%"
@@ -3642,12 +3642,12 @@
     {
         "Company": "Labcorp",
         "Symbol": "LH",
-        "Market Cap": "$23,235,432,160",
+        "Market Cap": "$22,795,136,000",
         "Total Shares Outstanding": "82,400,000",
-        "Price": "$281.98",
+        "Price": "$276.64",
         "Headquarters": "BURLINGTON, NC",
         "Industry": "Healthcare Providers & Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Loews Corporation",
@@ -3732,9 +3732,9 @@
     {
         "Company": "Fox Corporation(Class B)",
         "Symbol": "FOX",
-        "Market Cap": "$22,180,152,654",
+        "Market Cap": "$22,733,167,584",
         "Total Shares Outstanding": "425,396,100",
-        "Price": "$52.14",
+        "Price": "$53.44",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Media & Publishing",
         "Performance Since Last Close": "0.00%"
@@ -3762,12 +3762,12 @@
     {
         "Company": "Dow Inc.",
         "Symbol": "DOW",
-        "Market Cap": "$22,603,245,354",
+        "Market Cap": "$24,279,958,556",
         "Total Shares Outstanding": "719,619,400",
-        "Price": "$31.41",
+        "Price": "$33.74",
         "Headquarters": "MIDLAND, MI",
         "Industry": "Chemicals",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "0.04%"
     },
     {
         "Company": "Humana",
@@ -3792,32 +3792,32 @@
     {
         "Company": "Ralph Lauren Corporation",
         "Symbol": "RL",
-        "Market Cap": "$21,898,440,953",
+        "Market Cap": "$21,531,590,308",
         "Total Shares Outstanding": "60,536,410",
-        "Price": "$361.74",
+        "Price": "$355.68",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Textiles & Apparel",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "J.B. Hunt",
         "Symbol": "JBHT",
-        "Market Cap": "$22,134,043,577",
+        "Market Cap": "$22,118,433,904",
         "Total Shares Outstanding": "94,604,080",
-        "Price": "$233.97",
+        "Price": "$233.80",
         "Headquarters": "LOWELL, AR",
         "Industry": "Freight & Logistics Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Amcor",
         "Symbol": "AMCR",
-        "Market Cap": "$21,468,953,450",
+        "Market Cap": "$20,811,185,191",
         "Total Shares Outstanding": "462,045,700",
-        "Price": "$46.47",
+        "Price": "$45.04",
         "Headquarters": "ZUERICH, ZUERICH",
         "Industry": "Containers & Packaging",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Global Payments",
@@ -3842,29 +3842,29 @@
     {
         "Company": "Centene Corporation",
         "Symbol": "CNC",
-        "Market Cap": "$21,588,746,900",
+        "Market Cap": "$21,859,220,950",
         "Total Shares Outstanding": "491,771,000",
-        "Price": "$43.90",
+        "Price": "$44.45",
         "Headquarters": "ST. LOUIS, MO",
         "Industry": "Healthcare Providers & Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "First Solar",
         "Symbol": "FSLR",
-        "Market Cap": "$21,126,316,570",
+        "Market Cap": "$21,207,872,930",
         "Total Shares Outstanding": "107,311,000",
-        "Price": "$196.87",
+        "Price": "$197.63",
         "Headquarters": "PHOENIX, AZ",
         "Industry": "Renewable Energy",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "SBA Communications",
         "Symbol": "SBAC",
-        "Market Cap": "$20,756,781,206",
+        "Market Cap": "$20,602,329,850",
         "Total Shares Outstanding": "105,788,600",
-        "Price": "$196.21",
+        "Price": "$194.75",
         "Headquarters": "BOCA RATON, FL",
         "Industry": "Residential & Commercial REIT",
         "Performance Since Last Close": "-0.01%"
@@ -3962,12 +3962,12 @@
     {
         "Company": "Moderna",
         "Symbol": "MRNA",
-        "Market Cap": "$20,805,407,592",
+        "Market Cap": "$22,849,218,987",
         "Total Shares Outstanding": "394,939,400",
-        "Price": "$52.68",
+        "Price": "$57.85",
         "Headquarters": "Cambridge, MA",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "0.06%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "CoStar Group",
@@ -3982,12 +3982,12 @@
     {
         "Company": "Incyte",
         "Symbol": "INCY",
-        "Market Cap": "$19,467,598,390",
+        "Market Cap": "$19,427,795,490",
         "Total Shares Outstanding": "199,014,500",
-        "Price": "$97.82",
+        "Price": "$97.62",
         "Headquarters": "WILMINGTON, DE",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "NetApp",
@@ -4032,12 +4032,12 @@
     {
         "Company": "PTC Inc.",
         "Symbol": "PTC",
-        "Market Cap": "$19,474,901,726",
+        "Market Cap": "$19,517,740,322",
         "Total Shares Outstanding": "118,996,100",
-        "Price": "$163.66",
+        "Price": "$164.02",
         "Headquarters": "BOSTON, MA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "0.01%"
     },
     {
         "Company": "Lennox International",
@@ -4062,12 +4062,12 @@
     {
         "Company": "LyondellBasell",
         "Symbol": "LYB",
-        "Market Cap": "$19,101,459,300",
+        "Market Cap": "$21,218,116,200",
         "Total Shares Outstanding": "322,170,000",
-        "Price": "$59.29",
+        "Price": "$65.86",
         "Headquarters": "One Vine Street, LONDON",
         "Industry": "Chemicals",
-        "Performance Since Last Close": "0.02%"
+        "Performance Since Last Close": "0.06%"
     },
     {
         "Company": "Alliant Energy",
@@ -4102,12 +4102,12 @@
     {
         "Company": "West Pharmaceutical Services",
         "Symbol": "WST",
-        "Market Cap": "$18,074,513,130",
+        "Market Cap": "$17,924,708,431",
         "Total Shares Outstanding": "72,021,490",
-        "Price": "$250.96",
+        "Price": "$248.88",
         "Headquarters": "EXTON, PA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Fortive",
@@ -4172,22 +4172,22 @@
     {
         "Company": "Viatris",
         "Symbol": "VTRS",
-        "Market Cap": "$17,121,213,910",
+        "Market Cap": "$16,603,087,060",
         "Total Shares Outstanding": "1,151,393,000",
-        "Price": "$14.87",
+        "Price": "$14.42",
         "Headquarters": "CANONSBURG, PA",
         "Industry": "Pharmaceuticals",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Insulet Corporation",
         "Symbol": "PODD",
-        "Market Cap": "$16,947,096,929",
+        "Market Cap": "$16,900,635,668",
         "Total Shares Outstanding": "70,395,850",
-        "Price": "$240.74",
+        "Price": "$240.08",
         "Headquarters": "ACTON, MA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Hologic",
@@ -4202,9 +4202,9 @@
     {
         "Company": "Essex Property Trust",
         "Symbol": "ESS",
-        "Market Cap": "$16,386,128,488",
+        "Market Cap": "$16,418,688,621",
         "Total Shares Outstanding": "64,475,510",
-        "Price": "$254.15",
+        "Price": "$254.65",
         "Headquarters": "SAN MATEO, CA",
         "Industry": "Residential & Commercial REIT",
         "Performance Since Last Close": "-0.01%"
@@ -4222,9 +4222,9 @@
     {
         "Company": "Jacobs Solutions",
         "Symbol": "J",
-        "Market Cap": "$16,174,172,290",
+        "Market Cap": "$16,225,261,605",
         "Total Shares Outstanding": "117,446,700",
-        "Price": "$137.72",
+        "Price": "$138.15",
         "Headquarters": "DALLAS, TX",
         "Industry": "Professional & Commercial Services",
         "Performance Since Last Close": "-0.01%"
@@ -4252,9 +4252,9 @@
     {
         "Company": "Trimble Inc.",
         "Symbol": "TRMB",
-        "Market Cap": "$16,206,044,008",
+        "Market Cap": "$16,417,165,292",
         "Total Shares Outstanding": "233,929,400",
-        "Price": "$69.28",
+        "Price": "$70.18",
         "Headquarters": "WESTMINSTER, CO",
         "Industry": "Software & IT Services",
         "Performance Since Last Close": "0.00%"
@@ -4302,12 +4302,12 @@
     {
         "Company": "F5, Inc.",
         "Symbol": "FFIV",
-        "Market Cap": "$15,865,241,685",
+        "Market Cap": "$16,033,386,513",
         "Total Shares Outstanding": "56,519,270",
-        "Price": "$280.70",
+        "Price": "$283.68",
         "Headquarters": "SEATTLE, WA",
         "Industry": "Software & IT Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Kimco Realty",
@@ -4332,12 +4332,12 @@
     {
         "Company": "Mid-America Apartment Communities",
         "Symbol": "MAA",
-        "Market Cap": "$15,530,882,354",
+        "Market Cap": "$15,639,015,780",
         "Total Shares Outstanding": "116,901,000",
-        "Price": "$132.85",
+        "Price": "$133.78",
         "Headquarters": "GERMANTOWN, TN",
         "Industry": "Residential & Commercial REIT",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Deckers Brands",
@@ -4442,22 +4442,22 @@
     {
         "Company": "Paramount Skydance Corporation",
         "Symbol": "PSKY",
-        "Market Cap": "$13,660,072,841",
+        "Market Cap": "$13,352,009,410",
         "Total Shares Outstanding": "1,111,741,000",
-        "Price": "$12.29",
+        "Price": "$12.01",
         "Headquarters": "NEW YORK, NY",
         "Industry": "Media & Publishing",
-        "Performance Since Last Close": "-0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Best Buy",
         "Symbol": "BBY",
-        "Market Cap": "$13,853,413,136",
+        "Market Cap": "$13,986,467,925",
         "Total Shares Outstanding": "209,535,100",
-        "Price": "$66.11",
+        "Price": "$66.75",
         "Headquarters": "RICHFIELD, MN",
         "Industry": "Specialty Retailers",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Franklin Resources",
@@ -4482,12 +4482,12 @@
     {
         "Company": "Domino's",
         "Symbol": "DPZ",
-        "Market Cap": "$13,830,221,414",
+        "Market Cap": "$13,646,607,620",
         "Total Shares Outstanding": "33,628,900",
-        "Price": "$411.26",
+        "Price": "$405.80",
         "Headquarters": "ANN ARBOR, MI",
         "Industry": "Hotels & Entertainment Services",
-        "Performance Since Last Close": "0.01%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "Allegion",
@@ -4572,19 +4572,19 @@
     {
         "Company": "Generac",
         "Symbol": "GNRC",
-        "Market Cap": "$13,009,018,269",
+        "Market Cap": "$12,781,356,048",
         "Total Shares Outstanding": "58,675,830",
-        "Price": "$221.71",
+        "Price": "$217.83",
         "Headquarters": "WAUKESHA, WI",
         "Industry": "Machinery, Equipment & Components",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "Stanley Black & Decker",
         "Symbol": "SWK",
-        "Market Cap": "$12,638,979,250",
+        "Market Cap": "$12,327,269,455",
         "Total Shares Outstanding": "155,079,500",
-        "Price": "$81.50",
+        "Price": "$79.49",
         "Headquarters": "NEW BRITAIN, CT",
         "Industry": "Machinery, Equipment & Components",
         "Performance Since Last Close": "-0.00%"
@@ -4652,12 +4652,12 @@
     {
         "Company": "J.M. Smucker Company (The)",
         "Symbol": "SJM",
-        "Market Cap": "$11,959,540,362",
+        "Market Cap": "$12,030,461,481",
         "Total Shares Outstanding": "106,648,300",
-        "Price": "$112.14",
+        "Price": "$112.81",
         "Headquarters": "ORRVILLE, OH",
         "Industry": "Food & Tobacco",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Trade Desk (The)",
@@ -4762,22 +4762,22 @@
     {
         "Company": "Revvity",
         "Symbol": "RVTY",
-        "Market Cap": "$10,776,903,163",
+        "Market Cap": "$10,794,232,070",
         "Total Shares Outstanding": "111,799,400",
-        "Price": "$96.39",
+        "Price": "$96.55",
         "Headquarters": "WALTHAM, MA",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.02%"
     },
     {
         "Company": "Wynn Resorts",
         "Symbol": "WYNN",
-        "Market Cap": "$10,642,964,986",
-        "Total Shares Outstanding": "103,974,500",
-        "Price": "$102.36",
+        "Market Cap": "$10,738,572,817",
+        "Total Shares Outstanding": "104,283,300",
+        "Price": "$102.97",
         "Headquarters": "LAS VEGAS, NV",
         "Industry": "Hotels & Entertainment Services",
-        "Performance Since Last Close": "0.00%"
+        "Performance Since Last Close": "-0.00%"
     },
     {
         "Company": "A. O. Smith",
@@ -4802,9 +4802,9 @@
     {
         "Company": "AES Corporation",
         "Symbol": "AES",
-        "Market Cap": "$10,100,520,990",
+        "Market Cap": "$10,157,525,694",
         "Total Shares Outstanding": "712,558,800",
-        "Price": "$14.18",
+        "Price": "$14.26",
         "Headquarters": "ARLINGTON, VA",
         "Industry": "Electrical Utilities & IPPs",
         "Performance Since Last Close": "-0.00%"
@@ -4842,12 +4842,12 @@
     {
         "Company": "Henry Schein",
         "Symbol": "HSIC",
-        "Market Cap": "$9,188,945,451",
+        "Market Cap": "$9,177,475,041",
         "Total Shares Outstanding": "114,704,100",
-        "Price": "$80.11",
+        "Price": "$80.01",
         "Headquarters": "MELVILLE, NY",
         "Industry": "Healthcare Equipment & Supplies",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "-0.01%"
     },
     {
         "Company": "MGM Resorts",
@@ -4942,12 +4942,12 @@
     {
         "Company": "FactSet",
         "Symbol": "FDS",
-        "Market Cap": "$8,244,197,557",
+        "Market Cap": "$8,398,159,486",
         "Total Shares Outstanding": "37,099,260",
-        "Price": "$222.22",
+        "Price": "$226.37",
         "Headquarters": "NORWALK, CT",
         "Industry": "Professional & Commercial Services",
-        "Performance Since Last Close": "-0.00%"
+        "Performance Since Last Close": "0.00%"
     },
     {
         "Company": "Pool Corporation",
