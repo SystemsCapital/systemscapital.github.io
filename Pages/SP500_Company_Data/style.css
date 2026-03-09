@@ -51,7 +51,7 @@ nav a {
 
 #table-container {
     width: 100%;
-    overflow-x: auto;
+    overflow-x: visible;
     margin-top: 20px;
 }
 
@@ -96,8 +96,8 @@ th.active-dropdown {
     background: white;
     border: 1px solid #ABABAB;
     z-index: 9999;
-    max-height: 250px;
-    overflow-y: auto;
+    max-height: 320px;
+    overflow-y: visible;
     min-width: 200px;
     padding: 6px;
 }
