@@ -5,14 +5,14 @@
     <loc>https://systemscapital.net/</loc>
     <priority>1.0</priority>
   </url>
-
-  <url>
-    <loc>https://www.systemscapital.net/Pages/SP500_Statistics</loc>
-    <priority>0.6</priority>
-  </url>
   
  <url>
-    <loc>https://www.systemscapital.net/Pages/SP500_Company_Data/SP500_Company_Data</loc>
+    <loc>https://www.systemscapital.net/Pages/Company_Data/Market_Company_Data</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.systemscapital.net/Pages/Daily_Statistics/Daily_Market_Statistics</loc>
     <priority>0.8</priority>
   </url>
 
