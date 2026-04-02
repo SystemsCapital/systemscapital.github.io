@@ -5234,14 +5234,14 @@
     {
         "Company": "Aptiv",
         "Symbol": "APTV",
-        "Average Daily Return": "0.2026%",
-        "Standard Deviation of Daily Returns": "3.3272%",
-        "Median of Daily Returns": "0.2180%",
+        "Average Daily Return": "0.1395%",
+        "Standard Deviation of Daily Returns": "3.4117%",
+        "Median of Daily Returns": "0.2111%",
         "Mode of Daily Returns": "1.9100%",
         "Max Daily Return": "11.8898%",
         "Min Daily Return": "-12.8003%",
-        "Kurtosis of Daily Returns": "1.9618",
-        "Skewness of Daily Returns": "-0.0917"
+        "Kurtosis of Daily Returns": "2.1849",
+        "Skewness of Daily Returns": "-0.2283"
     },
     {
         "Company": "Akamai Technologies",
